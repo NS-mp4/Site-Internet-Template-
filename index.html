@@ -1,1420 +1,1227 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kiz Kulesi Restaurant – cuisine turque authentique à Morteau. Mezzés, grillades, spécialités ottomanes dans une ambiance chaleureuse. Réservez votre table en ligne !" />
-    <meta name="keywords" content="restaurant turc, Morteau, cuisine ottomane, kebab, mezzé, Kiz Kulesi, réservation restaurant, grillades" />
-    <meta name="author" content="Kiz Kulesi Restaurant" />
-    <meta property="og:title" content="Kiz Kulesi Restaurant – Cuisine Turque à Morteau" />
-    <meta property="og:description" content="Vivez l'authenticité de la cuisine ottomane au Kiz Kulesi. Grillades, mezzés et saveurs d'Istanbul en plein cœur de Morteau." />
-    <meta property="og:type" content="website" />
-    <title>Kiz Kulesi — Restaurant Turc à Morteau</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Kiz Kulesi Restaurant",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "14 Rue Pasteur",
-        "addressLocality": "Morteau",
-        "addressRegion": "Bourgogne-Franche-Comté",
-        "postalCode": "25500",
-        "addressCountry": "FR"
-      },
-      "telephone": "+33 3 81 67 00 00",
-      "servesCuisine": ["Turque", "Ottomane", "Méditerranéenne"],
-      "priceRange": "€€",
-      "url": "https://kizkuleisi-morteau.fr"
-    }
-    </script>
-    <style>
-      /* ===== CSS VARIABLES ===== */
-      :root {
-        --primary:    #c8382a;
-        --primary-dk: #9e2319;
-        --gold:       #d4a843;
-        --gold-lt:    #e8c472;
-        --dark:       #1a1008;
-        --dark2:      #2b1c0e;
-        --mid:        #5c3a1e;
-        --text:       #3a2010;
-        --muted:      #7a5c40;
-        --light:      #fdf6ec;
-        --lighter:    #fffbf5;
-        --white:      #ffffff;
-        --radius:     6px;
-        --shadow:     0 8px 32px rgba(26,16,8,.15);
-        --shadow-lg:  0 20px 60px rgba(26,16,8,.25);
-        --transition: .35s cubic-bezier(.4,0,.2,1);
-        --header-h:   72px;
-      }
-      [data-theme="dark"] {
-        --light:    #1a1008;
-        --lighter:  #221408;
-        --text:     #f0e4d0;
-        --muted:    #c0a080;
-        --dark:     #fdf6ec;
-        --white:    #2b1c0e;
-        --shadow:   0 8px 32px rgba(0,0,0,.4);
-      }
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NovaSite Studio — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#faf8f4;color:#2c2c2c;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
 
-      /* ===== RESET ===== */
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      html { scroll-behavior: smooth; font-size: 16px; }
-      body {
-        font-family: 'Jost', sans-serif;
-        background: var(--lighter);
-        color: var(--text);
-        overflow-x: hidden;
-        transition: background var(--transition), color var(--transition);
-      }
-      img { max-width: 100%; display: block; }
-      a { color: inherit; text-decoration: none; }
-      ul { list-style: none; }
-      button { cursor: pointer; border: none; background: none; }
+/* ===== SHARED TOKENS ===== */
+:root{
+  --green:#3a6b3a;--green-light:#5a8f5a;--cream:#faf8f4;--cream2:#f2ede4;
+  --gold:#c8943a;--dark:#1c1c1c;--muted:#6b6b6b;
+  --red:#b84040;--blue:#2c5282;--purple:#5b3fa6;--teal:#2a7a6e;
+}
 
-      /* ===== UTILITIES ===== */
-      .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-      .section { padding: 100px 0; }
-      .section-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(2rem, 4vw, 3rem);
-        font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 12px;
-        line-height: 1.15;
-      }
-      .section-subtitle {
-        font-size: 1.05rem;
-        color: var(--muted);
-        margin-bottom: 52px;
-        max-width: 560px;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        font-family: 'Jost', sans-serif;
-        font-weight: 600;
-        font-size: .9rem;
-        letter-spacing: .05em;
-        text-transform: uppercase;
-        transition: all var(--transition);
-      }
-      .btn-primary {
-        background: var(--primary);
-        color: var(--white);
-        box-shadow: 0 4px 16px rgba(200,56,42,.35);
-      }
-      .btn-primary:hover { background: var(--primary-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,56,42,.45); }
-      .btn-secondary {
-        background: transparent;
-        color: var(--primary);
-        border: 2px solid var(--primary);
-      }
-      .btn-secondary:hover { background: var(--primary); color: var(--white); transform: translateY(-2px); }
-      .btn-gold {
-        background: var(--gold);
-        color: var(--dark);
-        box-shadow: 0 4px 16px rgba(212,168,67,.35);
-      }
-      .btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
-      .mt-3 { margin-top: 24px; }
-      .hidden { display: none !important; }
+/* ===== PAGES SYSTEM ===== */
+.page{display:none;min-height:100vh}
+.page.active{display:block}
 
-      /* ===== PRELOADER ===== */
-      #preloader {
-        position: fixed; inset: 0;
-        background: var(--dark);
-        display: flex; align-items: center; justify-content: center;
-        z-index: 9999;
-        transition: opacity .6s, visibility .6s;
-      }
-      #preloader.fade-out { opacity: 0; visibility: hidden; }
-      .spinner-crescent {
-        width: 56px; height: 56px;
-        border: 3px solid rgba(212,168,67,.2);
-        border-top-color: var(--gold);
-        border-radius: 50%;
-        animation: spin .9s linear infinite;
-      }
-      @keyframes spin { to { transform: rotate(360deg); } }
+/* ===== SHARED NAV ===== */
+.site-nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 5vw;
+  background:rgba(250,248,244,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,.07);
+}
+.site-nav .logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700}
+.site-nav ul{display:flex;list-style:none;gap:1.8rem}
+.site-nav ul a{font-size:.88rem;font-weight:500;color:var(--dark);transition:color .2s}
+.site-nav ul a:hover{color:var(--green)}
+.nav-btn{
+  padding:.5rem 1.3rem;border-radius:30px;font-size:.85rem;font-weight:600;
+  background:var(--green);color:#fff;transition:background .2s;
+}
+.nav-btn:hover{background:var(--green-light)}
 
-      /* ===== BACK TO TOP ===== */
-      #backToTop {
-        position: fixed; bottom: 28px; right: 28px;
-        width: 44px; height: 44px;
-        background: var(--primary);
-        color: var(--white);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        z-index: 800;
-        box-shadow: var(--shadow);
-        transition: all var(--transition);
-        opacity: 0; pointer-events: none;
-      }
-      #backToTop.visible { opacity: 1; pointer-events: auto; }
-      #backToTop:hover { background: var(--primary-dk); transform: translateY(-3px); }
+/* Back button */
+.back-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.5rem 1.2rem;border-radius:30px;
+  background:var(--cream2);border:1px solid #ddd;
+  font-size:.82rem;font-weight:600;color:var(--dark);
+  cursor:pointer;transition:background .2s;margin:.8rem 0 0 1rem;
+}
+.back-btn:hover{background:#e8e2d8}
 
-      /* ===== DARK TOGGLE ===== */
-      #darkToggle {
-        position: fixed; top: 20px; right: 80px;
-        width: 40px; height: 40px;
-        background: var(--dark2);
-        color: var(--gold);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        z-index: 900;
-        transition: all var(--transition);
-        font-size: .9rem;
-      }
-      #darkToggle:hover { background: var(--mid); transform: rotate(20deg); }
+/* ===== HERO SHARED ===== */
+.hero{
+  min-height:86vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:6rem 5vw 4rem;position:relative;overflow:hidden;
+}
+.hero-inner{position:relative;z-index:1;max-width:780px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);line-height:1.12;margin-bottom:1.2rem}
+.hero p{font-size:1.08rem;line-height:1.7;color:var(--muted);max-width:520px;margin:0 auto 2.2rem}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 
-      /* ===== CHAT BUBBLE ===== */
-      .chat-bubble {
-        position: fixed; bottom: 80px; right: 28px;
-        width: 52px; height: 52px;
-        background: var(--gold);
-        color: var(--dark);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.3rem;
-        z-index: 800;
-        box-shadow: var(--shadow);
-        cursor: pointer;
-        transition: all var(--transition);
-      }
-      .chat-bubble:hover { background: var(--gold-lt); transform: scale(1.1); }
-      .chat-window {
-        position: fixed; bottom: 144px; right: 28px;
-        width: 300px;
-        background: var(--lighter);
-        border: 1px solid rgba(212,168,67,.3);
-        border-radius: 12px;
-        box-shadow: var(--shadow-lg);
-        z-index: 800;
-        overflow: hidden;
-        display: flex; flex-direction: column;
-      }
-      .chat-header {
-        background: var(--primary);
-        color: var(--white);
-        padding: 12px 16px;
-        font-weight: 600;
-        display: flex; justify-content: space-between; align-items: center;
-      }
-      #chatClose { cursor: pointer; font-size: 1.2rem; }
-      .chat-body { padding: 16px; min-height: 100px; max-height: 200px; overflow-y: auto; }
-      .bot-msg, .user-msg {
-        padding: 8px 12px;
-        border-radius: 8px;
-        margin-bottom: 8px;
-        font-size: .88rem;
-        line-height: 1.4;
-      }
-      .bot-msg { background: rgba(212,168,67,.15); color: var(--text); }
-      .user-msg { background: var(--primary); color: var(--white); text-align: right; }
-      .chat-form { display: flex; border-top: 1px solid rgba(0,0,0,.08); }
-      .chat-form input {
-        flex: 1; padding: 10px 14px;
-        border: none; background: transparent;
-        font-family: 'Jost', sans-serif;
-        font-size: .88rem;
-        color: var(--text);
-        outline: none;
-      }
-      .chat-form button {
-        padding: 10px 14px;
-        color: var(--primary);
-        font-size: 1rem;
-        transition: color var(--transition);
-      }
-      .chat-form button:hover { color: var(--primary-dk); }
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.8rem;border-radius:30px;font-weight:600;font-size:.9rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(58,107,58,.3)}
+.btn-primary:hover{box-shadow:0 8px 22px rgba(58,107,58,.4)}
+.btn-outline{background:transparent;color:var(--dark);border:2px solid currentColor}
 
-      /* ===== HEADER / NAV ===== */
-      #header {
-        position: fixed; top: 0; left: 0; right: 0;
-        height: var(--header-h);
-        z-index: 700;
-        background: rgba(26,16,8,.92);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(212,168,67,.2);
-        transition: all var(--transition);
-      }
-      #header.scrolled { height: 60px; box-shadow: var(--shadow); }
-      .nav {
-        height: 100%;
-        display: flex; align-items: center; justify-content: space-between;
-      }
-      .logo {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.55rem;
-        font-weight: 700;
-        color: var(--gold);
-        letter-spacing: .04em;
-        display: flex; align-items: center; gap: 8px;
-      }
-      .logo::before {
-        content: '☽';
-        font-size: 1.2rem;
-        color: var(--primary);
-      }
-      .nav-menu {
-        display: flex; align-items: center; gap: 8px;
-      }
-      .nav-menu a {
-        font-size: .88rem;
-        font-weight: 500;
-        letter-spacing: .04em;
-        text-transform: uppercase;
-        color: rgba(253,246,236,.8);
-        padding: 6px 10px;
-        border-radius: var(--radius);
-        transition: color var(--transition);
-      }
-      .nav-menu a:hover { color: var(--gold); }
-      .nav-menu .btn-primary { color: var(--white); padding: 9px 20px; }
-      .nav-toggle {
-        display: none;
-        flex-direction: column; gap: 5px;
-        padding: 4px;
-      }
-      .hamburger, .hamburger::before, .hamburger::after {
-        display: block;
-        width: 24px; height: 2px;
-        background: var(--gold);
-        border-radius: 2px;
-        transition: all var(--transition);
-      }
-      .hamburger { position: relative; }
-      .hamburger::before, .hamburger::after { content: ''; position: absolute; }
-      .hamburger::before { top: -7px; }
-      .hamburger::after { top: 7px; }
-      .nav-toggle.open .hamburger { background: transparent; }
-      .nav-toggle.open .hamburger::before { transform: rotate(45deg); top: 0; }
-      .nav-toggle.open .hamburger::after { transform: rotate(-45deg); top: 0; }
+/* ===== SECTIONS ===== */
+.section{padding:5rem 5vw}
+.container{max-width:1150px;margin:0 auto}
+.section-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--dark);margin-bottom:.8rem;line-height:1.2}
+.section-sub{color:var(--muted);font-size:.97rem;line-height:1.7;max-width:500px}
 
-      /* ===== HERO ===== */
-      .hero-section {
-        min-height: 100vh;
-        background:
-          linear-gradient(160deg, rgba(26,16,8,.78) 0%, rgba(156,34,22,.55) 60%, rgba(26,16,8,.85) 100%),
-          url('https://images.unsplash.com/photo-1600891964092-4316c288032e?w=1600&q=80') center/cover no-repeat;
-        display: flex; align-items: center;
-        position: relative;
-        overflow: hidden;
-        padding-top: var(--header-h);
-      }
-      .hero-section::after {
-        content: '';
-        position: absolute; bottom: 0; left: 0; right: 0;
-        height: 120px;
-        background: linear-gradient(to top, var(--lighter), transparent);
-      }
-      /* Geometric ornament */
-      .hero-section::before {
-        content: '';
-        position: absolute; top: 15%; right: 8%;
-        width: 360px; height: 360px;
-        border: 1px solid rgba(212,168,67,.2);
-        border-radius: 50%;
-        animation: heroRotate 25s linear infinite;
-        pointer-events: none;
-      }
-      @keyframes heroRotate { to { transform: rotate(360deg); } }
-      .hero-content {
-        position: relative; z-index: 1;
-        max-width: 680px;
-        padding: 0 24px;
-        margin-left: max(24px, calc((100vw - 1160px)/2));
-        animation: heroIn .9s ease both;
-      }
-      @keyframes heroIn { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: none; } }
-      .hero-eyebrow {
-        display: inline-flex; align-items: center; gap: 8px;
-        font-size: .82rem; letter-spacing: .12em; text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 20px;
-      }
-      .hero-eyebrow::before, .hero-eyebrow::after {
-        content: ''; display: block;
-        width: 28px; height: 1px; background: var(--gold);
-      }
-      .hero-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-        font-weight: 700;
-        line-height: 1.1;
-        color: var(--white);
-        margin-bottom: 22px;
-      }
-      .hero-title em { color: var(--gold); font-style: italic; }
-      .hero-subtitle {
-        font-size: 1.1rem;
-        color: rgba(253,246,236,.75);
-        line-height: 1.65;
-        margin-bottom: 36px;
-        max-width: 500px;
-      }
-      .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+/* ===== DIVIDER ===== */
+.divider{width:60px;height:3px;background:var(--gold);border-radius:2px;margin:.8rem 0 1.4rem}
 
-      /* ===== ABOUT ===== */
-      .about-section { background: var(--lighter); }
-      .about-container {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
-      }
-      .about-image {
-        position: relative;
-        border-radius: 4px;
-        overflow: hidden;
-        box-shadow: var(--shadow-lg);
-      }
-      .about-image img { width: 100%; height: 460px; object-fit: cover; }
-      .about-image::before {
-        content: '';
-        position: absolute; top: -20px; left: -20px;
-        width: 80px; height: 80px;
-        border-left: 3px solid var(--gold);
-        border-top: 3px solid var(--gold);
-        z-index: 1;
-      }
-      .about-image::after {
-        content: '';
-        position: absolute; bottom: -20px; right: -20px;
-        width: 80px; height: 80px;
-        border-right: 3px solid var(--primary);
-        border-bottom: 3px solid var(--primary);
-        z-index: 1;
-      }
-      .about-content .section-title { margin-bottom: 20px; }
-      .about-content p { color: var(--muted); line-height: 1.8; margin-bottom: 16px; font-size: 1rem; }
-      .stats { display: flex; gap: 32px; margin: 36px 0 0; flex-wrap: wrap; }
-      .stat-item { text-align: center; }
-      .stat-number {
-        display: block;
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 2.4rem;
-        font-weight: 700;
-        color: var(--primary);
-        line-height: 1;
-      }
-      .stat-label { font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; display: block; }
+/* ============================================================
+   PAGE 1 — PORTFOLIO AGENCE
+   ============================================================ */
+#page-home .hero{
+  background:linear-gradient(145deg,#f5f0e6 0%,#e8f0e4 50%,#f0ebe0 100%);
+}
+#page-home .hero h1 em{font-style:italic;color:var(--green)}
 
-      /* ===== MENU ===== */
-      .menu-section { background: var(--light); }
-      .menu-filters {
-        display: flex; gap: 10px; flex-wrap: wrap;
-        margin-bottom: 40px;
-      }
-      .filter-btn {
-        padding: 8px 22px;
-        border-radius: 50px;
-        font-family: 'Jost', sans-serif;
-        font-size: .83rem;
-        font-weight: 600;
-        letter-spacing: .05em;
-        text-transform: uppercase;
-        border: 2px solid rgba(200,56,42,.25);
-        color: var(--muted);
-        transition: all var(--transition);
-      }
-      .filter-btn.active, .filter-btn:hover {
-        background: var(--primary);
-        border-color: var(--primary);
-        color: var(--white);
-      }
-      .menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 28px;
-      }
-      .menu-item {
-        background: var(--lighter);
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: transform var(--transition), box-shadow var(--transition);
-      }
-      .menu-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-      .menu-item.hidden-item { display: none; }
-      .menu-image { position: relative; overflow: hidden; height: 200px; }
-      .menu-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-      .menu-item:hover .menu-image img { transform: scale(1.06); }
-      .menu-badge {
-        position: absolute; top: 12px; left: 12px;
-        background: var(--primary); color: var(--white);
-        font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-        padding: 3px 10px; border-radius: 50px;
-      }
-      .menu-info { padding: 20px; }
-      .menu-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.25rem; font-weight: 700;
-        color: var(--dark); margin-bottom: 8px;
-      }
-      .menu-desc { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
-      .menu-footer { display: flex; align-items: center; justify-content: space-between; }
-      .menu-price {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.35rem; font-weight: 700;
-        color: var(--primary);
-      }
-      .menu-tag {
-        font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
-        color: var(--gold); background: rgba(212,168,67,.12);
-        padding: 3px 9px; border-radius: 50px;
-      }
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.8rem;margin-top:3rem;
+}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.portfolio-grid{grid-template-columns:1fr}}
 
-      /* ===== JOURNEY ===== */
-      .journey-section {
-        background:
-          linear-gradient(135deg, rgba(26,16,8,.92) 0%, rgba(43,28,14,.96) 100%),
-          url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1400&q=80') center/cover;
-        color: var(--white);
-      }
-      .journey-section .section-title { color: var(--gold); }
-      .journey-section .section-subtitle { color: rgba(255,255,255,.65); }
-      .journey-container { text-align: center; }
-      .journey-steps {
-        display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 40px; margin-top: 12px;
-      }
-      .journey-step {
-        padding: 36px 28px;
-        border: 1px solid rgba(212,168,67,.2);
-        border-radius: 8px;
-        transition: border-color var(--transition), transform var(--transition);
-      }
-      .journey-step:hover { border-color: var(--gold); transform: translateY(-4px); }
-      .journey-icon {
-        font-size: 2.4rem;
-        margin-bottom: 16px;
-        display: block;
-      }
-      .journey-step h3 {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.3rem; font-weight: 700;
-        color: var(--gold-lt); margin-bottom: 10px;
-      }
-      .journey-step p { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.7; }
+.project-card{
+  border-radius:18px;overflow:hidden;background:#fff;
+  box-shadow:0 4px 20px rgba(0,0,0,.07);
+  cursor:pointer;transition:transform .3s,box-shadow .3s;
+}
+.project-card:hover{transform:translateY(-7px);box-shadow:0 16px 40px rgba(0,0,0,.13)}
 
-      /* ===== GALLERY ===== */
-      .gallery-section { background: var(--lighter); }
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 220px);
-        gap: 12px;
-      }
-      .gallery-item {
-        overflow: hidden; border-radius: var(--radius);
-        cursor: pointer; position: relative;
-      }
-      .gallery-item:first-child { grid-row: span 2; }
-      .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-      .gallery-item:hover img { transform: scale(1.07); }
-      .gallery-item::after {
-        content: '\f00e';
-        font-family: 'Font Awesome 6 Free';
-        font-weight: 900;
-        position: absolute; inset: 0;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.8rem; color: var(--white);
-        background: rgba(200,56,42,0);
-        transition: background var(--transition);
-      }
-      .gallery-item:hover::after { background: rgba(200,56,42,.55); }
-      /* Lightbox */
-      .lightbox {
-        position: fixed; inset: 0;
-        background: rgba(0,0,0,.9);
-        z-index: 1000;
-        display: flex; align-items: center; justify-content: center;
-      }
-      .lightbox-close {
-        position: absolute; top: 20px; right: 28px;
-        font-size: 2.5rem; color: var(--white);
-        cursor: pointer; line-height: 1;
-        transition: color var(--transition);
-      }
-      .lightbox-close:hover { color: var(--gold); }
-      #lightbox-img { max-width: 90vw; max-height: 85vh; border-radius: 4px; box-shadow: 0 0 60px rgba(0,0,0,.6); }
+.project-thumb{
+  height:210px;position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;
+}
+.thumb-gradient{
+  position:absolute;inset:0;
+  transition:opacity .3s;
+}
+.project-card:hover .thumb-overlay{opacity:1}
+.thumb-overlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s;
+  background:rgba(0,0,0,.32);
+}
+.thumb-overlay span{
+  background:#fff;color:var(--dark);
+  padding:.5rem 1.2rem;border-radius:30px;
+  font-weight:700;font-size:.83rem;
+  display:flex;align-items:center;gap:.4rem;
+}
+/* Thumb mockups */
+.mock{width:100%;height:100%;position:absolute;inset:0;padding:10px;display:flex;flex-direction:column;gap:6px}
+.mock-bar{height:18px;border-radius:4px;width:100%}
+.mock-row{display:flex;gap:5px}
+.mock-block{border-radius:6px;flex:1}
+.mock-h{height:30px} .mock-m{height:20px} .mock-s{height:14px}
+.mock-hero-area{flex:1;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px}
+.mock-line{height:7px;border-radius:4px;opacity:.7}
+.mock-line.w70{width:70%} .mock-line.w50{width:50%} .mock-line.w35{width:35%}
+.mock-cta{height:16px;width:28%;border-radius:8px;margin-top:3px}
+.mock-cards{display:flex;gap:5px;padding:0 5px 5px}
+.mock-card-sm{flex:1;height:40px;border-radius:7px}
 
-      /* ===== TESTIMONIALS ===== */
-      .testimonials-section { background: var(--light); text-align: center; }
-      .testimonial-slider { max-width: 660px; margin: 0 auto 24px; position: relative; min-height: 140px; }
-      .testimonial-item { display: none; animation: fadeIn .5s ease; }
-      .testimonial-item.active { display: block; }
-      @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-      .testimonial-text {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.4rem; font-style: italic;
-        color: var(--dark); line-height: 1.6;
-        margin-bottom: 16px;
-      }
-      .testimonial-author {
-        font-size: .85rem; letter-spacing: .1em; text-transform: uppercase;
-        color: var(--primary); font-weight: 600;
-      }
-      .stars { color: var(--gold); margin-bottom: 8px; font-size: .9rem; }
-      .testimonial-dots { display: flex; gap: 8px; justify-content: center; }
-      .dot {
-        width: 8px; height: 8px; border-radius: 50%;
-        background: rgba(200,56,42,.25);
-        cursor: pointer; transition: background var(--transition);
-      }
-      .dot.active { background: var(--primary); }
+/* Thumb color themes */
+.t-bistraut .mock-bar{background:#2c1a0e}
+.t-bistraut .mock-hero-area{background:linear-gradient(135deg,#f5e6d0,#ffe5c0)}
+.t-bistraut .mock-line{background:#2c1a0e}
+.t-bistraut .mock-cta{background:#b84040}
+.t-bistraut .mock-card-sm{background:#f0d9be}
 
-      /* ===== TEAM ===== */
-      .team-section { background: var(--lighter); }
-      .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
-      .team-card {
-        border-radius: 8px; overflow: hidden;
-        box-shadow: var(--shadow);
-        background: var(--light);
-        transition: transform var(--transition), box-shadow var(--transition);
-      }
-      .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-      .team-image { height: 280px; overflow: hidden; }
-      .team-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-      .team-card:hover .team-image img { transform: scale(1.05); }
-      .team-info { padding: 24px; }
-      .team-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-      .team-role { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin-bottom: 10px; display: block; }
-      .team-bio { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
-      .team-socials { display: flex; gap: 12px; }
-      .team-socials a {
-        width: 32px; height: 32px;
-        border: 1px solid rgba(200,56,42,.3);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: .8rem; color: var(--primary);
-        transition: all var(--transition);
-      }
-      .team-socials a:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }
+.t-spa .mock-bar{background:#3d2e5e}
+.t-spa .mock-hero-area{background:linear-gradient(135deg,#f0eaf8,#e8dff5)}
+.t-spa .mock-line{background:#5b3fa6}
+.t-spa .mock-cta{background:#5b3fa6}
+.t-spa .mock-card-sm{background:#e2d6f5}
 
-      /* ===== BLOG ===== */
-      .blog-section { background: var(--light); }
-      .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
-      .blog-post {
-        background: var(--lighter);
-        border-radius: 8px; overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: transform var(--transition);
-      }
-      .blog-post:hover { transform: translateY(-5px); }
-      .blog-image { height: 200px; overflow: hidden; }
-      .blog-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-      .blog-post:hover .blog-image img { transform: scale(1.06); }
-      .blog-content { padding: 24px; }
-      .blog-date { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
-      .blog-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
-      .blog-excerpt { font-size: .88rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
-      .read-more { font-size: .83rem; font-weight: 600; letter-spacing: .04em; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; transition: gap var(--transition); }
-      .read-more:hover { gap: 10px; }
+.t-immo .mock-bar{background:#1a3a5c}
+.t-immo .mock-hero-area{background:linear-gradient(135deg,#e8f0f8,#d6e8f5)}
+.t-immo .mock-line{background:#1a3a5c}
+.t-immo .mock-cta{background:#c8943a}
+.t-immo .mock-card-sm{background:#cde0ef}
 
-      /* ===== RESERVATION ===== */
-      .reservation-section {
-        background:
-          linear-gradient(135deg, rgba(26,16,8,.94) 0%, rgba(158,35,25,.85) 100%),
-          url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80') center/cover;
-      }
-      .reservation-section .section-title { color: var(--gold); }
-      .reservation-section .section-subtitle { color: rgba(255,255,255,.65); }
-      .reservation-section .section-title,
-      .reservation-section .section-subtitle { text-align: center; }
-      .reservation-section > .container { text-align: center; }
-      .reservation-form {
-        max-width: 680px;
-        margin: 0 auto;
-        text-align: left;
-        display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-      }
-      .form-group { display: flex; flex-direction: column; gap: 6px; }
-      .form-group.full { grid-column: span 2; }
-      .form-group label { font-size: .83rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: rgba(255,255,255,.7); }
-      .form-group label span { color: var(--gold); }
-      .form-group input, .form-group textarea, .form-group select {
-        padding: 12px 16px;
-        background: rgba(255,255,255,.08);
-        border: 1px solid rgba(212,168,67,.25);
-        border-radius: var(--radius);
-        color: var(--white);
-        font-family: 'Jost', sans-serif;
-        font-size: .93rem;
-        outline: none;
-        transition: border-color var(--transition);
-      }
-      .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,.35); }
-      .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
-      .form-group select option { background: var(--dark2); color: var(--white); }
-      .form-group textarea { resize: vertical; }
-      .invalid-feedback { font-size: .78rem; color: #ff7b6b; display: none; }
-      .form-group.error .invalid-feedback { display: block; }
-      .form-group.error input, .form-group.error textarea { border-color: #ff7b6b; }
-      .reservation-form .btn-gold { grid-column: span 2; justify-self: center; margin-top: 8px; padding: 14px 48px; font-size: 1rem; }
-      #reservationSuccess { display: none; text-align: center; padding: 28px; color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; }
+.t-coach .mock-bar{background:#1a4a3a}
+.t-coach .mock-hero-area{background:linear-gradient(135deg,#e0f0e8,#d5ece0)}
+.t-coach .mock-line{background:#1a4a3a}
+.t-coach .mock-cta{background:#c8943a}
+.t-coach .mock-card-sm{background:#c5e4d0}
 
-      /* ===== CONTACT ===== */
-      .contact-section { background: var(--lighter); }
-      .contact-container { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
-      .contact-info .section-title { margin-bottom: 20px; }
-      .contact-info p { color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
-      .contact-info a { color: var(--primary); transition: color var(--transition); }
-      .contact-info a:hover { color: var(--primary-dk); }
-      .opening-hours { border-left: 3px solid var(--gold); padding-left: 16px; }
-      .social-links { display: flex; gap: 12px; margin-top: 20px; }
-      .social-links a {
-        width: 40px; height: 40px;
-        border: 2px solid rgba(200,56,42,.3);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        color: var(--primary); font-size: .9rem;
-        transition: all var(--transition);
-      }
-      .social-links a:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }
-      .contact-map { border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
-      .contact-map iframe { display: block; filter: sepia(20%) contrast(95%); }
+.t-photo .mock-bar{background:#1c1c1c}
+.t-photo .mock-hero-area{background:linear-gradient(135deg,#2a2a2a,#3a3a3a)}
+.t-photo .mock-line{background:#d4a84a}
+.t-photo .mock-cta{background:#d4a84a}
+.t-photo .mock-card-sm{background:#444}
 
-      /* ===== FOOTER ===== */
-      #footer {
-        background: var(--dark);
-        color: rgba(253,246,236,.6);
-        padding: 60px 0 32px;
-      }
-      .footer-container { display: flex; flex-direction: column; align-items: center; gap: 28px; }
-      .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); }
-      .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-      .footer-links a { font-size: .83rem; letter-spacing: .05em; text-transform: uppercase; transition: color var(--transition); }
-      .footer-links a:hover { color: var(--gold); }
-      .newsletter { text-align: center; }
-      .newsletter h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold-lt); margin-bottom: 12px; }
-      .newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-      .newsletter-form input {
-        padding: 10px 16px;
-        background: rgba(255,255,255,.07);
-        border: 1px solid rgba(212,168,67,.25);
-        border-radius: var(--radius);
-        color: var(--white);
-        font-family: 'Jost', sans-serif;
-        font-size: .88rem;
-        outline: none;
-        min-width: 220px;
-        transition: border-color var(--transition);
-      }
-      .newsletter-form input:focus { border-color: var(--gold); }
-      .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
-      .footer-divider { width: 60px; height: 1px; background: rgba(212,168,67,.3); }
-      .footer-copy { font-size: .8rem; letter-spacing: .04em; }
+.t-bio .mock-bar{background:#2d5a2d}
+.t-bio .mock-hero-area{background:linear-gradient(135deg,#e4f0e4,#d8ecd8)}
+.t-bio .mock-line{background:#2d5a2d}
+.t-bio .mock-cta{background:#c4703a}
+.t-bio .mock-card-sm{background:#b8dcb8}
 
-      /* ===== SCROLL REVEAL ===== */
-      .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-      .reveal.visible { opacity: 1; transform: none; }
+.project-body{padding:1.4rem}
+.proj-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.6rem}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .7rem;border-radius:20px;background:#f0ebe0;color:var(--muted)}
+.tag.green{background:#e4f0e4;color:var(--green)}
+.tag.gold{background:#f8edd8;color:var(--gold)}
+.project-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark);margin-bottom:.35rem}
+.project-body p{font-size:.85rem;color:var(--muted);line-height:1.55}
 
-      /* ===== RESPONSIVE ===== */
-      @media (max-width: 900px) {
-        .about-container, .contact-container { grid-template-columns: 1fr; }
-        .about-image { order: -1; }
-        .about-image img { height: 340px; }
-        .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-        .gallery-item:first-child { grid-row: span 1; }
-        .nav-toggle { display: flex; }
-        .nav-menu {
-          position: fixed; top: var(--header-h); left: 0; right: 0;
-          background: rgba(26,16,8,.97);
-          flex-direction: column; gap: 0;
-          padding: 16px 0 24px;
-          transform: translateY(-100%);
-          opacity: 0;
-          pointer-events: none;
-          transition: transform var(--transition), opacity var(--transition);
-          border-bottom: 1px solid rgba(212,168,67,.2);
-        }
-        .nav-menu.open { transform: none; opacity: 1; pointer-events: auto; }
-        .nav-menu li { width: 100%; }
-        .nav-menu a { display: block; padding: 12px 28px; color: rgba(253,246,236,.8); }
-        .nav-menu .btn-primary { margin: 12px 28px 0; }
-        #darkToggle { right: 60px; }
-      }
-      @media (max-width: 600px) {
-        .section { padding: 72px 0; }
-        .gallery-grid { grid-template-columns: 1fr; }
-        .reservation-form { grid-template-columns: 1fr; }
-        .reservation-form .btn-gold { grid-column: span 1; }
-        .form-group.full { grid-column: span 1; }
-        .stats { gap: 20px; }
-        .hero-buttons { flex-direction: column; }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Preloader -->
-    <div id="preloader" aria-hidden="true">
-      <div class="spinner-crescent"></div>
+/* Services section */
+.services-section{background:var(--dark)}
+.services-section .section-title{color:#fff}
+.services-section .section-sub{color:rgba(255,255,255,.6)}
+.services-section .section-tag{color:var(--gold)}
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem;margin-top:2.8rem}
+.serv-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:2rem 1.6rem;transition:background .3s}
+.serv-card:hover{background:rgba(255,255,255,.09)}
+.serv-icon{font-size:1.8rem;margin-bottom:1rem}
+.serv-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+.serv-card p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6}
+.serv-price{display:inline-block;margin-top:.9rem;font-weight:700;color:var(--gold);font-size:.95rem}
+
+/* CTA strip */
+.cta-strip{background:var(--green);padding:4rem 5vw;text-align:center}
+.cta-strip h2{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:.7rem}
+.cta-strip p{color:rgba(255,255,255,.75);margin-bottom:1.8rem}
+.btn-white{background:#fff;color:var(--green);font-weight:700}
+.btn-white:hover{box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+/* ============================================================
+   SHARED SUB-PAGES ELEMENTS
+   ============================================================ */
+.sub-page-hero{
+  min-height:70vh;display:flex;align-items:center;
+  padding:7rem 5vw 4rem;position:relative;overflow:hidden;
+}
+.sub-page-hero .inner{position:relative;z-index:1;max-width:680px}
+.sub-page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.12;margin-bottom:1rem}
+.sub-page-hero p{font-size:1.05rem;line-height:1.7;margin-bottom:2rem;opacity:.75}
+
+/* ============================================================
+   PAGE 2 — LE BISTRAUT (restaurant)
+   ============================================================ */
+#page-bistraut .site-nav .logo{color:#2c1a0e}
+#page-bistraut .nav-btn{background:#b84040}
+#page-bistraut .nav-btn:hover{background:#9e3030}
+#page-bistraut .sub-page-hero{background:linear-gradient(160deg,#fdf4ec,#f5e6d0);}
+#page-bistraut .sub-page-hero h1{color:#2c1a0e}
+#page-bistraut .sub-page-hero p{color:#6b4c30}
+#page-bistraut .btn-primary{background:#b84040}
+#page-bistraut .section-tag{color:#b84040}
+#page-bistraut .divider{background:#b84040}
+#page-bistraut .section-title{color:#2c1a0e}
+
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
+.menu-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 3px 16px rgba(0,0,0,.07)}
+.menu-card-top{height:140px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,#fdf4ec,#ffe5c0)}
+.menu-card-body{padding:1.2rem}
+.menu-card-body h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:#2c1a0e;margin-bottom:.3rem}
+.menu-card-body p{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.7rem}
+.menu-card-body .price{font-weight:700;color:#b84040;font-size:.95rem}
+
+.horaires-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem}
+.horaire-card{background:#fff;border-radius:12px;padding:1.4rem;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.horaire-card h4{font-family:'Playfair Display',serif;color:#2c1a0e;margin-bottom:.4rem}
+.horaire-card p{font-size:.85rem;color:var(--muted)}
+
+/* ============================================================
+   PAGE 3 — ZEN & SENS (spa/bien-être)
+   ============================================================ */
+#page-spa .site-nav .logo{color:#3d2e5e}
+#page-spa .nav-btn{background:#5b3fa6}
+#page-spa .nav-btn:hover{background:#4a3090}
+#page-spa .sub-page-hero{background:linear-gradient(160deg,#f8f4fe,#ece4f8)}
+#page-spa .sub-page-hero h1{color:#3d2e5e}
+#page-spa .sub-page-hero p{color:#6b5a8e}
+#page-spa .btn-primary{background:#5b3fa6}
+#page-spa .section-tag{color:#5b3fa6}
+#page-spa .divider{background:#5b3fa6}
+#page-spa .section-title{color:#3d2e5e}
+
+.soins-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem}
+.soin-card{background:#fff;border-radius:14px;padding:1.8rem;text-align:center;box-shadow:0 3px 16px rgba(91,63,166,.1);transition:transform .3s}
+.soin-card:hover{transform:translateY(-5px)}
+.soin-icon{font-size:2.8rem;margin-bottom:1rem}
+.soin-card h3{font-family:'Playfair Display',serif;color:#3d2e5e;margin-bottom:.4rem}
+.soin-card p{font-size:.84rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem}
+.soin-price{font-weight:700;color:#5b3fa6}
+
+/* ============================================================
+   PAGE 4 — IMMO PRESTIGE (immobilier)
+   ============================================================ */
+#page-immo .site-nav .logo{color:#1a3a5c}
+#page-immo .nav-btn{background:#1a3a5c}
+#page-immo .nav-btn:hover{background:#142d47}
+#page-immo .sub-page-hero{background:linear-gradient(160deg,#edf4fc,#d6e8f5)}
+#page-immo .sub-page-hero h1{color:#1a3a5c}
+#page-immo .sub-page-hero p{color:#3a5a78}
+#page-immo .btn-primary{background:#1a3a5c}
+#page-immo .btn-outline{color:#1a3a5c;border-color:#1a3a5c}
+#page-immo .section-tag{color:var(--gold)}
+#page-immo .divider{background:var(--gold)}
+#page-immo .section-title{color:#1a3a5c}
+
+.biens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.8rem;margin-top:2.5rem}
+.bien-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(26,58,92,.1)}
+.bien-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,#e8f0f8,#cde0ef)}
+.bien-body{padding:1.4rem}
+.bien-badge{display:inline-block;padding:.22rem .8rem;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.6rem}
+.badge-vente{background:#e8f0f8;color:#1a3a5c}
+.badge-loc{background:#f8edd8;color:var(--gold)}
+.bien-body h3{font-family:'Playfair Display',serif;color:#1a3a5c;font-size:1.05rem;margin-bottom:.3rem}
+.bien-body p{font-size:.83rem;color:var(--muted);line-height:1.5}
+.bien-price{font-size:1.1rem;font-weight:700;color:var(--gold);margin-top:.7rem}
+.bien-specs{display:flex;gap:1rem;margin-top:.5rem;font-size:.78rem;color:var(--muted)}
+.bien-specs span{display:flex;align-items:center;gap:.3rem}
+
+/* ============================================================
+   PAGE 5 — COACH ELITE (coaching)
+   ============================================================ */
+#page-coach .site-nav .logo{color:#1a4a3a}
+#page-coach .nav-btn{background:#1a4a3a}
+#page-coach .nav-btn:hover{background:#133830}
+#page-coach .sub-page-hero{background:linear-gradient(160deg,#e8f5ee,#d5ece0)}
+#page-coach .sub-page-hero h1{color:#1a4a3a}
+#page-coach .sub-page-hero p{color:#2a6a4a}
+#page-coach .btn-primary{background:#1a4a3a}
+#page-coach .section-tag{color:var(--gold)}
+#page-coach .divider{background:var(--gold)}
+#page-coach .section-title{color:#1a4a3a}
+
+.formules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2.5rem}
+.formule-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 4px 18px rgba(26,74,58,.08);position:relative;transition:transform .3s}
+.formule-card:hover{transform:translateY(-5px)}
+.formule-card.featured{border:2px solid #1a4a3a}
+.featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#1a4a3a;color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .9rem;border-radius:20px;white-space:nowrap;letter-spacing:.06em;text-transform:uppercase}
+.formule-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:#1a4a3a;margin-bottom:.5rem}
+.formule-price{font-size:1.8rem;font-weight:700;color:#1a4a3a;margin:.8rem 0}
+.formule-price span{font-size:.85rem;font-weight:400;color:var(--muted)}
+.formule-list{list-style:none;margin:1rem 0;display:flex;flex-direction:column;gap:.5rem}
+.formule-list li{font-size:.84rem;color:var(--muted);display:flex;gap:.5rem}
+.formule-list li::before{content:"✓";color:#1a4a3a;font-weight:700;flex-shrink:0}
+
+/* ============================================================
+   PAGE 6 — STUDIO LUMIÈRE (photo)
+   ============================================================ */
+#page-photo .site-nav{background:rgba(20,20,20,.95);border-color:rgba(255,255,255,.08)}
+#page-photo .site-nav .logo{color:#fff}
+#page-photo .site-nav ul a{color:rgba(255,255,255,.75)}
+#page-photo .site-nav ul a:hover{color:var(--gold)}
+#page-photo .nav-btn{background:var(--gold);color:#fff}
+#page-photo .nav-btn:hover{background:#b88030}
+#page-photo .sub-page-hero{background:linear-gradient(160deg,#1c1c1c,#2a2a2a);min-height:75vh}
+#page-photo .sub-page-hero h1{color:#fff}
+#page-photo .sub-page-hero p{color:rgba(255,255,255,.6)}
+#page-photo .btn-primary{background:var(--gold);color:#fff}
+#page-photo .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+#page-photo .section-tag{color:var(--gold)}
+#page-photo .divider{background:var(--gold)}
+#page-photo .section-title{color:#1c1c1c}
+#page-photo .hero-decor{color:rgba(255,255,255,.04);font-size:14rem;position:absolute;user-select:none}
+
+.galerie-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:2.5rem}
+@media(max-width:700px){.galerie-grid{grid-template-columns:repeat(2,1fr)}}
+.galerie-item{border-radius:10px;overflow:hidden;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3rem;background:#2a2a2a;transition:transform .3s}
+.galerie-item:hover{transform:scale(1.03)}
+
+.prestations-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.4rem;margin-top:2.5rem}
+.prestation-card{background:#f5f5f5;border-radius:14px;padding:1.8rem;transition:background .3s}
+.prestation-card:hover{background:#ececec}
+.prestation-card h3{font-family:'Playfair Display',serif;color:#1c1c1c;margin-bottom:.4rem}
+.prestation-card p{font-size:.84rem;color:var(--muted);line-height:1.55;margin-bottom:.6rem}
+.prestation-price{font-weight:700;color:var(--gold)}
+
+/* ============================================================
+   SHARED FOOTER
+   ============================================================ */
+.site-footer{background:var(--dark);padding:2.5rem 5vw;text-align:center}
+.site-footer p{color:rgba(255,255,255,.45);font-size:.82rem}
+.site-footer .foot-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:.4rem}
+
+/* ===== MISC ===== */
+.text-center{text-align:center}
+.text-center .section-sub{margin:0 auto}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:650px){.grid2{grid-template-columns:1fr}}
+.stats-row{display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:2rem}
+.stat-box{text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700}
+.stat-l{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+
+.contact-form-wrap{max-width:580px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:.9rem}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:500px){.form-row2{grid-template-columns:1fr}}
+.form-field label{display:block;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.3rem}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:.75rem 1rem;border:1.5px solid #ddd;border-radius:10px;font-family:'Poppins',sans-serif;font-size:.9rem;outline:none;transition:border-color .3s;background:#fff}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--green)}
+.form-success{display:none;text-align:center;color:var(--green);font-weight:600;padding:1rem;background:#e4f0e4;border-radius:10px}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE 1 — PORTFOLIO AGENCE
+     ============================================================ -->
+<div id="page-home" class="page active">
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a class="logo" style="color:var(--green)" href="#">Nova<span style="color:var(--gold)">Site</span></a>
+    <ul>
+      <li><a href="#portfolio-section">Réalisations</a></li>
+      <li><a href="#services-section">Services</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+    </ul>
+    <a href="#contact-section" class="nav-btn">Devis gratuit</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home-hero">
+    <div style="position:absolute;inset:0;background:linear-gradient(145deg,#f5f0e6 0%,#eaf2e6 60%,#f0ebe0 100%)"></div>
+    <div class="hero-inner">
+      <p class="section-tag">Agence Web — Création de sites sur-mesure</p>
+      <h1>Des sites qui <em style="font-style:italic;color:var(--green)">convertissent</em>,<br>livrés en 7 jours</h1>
+      <p>NovaSite Studio conçoit des sites vitrine et boutiques en ligne pour artisans, commerçants et PME. Design soigné, code propre, résultats mesurables.</p>
+      <div class="hero-btns">
+        <button class="btn btn-primary" onclick="scrollTo({top:document.getElementById('portfolio-section').offsetTop-60,behavior:'smooth'})"><i class="fa-solid fa-eye"></i> Voir nos réalisations</button>
+        <button class="btn btn-outline" onclick="scrollTo({top:document.getElementById('contact-section').offsetTop-60,behavior:'smooth'})">Demander un devis</button>
+      </div>
+      <div class="stats-row" style="justify-content:center;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(0,0,0,.1)">
+        <div class="stat-box"><div class="stat-n" style="color:var(--green)">30+</div><div class="stat-l">sites livrés</div></div>
+        <div class="stat-box"><div class="stat-n" style="color:var(--green)">7j</div><div class="stat-l">délai moyen</div></div>
+        <div class="stat-box"><div class="stat-n" style="color:var(--green)">100%</div><div class="stat-l">satisfaction</div></div>
+      </div>
     </div>
-    <!-- Back to top -->
-    <button id="backToTop" aria-label="Retour en haut"><i class="fa-solid fa-angle-up"></i></button>
-    <!-- Dark mode toggle -->
-    <button id="darkToggle" aria-label="Mode sombre"><i class="fa-solid fa-moon"></i></button>
+  </section>
 
-    <!-- Chat bubble -->
-    <div id="chatBubble" class="chat-bubble" role="button" aria-label="Chat en ligne">
-      <i class="fa-solid fa-comment-dots"></i>
+  <!-- PORTFOLIO -->
+  <section class="section" id="portfolio-section">
+    <div class="container">
+      <p class="section-tag">Nos réalisations</p>
+      <h2 class="section-title">Des projets variés, une qualité constante</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Cliquez sur un projet pour visiter le site.</p>
+      <div class="portfolio-grid" style="margin-top:2.5rem">
+
+        <!-- Bistraut -->
+        <div class="project-card" onclick="showPage('page-bistraut')">
+          <div class="project-thumb">
+            <div class="mock t-bistraut">
+              <div class="mock-bar"></div>
+              <div class="mock-hero-area">
+                <div class="mock-line w70"></div>
+                <div class="mock-line w50"></div>
+                <div class="mock-cta"></div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+              </div>
+            </div>
+            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags"><span class="tag green">Restaurant</span><span class="tag gold">Réservation</span></div>
+            <h3>Le Bistraut — Paris 11e</h3>
+            <p>Site vitrine pour un bistrot franco-japonais. Menu, galerie photos et réservation en ligne.</p>
+          </div>
+        </div>
+
+        <!-- Zen & Sens -->
+        <div class="project-card" onclick="showPage('page-spa')">
+          <div class="project-thumb">
+            <div class="mock t-spa">
+              <div class="mock-bar"></div>
+              <div class="mock-hero-area">
+                <div class="mock-line w70"></div>
+                <div class="mock-line w50"></div>
+                <div class="mock-cta"></div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+              </div>
+            </div>
+            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags"><span class="tag green">Spa</span><span class="tag gold">Prise de RDV</span></div>
+            <h3>Zen & Sens — Bordeaux</h3>
+            <p>Institut de bien-être haut de gamme. Soins, tarifs et prise de rendez-vous intégrée.</p>
+          </div>
+        </div>
+
+        <!-- Immo Prestige -->
+        <div class="project-card" onclick="showPage('page-immo')">
+          <div class="project-thumb">
+            <div class="mock t-immo">
+              <div class="mock-bar"></div>
+              <div class="mock-hero-area">
+                <div class="mock-line w70"></div>
+                <div class="mock-line w50"></div>
+                <div class="mock-cta"></div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+              </div>
+            </div>
+            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags"><span class="tag green">Immobilier</span><span class="tag">Catalogue</span></div>
+            <h3>Prestige Immo — Lyon</h3>
+            <p>Agence immobilière de luxe. Listings de biens avec filtres, photos et estimation en ligne.</p>
+          </div>
+        </div>
+
+        <!-- Coach Elite -->
+        <div class="project-card" onclick="showPage('page-coach')">
+          <div class="project-thumb">
+            <div class="mock t-coach">
+              <div class="mock-bar"></div>
+              <div class="mock-hero-area">
+                <div class="mock-line w70"></div>
+                <div class="mock-line w50"></div>
+                <div class="mock-cta"></div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+              </div>
+            </div>
+            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags"><span class="tag green">Coaching</span><span class="tag gold">Formules</span></div>
+            <h3>Coach Élite — Strasbourg</h3>
+            <p>Coach business & développement personnel. Présentation, formules d'accompagnement et contact.</p>
+          </div>
+        </div>
+
+        <!-- Studio Lumière -->
+        <div class="project-card" onclick="showPage('page-photo')">
+          <div class="project-thumb">
+            <div class="mock t-photo">
+              <div class="mock-bar"></div>
+              <div class="mock-hero-area">
+                <div class="mock-line w70"></div>
+                <div class="mock-line w50"></div>
+                <div class="mock-cta"></div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+              </div>
+            </div>
+            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags"><span class="tag green">Photographie</span><span class="tag">Dark theme</span></div>
+            <h3>Studio Lumière — Nantes</h3>
+            <p>Photographe mariage & corporate. Portfolio galerie, prestations et galerie client privée.</p>
+          </div>
+        </div>
+
+        <!-- BioDelight -->
+        <div class="project-card" onclick="showPage('page-bio')">
+          <div class="project-thumb">
+            <div class="mock t-bio">
+              <div class="mock-bar"></div>
+              <div class="mock-hero-area">
+                <div class="mock-line w70"></div>
+                <div class="mock-line w50"></div>
+                <div class="mock-cta"></div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+                <div class="mock-card-sm"></div>
+              </div>
+            </div>
+            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
+          </div>
+          <div class="project-body">
+            <div class="proj-tags"><span class="tag green">Restaurant Bio</span><span class="tag gold">Farm-to-table</span></div>
+            <h3>BioDelight Bistro — Valentigney</h3>
+            <p>Menu interactif, galerie, réservation et blog culinaire pour ce bistrot farm-to-table.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div id="chatWindow" class="chat-window hidden">
-      <div class="chat-header">Bonjour 👋 <span id="chatClose">×</span></div>
-      <div class="chat-body" id="chatMessages">
-        <p class="bot-msg">Bienvenue au Kiz Kulesi ! Pour les réservations, appelez le +33 3 81 67 00 00 ou utilisez notre formulaire.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services-section" id="services-section">
+    <div class="container">
+      <div class="text-center">
+        <p class="section-tag">Ce que nous faisons</p>
+        <h2 class="section-title" style="color:#fff">Nos prestations</h2>
+        <p class="section-sub" style="margin:0 auto">Solutions web complètes pour indépendants et PME.</p>
       </div>
-      <form id="chatForm" class="chat-form" novalidate>
-        <input type="text" id="chatInput" placeholder="Votre message…" autocomplete="off" />
-        <button type="submit" aria-label="Envoyer"><i class="fa-solid fa-paper-plane"></i></button>
-      </form>
+      <div class="serv-grid">
+        <div class="serv-card"><div class="serv-icon">🖥️</div><h3>Site Vitrine</h3><p>Design sur-mesure, responsive, optimisé SEO. Livré avec formulaire de contact et hébergement.</p><span class="serv-price">Dès 490 €</span></div>
+        <div class="serv-card"><div class="serv-icon">🛍️</div><h3>Boutique en ligne</h3><p>E-commerce complet avec paiement sécurisé, gestion stock et tableau de bord simple.</p><span class="serv-price">Dès 1 290 €</span></div>
+        <div class="serv-card"><div class="serv-icon">📅</div><h3>Réservation & RDV</h3><p>Calendrier de réservation intégré, confirmations automatiques et rappels par email.</p><span class="serv-price">Option 190 €</span></div>
+        <div class="serv-card"><div class="serv-icon">🔍</div><h3>SEO Local</h3><p>Optimisation pour Google, fiche Google Business, mots-clés locaux pour attirer vos clients de proximité.</p><span class="serv-price">Inclus</span></div>
+      </div>
     </div>
+  </section>
 
-    <!-- Navigation -->
-    <header id="header">
-      <nav class="container nav">
-        <a href="#" class="logo">Kiz Kulesi</a>
-        <button class="nav-toggle" id="navToggle" aria-controls="navigation-menu" aria-label="Ouvrir le menu">
-          <span class="hamburger"></span>
-        </button>
-        <ul id="navigation-menu" class="nav-menu">
-          <li><a href="#hero">Accueil</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#gallery">Galerie</a></li>
-          <li><a href="#team">Équipe</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#reservation" class="btn btn-primary">Réserver</a></li>
-        </ul>
-      </nav>
-    </header>
+  <!-- CTA -->
+  <section class="cta-strip">
+    <h2>Votre site en 7 jours ?</h2>
+    <p>Devis gratuit et sans engagement sous 24h.</p>
+    <button class="btn btn-white" onclick="scrollTo({top:document.getElementById('contact-section').offsetTop-60,behavior:'smooth'})"><i class="fa-solid fa-paper-plane"></i> Lancer mon projet</button>
+  </section>
 
-    <!-- Hero -->
-    <section id="hero" class="hero-section">
-      <div class="hero-content">
-        <div class="hero-eyebrow">Morteau · Franche-Comté</div>
-        <h1 class="hero-title">Les saveurs <em>ottomanes</em> au cœur du Doubs</h1>
-        <p class="hero-subtitle">Mezzés authentiques, grillades au feu de bois et spécialités d'Istanbul préparées avec passion depuis plus de 10 ans.</p>
-        <div class="hero-buttons">
-          <a href="#menu" class="btn btn-secondary">Voir la carte</a>
-          <a href="#reservation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Réserver une table</a>
+  <!-- CONTACT -->
+  <section class="section" id="contact-section" style="background:var(--cream2)">
+    <div class="container text-center">
+      <p class="section-tag">Contact</p>
+      <h2 class="section-title">Parlons de votre projet</h2>
+      <div class="divider" style="margin:.8rem auto 1.4rem"></div>
+      <div class="contact-form-wrap">
+        <div class="form-row2">
+          <div class="form-field"><label>Prénom</label><input type="text" placeholder="Jean"/></div>
+          <div class="form-field"><label>Nom</label><input type="text" placeholder="Dupont"/></div>
+        </div>
+        <div class="form-field"><label>Email *</label><input type="email" placeholder="jean@monentreprise.fr"/></div>
+        <div class="form-field"><label>Type de site</label>
+          <select><option>Site vitrine</option><option>Boutique en ligne</option><option>Site avec réservation</option><option>Autre</option></select>
+        </div>
+        <div class="form-field"><label>Message</label><textarea rows="4" placeholder="Décrivez votre activité et vos besoins…"></textarea></div>
+        <button class="btn btn-primary" onclick="submitHome(event)" style="align-self:center"><i class="fa-solid fa-paper-plane"></i> Envoyer</button>
+        <div class="form-success" id="home-success">✓ Message reçu ! Je vous réponds sous 24h.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="foot-logo">Nova<span style="color:var(--gold)">Site</span> Studio</div>
+    <p>© 2025 NovaSite Studio — Micro-entreprise française · contact@novasite-studio.fr</p>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     PAGE 2 — LE BISTRAUT
+     ============================================================ -->
+<div id="page-bistraut" class="page">
+  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
+  <nav class="site-nav">
+    <span class="logo">Le Bistraut</span>
+    <ul>
+      <li><a href="#b-menu">Menu</a></li>
+      <li><a href="#b-galerie">Galerie</a></li>
+      <li><a href="#b-contact">Réserver</a></li>
+    </ul>
+    <a href="#b-contact" class="nav-btn">Réserver une table</a>
+  </nav>
+
+  <section class="sub-page-hero" id="b-hero">
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#fdf4ec,#f5e6d0)"></div>
+    <div class="inner">
+      <p class="section-tag">Paris 11e · Bistrot franco-japonais</p>
+      <h1 style="color:#2c1a0e">L'alliance du terroir<br><em style="color:#b84040">et de l'umami</em></h1>
+      <p>Cuisine bistrotière française revisitée aux influences nippones. Produits du marché, sake naturels et saké-bières artisanales.</p>
+      <div class="hero-btns">
+        <a href="#b-menu" class="btn btn-primary">Voir le menu</a>
+        <a href="#b-contact" class="btn btn-outline" style="color:#2c1a0e;border-color:#2c1a0e">Réserver</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="b-about" style="background:var(--cream2)">
+    <div class="container grid2">
+      <div>
+        <p class="section-tag">Notre histoire</p>
+        <h2 class="section-title">Né d'un voyage, <br>ancré dans Paris</h2>
+        <div class="divider"></div>
+        <p style="color:var(--muted);line-height:1.7;font-size:.95rem">Après 3 ans à Tokyo, le chef Raphaël Moreau est rentré à Paris avec une idée simple : créer un bistrot où la côte de bœuf côtoie le dashi, où le vin naturel rencontre le miso. Ouvert en 2021, Le Bistraut est devenu l'adresse incontournable du 11e.</p>
+        <div class="stats-row" style="margin-top:1.5rem">
+          <div class="stat-box"><div class="stat-n" style="color:#b84040">4.9</div><div class="stat-l">Note Google</div></div>
+          <div class="stat-box"><div class="stat-n" style="color:#b84040">320</div><div class="stat-l">avis clients</div></div>
+          <div class="stat-box"><div class="stat-n" style="color:#b84040">2021</div><div class="stat-l">Ouverture</div></div>
         </div>
       </div>
-    </section>
+      <div style="background:linear-gradient(135deg,#ffe5c0,#f5e6d0);border-radius:20px;height:320px;display:flex;align-items:center;justify-content:center;font-size:6rem">🍱</div>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section id="about" class="section about-section">
-      <div class="container about-container">
-        <div class="about-image reveal">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Intérieur chaleureux du Kiz Kulesi" loading="lazy" />
+  <section class="section" id="b-menu">
+    <div class="container">
+      <div class="text-center">
+        <p class="section-tag">La carte</p>
+        <h2 class="section-title">Menu du moment</h2>
+        <div class="divider" style="margin:.8rem auto 0"></div>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="menu-card-top">🥟</div><div class="menu-card-body"><h3>Gyoza au canard confit</h3><p>Raviolis japonais farcis au canard confit landais, sauce ponzu-yuzu.</p><div class="price">12 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top">🥩</div><div class="menu-card-body"><h3>Côte de bœuf miso-beurre</h3><p>Côte de bœuf charolaise, beurre blanc miso, légumes de saison rôtis.</p><div class="price">38 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top">🍜</div><div class="menu-card-body"><h3>Ramen bœuf bourguignon</h3><p>Bouillon dashi-vin rouge, bœuf mijoté 8h, œuf mollet et nori croustillant.</p><div class="price">22 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top">🍮</div><div class="menu-card-body"><h3>Crème brûlée matcha</h3><p>Crème brûlée au thé matcha de Kyoto, tuile sésame noir.</p><div class="price">9 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top">🐟</div><div class="menu-card-body"><h3>Tartare de bar, huile sésame</h3><p>Bar de ligne, gingembre mariné, huile de sésame grillé, brioche maison.</p><div class="price">16 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top">🍷</div><div class="menu-card-body"><h3>Sélection vins naturels</h3><p>Cave de 80 références, vins vivants de vignerons indépendants.</p><div class="price">7 € / verre</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="b-galerie" style="background:var(--cream2)">
+    <div class="container text-center">
+      <p class="section-tag">Ambiance</p>
+      <h2 class="section-title">L'univers du Bistraut</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="galerie-grid" style="margin-top:2rem">
+        <div class="galerie-item" style="background:linear-gradient(135deg,#ffe5c0,#f5e6d0)">🍷</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#f5e6d0,#fdf4ec)">🍣</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#fdf4ec,#ffe5c0)">🧑‍🍳</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#ffe5c0,#fdf4ec)">🏮</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#f5e6d0,#ffe5c0)">🥢</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#fdf4ec,#f5e6d0)">🌸</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#ffe5c0,#fdf4ec)">🍱</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#f5e6d0,#fdf4ec)">🥩</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="b-horaires">
+    <div class="container text-center">
+      <p class="section-tag">Informations</p>
+      <h2 class="section-title">Horaires & accès</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="horaires-grid" style="max-width:700px;margin:2rem auto 0">
+        <div class="horaire-card"><h4>Mardi – Vendredi</h4><p>12h00 – 14h30<br>19h00 – 22h30</p></div>
+        <div class="horaire-card"><h4>Samedi</h4><p>12h00 – 15h00<br>19h00 – 23h00</p></div>
+        <div class="horaire-card"><h4>Dimanche</h4><p>12h00 – 15h30<br>Brunch uniquement</p></div>
+        <div class="horaire-card"><h4>Lundi</h4><p>Fermé</p></div>
+      </div>
+      <p style="margin-top:1.5rem;color:var(--muted);font-size:.9rem">📍 42 Rue Oberkampf, 75011 Paris · <a href="tel:+330140000000" style="color:#b84040">01 40 00 00 00</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="b-contact" style="background:var(--cream2)">
+    <div class="container text-center">
+      <p class="section-tag">Réservation</p>
+      <h2 class="section-title">Réserver une table</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="contact-form-wrap">
+        <div class="form-row2">
+          <div class="form-field"><label>Nom</label><input type="text" placeholder="Moreau"/></div>
+          <div class="form-field"><label>Personnes</label><input type="number" min="1" max="12" placeholder="2"/></div>
         </div>
-        <div class="about-content reveal">
-          <h2 class="section-title">Notre histoire</h2>
-          <p>Nommé en hommage à la célèbre Tour de la Jeune Fille du Bosphore, le Kiz Kulesi Restaurant apporte depuis 2014 les traditions culinaires d'Istanbul jusqu'à Morteau. Chaque plat est une invitation au voyage.</p>
-          <p>Nos recettes sont transmises de génération en génération, préparées avec des épices importées directement d'Anatolie et des produits frais sélectionnés chaque matin sur les marchés locaux.</p>
-          <div class="stats">
-            <div class="stat-item">
-              <span class="stat-number" data-target="10">0</span>
-              <span class="stat-label">ans d'expérience</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" data-target="40">0</span>
-              <span class="stat-label">plats à la carte</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" data-target="8000">0</span>
-              <span class="stat-label">clients satisfaits</span>
-            </div>
-          </div>
-          <a href="#gallery" class="btn btn-secondary mt-3">Voir notre galerie</a>
+        <div class="form-row2">
+          <div class="form-field"><label>Date</label><input type="date"/></div>
+          <div class="form-field"><label>Heure</label><input type="time"/></div>
+        </div>
+        <div class="form-field"><label>Email</label><input type="email" placeholder="votre@email.fr"/></div>
+        <button class="btn" style="background:#b84040;color:#fff;align-self:center" onclick="submitForm(event,'bistraut-success')"><i class="fa-solid fa-utensils"></i> Confirmer la réservation</button>
+        <div class="form-success" id="bistraut-success">✓ Table réservée ! Un email de confirmation vous sera envoyé.</div>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer"><div class="foot-logo" style="color:#c8943a">Le Bistraut</div><p>42 Rue Oberkampf, 75011 Paris · contact@lebistraut.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
+</div>
+
+
+<!-- ============================================================
+     PAGE 3 — ZEN & SENS
+     ============================================================ -->
+<div id="page-spa" class="page">
+  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
+  <nav class="site-nav">
+    <span class="logo" style="color:#3d2e5e">Zen & Sens</span>
+    <ul>
+      <li><a href="#s-soins">Soins</a></li>
+      <li><a href="#s-tarifs">Tarifs</a></li>
+      <li><a href="#s-contact">Rendez-vous</a></li>
+    </ul>
+    <a href="#s-contact" class="nav-btn">Prendre RDV</a>
+  </nav>
+
+  <section class="sub-page-hero" id="s-hero">
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#f8f4fe,#ece4f8)"></div>
+    <div class="inner">
+      <p class="section-tag" style="color:#5b3fa6">Bordeaux · Institut bien-être</p>
+      <h1 style="color:#3d2e5e">Prenez soin de vous,<br><em style="color:#5b3fa6;font-style:italic">vraiment</em></h1>
+      <p style="color:#6b5a8e">Massages, soins du visage, enveloppements et rituels corps. Un havre de paix au cœur de Bordeaux.</p>
+      <div class="hero-btns">
+        <a href="#s-soins" class="btn btn-primary" style="background:#5b3fa6">Découvrir les soins</a>
+        <a href="#s-contact" class="btn btn-outline" style="color:#3d2e5e;border-color:#3d2e5e">Réserver</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s-soins">
+    <div class="container text-center">
+      <p class="section-tag">Nos soins</p>
+      <h2 class="section-title">Rituels & massages</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="soins-grid" style="margin-top:2.5rem">
+        <div class="soin-card"><div class="soin-icon">🪷</div><h3>Rituel Lotus</h3><p>Massage corps complet aux huiles essentielles, gommage douceur et enveloppement argile blanche. 90 min.</p><div class="soin-price">110 €</div></div>
+        <div class="soin-card"><div class="soin-icon">🌙</div><h3>Soin visage Nuit Étoilée</h3><p>Nettoyage profond, sérum hyaluronique, masque liftant et modelage du visage. 60 min.</p><div class="soin-price">75 €</div></div>
+        <div class="soin-card"><div class="soin-icon">🤲</div><h3>Massage Shiatsu</h3><p>Technique japonaise ancestrale sur points d'acupression. Rééquilibre l'énergie et soulage les tensions. 60 min.</p><div class="soin-price">80 €</div></div>
+        <div class="soin-card"><div class="soin-icon">💆</div><h3>Hammam & Gommage</h3><p>Séance hammam privatif, gommage savon beldi, rinçage et crème corps. 75 min.</p><div class="soin-price">65 €</div></div>
+        <div class="soin-card"><div class="soin-icon">👫</div><h3>Duo Zénitude</h3><p>Soin en couple dans notre cabine duo : massage relaxant synchronisé et bain aromatique. 90 min.</p><div class="soin-price">190 €</div></div>
+        <div class="soin-card"><div class="soin-icon">🎁</div><h3>Carte cadeau</h3><p>Offrez un moment de bien-être. Cartes disponibles de 50 € à 250 €, valables 1 an.</p><div class="soin-price">Dès 50 €</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s-tarifs" style="background:linear-gradient(135deg,#f8f4fe,#ece4f8)">
+    <div class="container grid2">
+      <div>
+        <p class="section-tag">L'équipe</p>
+        <h2 class="section-title">Des thérapeutes certifiées</h2>
+        <div class="divider"></div>
+        <p style="color:var(--muted);line-height:1.7;font-size:.95rem">Amandine, Céline et Nora sont toutes diplômées en esthétique et thérapies manuelles. Formation continue annuelle pour rester à la pointe des techniques.</p>
+        <div class="stats-row" style="margin-top:1.5rem">
+          <div class="stat-box"><div class="stat-n" style="color:#5b3fa6">3</div><div class="stat-l">thérapeutes</div></div>
+          <div class="stat-box"><div class="stat-n" style="color:#5b3fa6">4.8★</div><div class="stat-l">note Google</div></div>
+          <div class="stat-box"><div class="stat-n" style="color:#5b3fa6">8 ans</div><div class="stat-l">d'expérience</div></div>
         </div>
       </div>
-    </section>
+      <div style="background:linear-gradient(135deg,#e8dff5,#d8cff2);border-radius:20px;height:300px;display:flex;align-items:center;justify-content:center;font-size:6rem">🪷</div>
+    </div>
+  </section>
 
-    <!-- Menu -->
-    <section id="menu" class="section menu-section">
-      <div class="container">
-        <h2 class="section-title reveal">Notre carte</h2>
-        <p class="section-subtitle reveal">Des recettes authentiques élaborées avec des épices d'Anatolie et des produits frais.</p>
-        <div class="menu-filters reveal">
-          <button class="filter-btn active" data-filter="all">Tout</button>
-          <button class="filter-btn" data-filter="entree">Mezzés</button>
-          <button class="filter-btn" data-filter="plat">Plats</button>
-          <button class="filter-btn" data-filter="dessert">Desserts</button>
-          <button class="filter-btn" data-filter="boisson">Boissons</button>
+  <section class="section" id="s-contact">
+    <div class="container text-center">
+      <p class="section-tag">Rendez-vous</p>
+      <h2 class="section-title">Réserver un soin</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="contact-form-wrap">
+        <div class="form-field"><label>Votre prénom</label><input type="text" placeholder="Sophie"/></div>
+        <div class="form-field"><label>Soin souhaité</label>
+          <select><option>Rituel Lotus (90 min)</option><option>Soin visage (60 min)</option><option>Massage Shiatsu (60 min)</option><option>Hammam & Gommage</option><option>Duo Zénitude</option></select>
         </div>
-        <div class="menu-grid">
-          <!-- Mezzé 1 -->
-          <div class="menu-item reveal" data-category="entree">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=600&q=80" alt="Assiette de mezzés turcs" loading="lazy" />
-              <span class="menu-badge">Populaire</span>
-            </div>
-            <div class="menu-info">
-              <h3 class="menu-title">Assiette de mezzés</h3>
-              <p class="menu-desc">Houmous maison, cacık, haydari, dolma, börek au fromage et pain pide grillé.</p>
-              <div class="menu-footer">
-                <span class="menu-price">12 €</span>
-                <span class="menu-tag">Végétarien</span>
-              </div>
-            </div>
-          </div>
-          <!-- Mezzé 2 -->
-          <div class="menu-item reveal" data-category="entree">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80" alt="Soupe de lentilles corail" loading="lazy" />
-            </div>
-            <div class="menu-info">
-              <h3 class="menu-title">Soupe mercimek</h3>
-              <p class="menu-desc">Velouté de lentilles corail aux épices, servi avec un filet de citron et paprika.</p>
-              <div class="menu-footer">
-                <span class="menu-price">7 €</span>
-                <span class="menu-tag">Vegan</span>
-              </div>
-            </div>
-          </div>
-          <!-- Plat 1 -->
-          <div class="menu-item reveal" data-category="plat">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80" alt="Adana kebab sur braise" loading="lazy" />
-              <span class="menu-badge">Spécialité</span>
-            </div>
-            <div class="menu-info">
-              <h3 class="menu-title">Adana Kebab</h3>
-              <p class="menu-desc">Brochette d'agneau haché épicé grillée au feu de bois, accompagnée de riz pilav et salade turque.</p>
-              <div class="menu-footer">
-                <span class="menu-price">18 €</span>
-              </div>
-            </div>
-          </div>
-          <!-- Plat 2 -->
-          <div class="menu-item reveal" data-category="plat">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80" alt="Iskender kebab" loading="lazy" />
-            </div>
-            <div class="menu-info">
-              <h3 class="menu-title">İskender Kebab</h3>
-              <p class="menu-desc">Döner d'agneau sur pain pide, nappé de sauce tomate et beurre clarifié, yaourt maison.</p>
-              <div class="menu-footer">
-                <span class="menu-price">20 €</span>
-              </div>
-            </div>
-          </div>
-          <!-- Plat 3 -->
-          <div class="menu-item reveal" data-category="plat">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1628191081676-8d39f06e3263?w=600&q=80" alt="Lahmacun" loading="lazy" />
-            </div>
-            <div class="menu-info">
-              <h3 class="menu-title">Lahmacun</h3>
-              <p class="menu-desc">Pizza turque fine à la viande hachée épicée, herbes fraîches, citron et salade verte.</p>
-              <div class="menu-footer">
-                <span class="menu-price">11 €</span>
-              </div>
-            </div>
-          </div>
-          <!-- Dessert 1 -->
-          <div class="menu-item reveal" data-category="dessert">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?w=600&q=80" alt="Baklava pistache" loading="lazy" />
-              <span class="menu-badge">Fait maison</span>
-            </div>
-            <div class="menu-info">
-              <h3 class="menu-title">Baklava à la pistache</h3>
-              <p class="menu-desc">Feuilles de filo croustillantes au sirop de miel et rose, garnies de pistaches de Gaziantep.</p>
-              <div class="menu-footer">
-                <span class="menu-price">6 €</span>
-              </div>
-            </div>
-          </div>
-          <!-- Boisson -->
-          <div class="menu-item reveal" data-category="boisson">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=80" alt="Thé turc çay" loading="lazy" />
-            </div>
-            <div class="menu-info">
-              <h3 class="menu-title">Çay turc & café turc</h3>
-              <p class="menu-desc">Thé noir servi dans les traditionnels verres en tulipe, ou café turc préparé à la cezve.</p>
-              <div class="menu-footer">
-                <span class="menu-price">3 €</span>
-                <span class="menu-tag">Tradition</span>
-              </div>
-            </div>
-          </div>
-          <!-- Dessert 2 -->
-          <div class="menu-item reveal" data-category="dessert">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Künefe" loading="lazy" />
-            </div>
-            <div class="menu-info">
-              <h3 class="menu-title">Künefe</h3>
-              <p class="menu-desc">Kadaïf fondant au fromage, sirop de fleur d'oranger, pistaches concassées, servi chaud.</p>
-              <div class="menu-footer">
-                <span class="menu-price">8 €</span>
-              </div>
-            </div>
-          </div>
+        <div class="form-row2">
+          <div class="form-field"><label>Date</label><input type="date"/></div>
+          <div class="form-field"><label>Heure souhaitée</label><input type="time"/></div>
+        </div>
+        <div class="form-field"><label>Téléphone</label><input type="tel" placeholder="06 00 00 00 00"/></div>
+        <button class="btn" style="background:#5b3fa6;color:#fff;align-self:center" onclick="submitForm(event,'spa-success')"><i class="fa-solid fa-calendar-check"></i> Confirmer le RDV</button>
+        <div class="form-success" id="spa-success">✓ RDV confirmé ! Vous recevrez un SMS de rappel 24h avant.</div>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer"><div class="foot-logo" style="color:#c8a8f0">Zen & Sens</div><p>18 Cours de l'Intendance, 33000 Bordeaux · contact@zen-et-sens.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
+</div>
+
+
+<!-- ============================================================
+     PAGE 4 — PRESTIGE IMMO
+     ============================================================ -->
+<div id="page-immo" class="page">
+  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
+  <nav class="site-nav">
+    <span class="logo" style="color:#1a3a5c">Prestige Immo</span>
+    <ul>
+      <li><a href="#i-biens">Nos biens</a></li>
+      <li><a href="#i-services">Services</a></li>
+      <li><a href="#i-contact">Contact</a></li>
+    </ul>
+    <a href="#i-contact" class="nav-btn" style="background:#1a3a5c">Estimation gratuite</a>
+  </nav>
+
+  <section class="sub-page-hero" id="i-hero">
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#edf4fc,#d6e8f5)"></div>
+    <div class="inner">
+      <p class="section-tag">Lyon & Métropole · Immobilier de prestige</p>
+      <h1 style="color:#1a3a5c">Votre bien d'exception,<br><em style="color:var(--gold);font-style:italic">notre expertise</em></h1>
+      <p style="color:#3a5a78">Vente, achat et gestion locative de biens haut de gamme. Plus de 15 ans au service de votre patrimoine.</p>
+      <div class="hero-btns">
+        <a href="#i-biens" class="btn btn-primary" style="background:#1a3a5c">Voir les biens</a>
+        <a href="#i-contact" class="btn btn-outline" style="color:#1a3a5c;border-color:#1a3a5c">Estimation gratuite</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="i-biens">
+    <div class="container">
+      <p class="section-tag">Biens disponibles</p>
+      <h2 class="section-title">Sélection du moment</h2>
+      <div class="divider"></div>
+      <div class="biens-grid">
+        <div class="bien-card"><div class="bien-img">🏡</div><div class="bien-body"><span class="bien-badge badge-vente">À vendre</span><h3>Villa contemporaine — Écully</h3><p>5 pièces · 220 m² · Piscine · Vue dégagée sur la métropole lyonnaise</p><div class="bien-price">1 290 000 €</div><div class="bien-specs"><span>🛏️ 4 ch.</span><span>🚿 3 sdb</span><span>🚗 Garage</span></div></div></div>
+        <div class="bien-card"><div class="bien-img">🏢</div><div class="bien-body"><span class="bien-badge badge-loc">À louer</span><h3>Appartement Bellecour — Centre</h3><p>3 pièces · 95 m² · Parquet ancien · Lumineux · Gardien</p><div class="bien-price">2 100 € / mois</div><div class="bien-specs"><span>🛏️ 2 ch.</span><span>🚿 1 sdb</span><span>🌆 Vue</span></div></div></div>
+        <div class="bien-card"><div class="bien-img">🏠</div><div class="bien-body"><span class="bien-badge badge-vente">À vendre</span><h3>Maison de maître — Limonest</h3><p>7 pièces · 380 m² · Parc 2000 m² · Dépendances</p><div class="bien-price">2 450 000 €</div><div class="bien-specs"><span>🛏️ 5 ch.</span><span>🚿 4 sdb</span><span>🌳 Parc</span></div></div></div>
+        <div class="bien-card"><div class="bien-img">🏗️</div><div class="bien-body"><span class="bien-badge badge-vente">Neuf</span><h3>Penthouse — Part-Dieu</h3><p>4 pièces · 160 m² · Grande terrasse · Rooftop privatif · Cave</p><div class="bien-price">890 000 €</div><div class="bien-specs"><span>🛏️ 3 ch.</span><span>🚿 2 sdb</span><span>🌇 Terrasse</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="i-services" style="background:#edf4fc">
+    <div class="container text-center">
+      <p class="section-tag">Nos services</p>
+      <h2 class="section-title">Un accompagnement complet</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="serv-grid" style="margin-top:2rem">
+        <div class="serv-card" style="background:#1a3a5c;border-color:rgba(255,255,255,.1)"><div class="serv-icon">🏠</div><h3>Transaction</h3><p style="color:rgba(255,255,255,.55)">Achat et vente de biens résidentiels et commerciaux. Accompagnement complet de A à Z.</p></div>
+        <div class="serv-card" style="background:#1a3a5c;border-color:rgba(255,255,255,.1)"><div class="serv-icon">📊</div><h3>Estimation</h3><p style="color:rgba(255,255,255,.55)">Évaluation précise de votre bien par nos experts du marché lyonnais. Gratuit et sans engagement.</p></div>
+        <div class="serv-card" style="background:#1a3a5c;border-color:rgba(255,255,255,.1)"><div class="serv-icon">🗝️</div><h3>Gestion locative</h3><p style="color:rgba(255,255,255,.55)">Gestion complète de vos biens en location : recherche de locataires, états des lieux, loyers.</p></div>
+        <div class="serv-card" style="background:#1a3a5c;border-color:rgba(255,255,255,.1)"><div class="serv-icon">⚖️</div><h3>Conseil juridique</h3><p style="color:rgba(255,255,255,.55)">Partenariat avec notaires et avocats spécialisés pour sécuriser chaque transaction.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="i-contact">
+    <div class="container text-center">
+      <p class="section-tag">Contact</p>
+      <h2 class="section-title">Demande d'estimation gratuite</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="contact-form-wrap">
+        <div class="form-row2">
+          <div class="form-field"><label>Prénom & Nom</label><input type="text" placeholder="Jean Dupont"/></div>
+          <div class="form-field"><label>Téléphone</label><input type="tel" placeholder="06 00 00 00 00"/></div>
+        </div>
+        <div class="form-field"><label>Type de bien</label><select><option>Appartement</option><option>Maison / Villa</option><option>Terrain</option><option>Local commercial</option></select></div>
+        <div class="form-field"><label>Description rapide</label><textarea rows="3" placeholder="Surface, localisation, état général…"></textarea></div>
+        <button class="btn" style="background:#1a3a5c;color:#fff;align-self:center" onclick="submitForm(event,'immo-success')"><i class="fa-solid fa-house"></i> Demander une estimation</button>
+        <div class="form-success" id="immo-success">✓ Demande enregistrée ! Un conseiller vous contacte sous 24h.</div>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer"><div class="foot-logo" style="color:#6a9fcf">Prestige Immo</div><p>Place Bellecour, 69002 Lyon · contact@prestige-immo.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
+</div>
+
+
+<!-- ============================================================
+     PAGE 5 — COACH ELITE
+     ============================================================ -->
+<div id="page-coach" class="page">
+  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
+  <nav class="site-nav">
+    <span class="logo" style="color:#1a4a3a">Coach Élite</span>
+    <ul>
+      <li><a href="#c-methode">Méthode</a></li>
+      <li><a href="#c-formules">Formules</a></li>
+      <li><a href="#c-contact">Démarrer</a></li>
+    </ul>
+    <a href="#c-contact" class="nav-btn" style="background:#1a4a3a">Séance découverte</a>
+  </nav>
+
+  <section class="sub-page-hero" id="c-hero">
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#e8f5ee,#d5ece0)"></div>
+    <div class="inner">
+      <p class="section-tag" style="color:var(--gold)">Strasbourg · Coach Business & Leadership</p>
+      <h1 style="color:#1a4a3a">Débloquez votre<br><em style="color:var(--gold);font-style:italic">plein potentiel</em></h1>
+      <p style="color:#2a6a4a">Coaching individuel et collectif pour dirigeants, managers et entrepreneurs qui veulent passer au niveau supérieur.</p>
+      <div class="hero-btns">
+        <a href="#c-formules" class="btn btn-primary" style="background:#1a4a3a">Voir les formules</a>
+        <a href="#c-contact" class="btn btn-outline" style="color:#1a4a3a;border-color:#1a4a3a">Séance gratuite</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="c-methode" style="background:var(--cream2)">
+    <div class="container grid2">
+      <div style="background:linear-gradient(135deg,#c5e4d0,#a8d4b8);border-radius:20px;height:300px;display:flex;align-items:center;justify-content:center;font-size:6rem">🎯</div>
+      <div>
+        <p class="section-tag">La méthode</p>
+        <h2 class="section-title">CLEAR : 5 étapes vers l'excellence</h2>
+        <div class="divider"></div>
+        <div style="display:flex;flex-direction:column;gap:.8rem;margin-top:1rem">
+          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">C</div><div><strong style="color:#1a4a3a">Clarifier</strong> — Définir vos objectifs précis et vos valeurs profondes</div></div>
+          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">L</div><div><strong style="color:#1a4a3a">Libérer</strong> — Identifier et dépasser les croyances limitantes</div></div>
+          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">E</div><div><strong style="color:#1a4a3a">Engager</strong> — Construire un plan d'action concret et mesurable</div></div>
+          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">A</div><div><strong style="color:#1a4a3a">Ancrer</strong> — Développer des habitudes de performance durables</div></div>
+          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">R</div><div><strong style="color:#1a4a3a">Rayonner</strong> — Incarner le leadership et inspirer votre entourage</div></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Journey -->
-    <section id="journey" class="section journey-section">
-      <div class="container journey-container">
-        <h2 class="section-title reveal">De la Turquie à votre assiette</h2>
-        <p class="section-subtitle reveal" style="margin:0 auto 52px;">Du grand bazar d'Istanbul aux fourneaux de Morteau, découvrez comment nous preservons l'authenticité de chaque saveur.</p>
-        <div class="journey-steps">
-          <div class="journey-step reveal">
-            <span class="journey-icon">🌿</span>
-            <h3>Épices d'Anatolie</h3>
-            <p>Nos épices sont importées directement de producteurs turcs de confiance : sumac, zaatar, piment d'Urfa, cannelle de Ceylan…</p>
-          </div>
-          <div class="journey-step reveal">
-            <span class="journey-icon">🔥</span>
-            <h3>Cuisson au feu de bois</h3>
-            <p>Nos grillades sont préparées sur braises selon les méthodes traditionnelles, apportant ce goût unique et fumé caractéristique.</p>
-          </div>
-          <div class="journey-step reveal">
-            <span class="journey-icon">🍽️</span>
-            <h3>L'art du mezzé</h3>
-            <p>La table turque se partage. Nos plats sont pensés pour être savourés ensemble, dans la tradition du repas convivial ottoman.</p>
-          </div>
+  <section class="section" id="c-formules">
+    <div class="container text-center">
+      <p class="section-tag">Tarifs</p>
+      <h2 class="section-title">Choisissez votre formule</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="formules-grid" style="max-width:900px;margin:2.5rem auto 0">
+        <div class="formule-card">
+          <h3>Starter</h3>
+          <p style="color:var(--muted);font-size:.85rem">Pour démarrer votre transformation</p>
+          <div class="formule-price">490 €<span> / mois</span></div>
+          <ul class="formule-list">
+            <li>2 séances individuelles / mois</li>
+            <li>Support WhatsApp en semaine</li>
+            <li>Bilan mensuel écrit</li>
+            <li>Accès ressources en ligne</li>
+          </ul>
+          <button class="btn btn-outline" style="color:#1a4a3a;border-color:#1a4a3a;width:100%;justify-content:center" onclick="scrollTo({top:document.getElementById('c-contact').offsetTop-60,behavior:'smooth'})">Choisir Starter</button>
+        </div>
+        <div class="formule-card featured">
+          <div class="featured-badge">⭐ Le plus choisi</div>
+          <h3>Élite</h3>
+          <p style="color:var(--muted);font-size:.85rem">L'accompagnement complet</p>
+          <div class="formule-price">890 €<span> / mois</span></div>
+          <ul class="formule-list">
+            <li>4 séances individuelles / mois</li>
+            <li>Support illimité 7j/7</li>
+            <li>Bilan hebdomadaire</li>
+            <li>Atelier groupe mensuel</li>
+            <li>Programme personnalisé</li>
+          </ul>
+          <button class="btn btn-primary" style="background:#1a4a3a;width:100%;justify-content:center" onclick="scrollTo({top:document.getElementById('c-contact').offsetTop-60,behavior:'smooth'})">Choisir Élite</button>
+        </div>
+        <div class="formule-card">
+          <h3>Équipe</h3>
+          <p style="color:var(--muted);font-size:.85rem">Pour vos équipes managériales</p>
+          <div class="formule-price">Sur devis</div>
+          <ul class="formule-list">
+            <li>Séances collectives mensuelles</li>
+            <li>Coaching individuel des managers</li>
+            <li>Audit culture d'entreprise</li>
+            <li>Plan de transformation sur 6 mois</li>
+          </ul>
+          <button class="btn btn-outline" style="color:#1a4a3a;border-color:#1a4a3a;width:100%;justify-content:center" onclick="scrollTo({top:document.getElementById('c-contact').offsetTop-60,behavior:'smooth'})">Demander un devis</button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="section gallery-section">
-      <div class="container">
-        <h2 class="section-title reveal">Galerie</h2>
-        <p class="section-subtitle reveal">L'ambiance, les plats et les instants du Kiz Kulesi.</p>
-        <div class="gallery-grid reveal">
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=80" alt="Ambiance restaurant turc" loading="lazy" />
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80" alt="Kebab grillé" loading="lazy" />
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=600&q=80" alt="Mezzés variés" loading="lazy" />
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?w=600&q=80" alt="Baklava" loading="lazy" />
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=80" alt="Thé turc" loading="lazy" />
-          </div>
+  <section class="section" id="c-contact" style="background:var(--cream2)">
+    <div class="container text-center">
+      <p class="section-tag">Séance découverte</p>
+      <h2 class="section-title">30 min offertes — sans engagement</h2>
+      <div class="divider" style="margin:.8rem auto 0"></div>
+      <div class="contact-form-wrap">
+        <div class="form-field"><label>Votre prénom & nom</label><input type="text" placeholder="Alexandre Martin"/></div>
+        <div class="form-field"><label>Email professionnel</label><input type="email" placeholder="a.martin@entreprise.fr"/></div>
+        <div class="form-field"><label>Votre situation actuelle</label><select><option>Dirigeant / CEO</option><option>Manager / cadre</option><option>Entrepreneur</option><option>En transition professionnelle</option><option>Autre</option></select></div>
+        <div class="form-field"><label>Votre principal défi en ce moment</label><textarea rows="3" placeholder="Décrivez en quelques mots ce sur quoi vous souhaitez travailler…"></textarea></div>
+        <button class="btn" style="background:#1a4a3a;color:#fff;align-self:center" onclick="submitForm(event,'coach-success')"><i class="fa-solid fa-rocket"></i> Réserver ma séance gratuite</button>
+        <div class="form-success" id="coach-success">✓ Demande reçue ! Je vous contacte sous 48h pour planifier votre séance.</div>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer"><div class="foot-logo" style="color:#7fc49a">Coach Élite</div><p>Strasbourg · contact@coach-elite.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
+</div>
+
+
+<!-- ============================================================
+     PAGE 6 — STUDIO LUMIÈRE
+     ============================================================ -->
+<div id="page-photo" class="page">
+  <button class="back-btn" onclick="showPage('page-home')" style="background:#2a2a2a;border-color:#444;color:#fff"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
+  <nav class="site-nav" style="background:rgba(20,20,20,.95);border-color:rgba(255,255,255,.08)">
+    <span class="logo" style="color:#fff">Studio <span style="color:var(--gold)">Lumière</span></span>
+    <ul>
+      <li><a href="#p-galerie" style="color:rgba(255,255,255,.75)">Portfolio</a></li>
+      <li><a href="#p-prestations" style="color:rgba(255,255,255,.75)">Prestations</a></li>
+      <li><a href="#p-contact" style="color:rgba(255,255,255,.75)">Contact</a></li>
+    </ul>
+    <a href="#p-contact" class="nav-btn" style="background:var(--gold)">Réserver</a>
+  </nav>
+
+  <section class="sub-page-hero" id="p-hero" style="background:#1c1c1c">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(212,168,74,.08),transparent)"></div>
+    <div class="inner">
+      <p class="section-tag">Nantes · Photographe mariage & corporate</p>
+      <h1 style="color:#fff">Chaque image,<br><em style="color:var(--gold);font-style:italic">une émotion éternelle</em></h1>
+      <p style="color:rgba(255,255,255,.6)">15 ans d'expérience, 400+ mariages immortalisés. Des images qui racontent votre histoire avec élégance et authenticité.</p>
+      <div class="hero-btns">
+        <a href="#p-galerie" class="btn btn-primary" style="background:var(--gold)">Voir le portfolio</a>
+        <a href="#p-contact" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)">Me contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="p-galerie" style="background:#141414">
+    <div class="container text-center">
+      <p class="section-tag">Portfolio</p>
+      <h2 class="section-title" style="color:#fff">Quelques moments capturés</h2>
+      <div class="divider" style="background:var(--gold);margin:.8rem auto 0"></div>
+      <div class="galerie-grid" style="margin-top:2rem">
+        <div class="galerie-item" style="background:linear-gradient(135deg,#2a2014,#3a3020)">💍</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#1a2014,#2a3020)">🌿</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#201420,#302030)">👰</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#142020,#203030)">🏙️</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#2a1a14,#3a2a1a)">🎊</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#1a2a20,#2a3a28)">🌸</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#20141a,#302028)">🤵</div>
+        <div class="galerie-item" style="background:linear-gradient(135deg,#14201a,#203028)">🕯️</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="p-prestations">
+    <div class="container">
+      <div class="text-center">
+        <p class="section-tag">Prestations</p>
+        <h2 class="section-title">Ce que je propose</h2>
+        <div class="divider" style="background:var(--gold);margin:.8rem auto 0"></div>
+      </div>
+      <div class="prestations-grid" style="margin-top:2.5rem">
+        <div class="prestation-card"><h3>Reportage Mariage</h3><p>Journée complète de 9h à minuit. 500+ photos retouchées, galerie privée en ligne sous 4 semaines.</p><div class="prestation-price">2 200 €</div></div>
+        <div class="prestation-card"><h3>Séance couple / Famille</h3><p>2h en extérieur ou en studio. 80 photos retouchées, livraison sous 10 jours.</p><div class="prestation-price">350 €</div></div>
+        <div class="prestation-card"><h3>Corporate & Événements</h3><p>Portraits professionnels, conférences, séminaires. Tarif à la demi-journée ou journée complète.</p><div class="prestation-price">Dès 490 €</div></div>
+        <div class="prestation-card"><h3>Photo culinaire</h3><p>Spécialité restauration : mise en scène, éclairage studio et retouche haut de gamme.</p><div class="prestation-price">Dès 390 €</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="p-contact" style="background:#1c1c1c">
+    <div class="container text-center">
+      <p class="section-tag">Contact</p>
+      <h2 class="section-title" style="color:#fff">Parlons de votre projet photo</h2>
+      <div class="divider" style="background:var(--gold);margin:.8rem auto 0"></div>
+      <div class="contact-form-wrap">
+        <div class="form-row2">
+          <div class="form-field"><label style="color:rgba(255,255,255,.6)">Prénom & Nom</label><input type="text" placeholder="Léa & Thomas" style="background:#2a2a2a;border-color:#444;color:#fff"/></div>
+          <div class="form-field"><label style="color:rgba(255,255,255,.6)">Type de prestation</label><select style="background:#2a2a2a;border-color:#444;color:#fff"><option>Mariage</option><option>Couple / Famille</option><option>Corporate</option><option>Photo culinaire</option></select></div>
         </div>
-        <!-- Lightbox -->
-        <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
-          <span id="lightbox-close" class="lightbox-close">×</span>
-          <img id="lightbox-img" src="" alt="Vue agrandie" />
+        <div class="form-field"><label style="color:rgba(255,255,255,.6)">Date souhaitée</label><input type="date" style="background:#2a2a2a;border-color:#444;color:#fff"/></div>
+        <div class="form-field"><label style="color:rgba(255,255,255,.6)">Votre message</label><textarea rows="4" placeholder="Parlez-moi de votre projet…" style="background:#2a2a2a;border-color:#444;color:#fff"></textarea></div>
+        <button class="btn" style="background:var(--gold);color:#fff;align-self:center" onclick="submitForm(event,'photo-success')"><i class="fa-solid fa-camera"></i> Envoyer ma demande</button>
+        <div class="form-success" id="photo-success" style="background:#2a3a2a">✓ Message reçu ! Je vous réponds sous 48h.</div>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer"><div class="foot-logo" style="color:var(--gold)">Studio Lumière</div><p>Nantes · contact@studio-lumiere.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
+</div>
+
+
+<!-- ============================================================
+     PAGE 7 — BIODELIGHT (style original)
+     ============================================================ -->
+<div id="page-bio" class="page">
+  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
+  <nav class="site-nav">
+    <span class="logo" style="color:#2d5a2d">BioDelight</span>
+    <ul>
+      <li><a href="#bio-menu">Menu</a></li>
+      <li><a href="#bio-journey">Notre histoire</a></li>
+      <li><a href="#bio-contact">Réserver</a></li>
+    </ul>
+    <a href="#bio-contact" class="nav-btn" style="background:#2d5a2d">Réserver</a>
+  </nav>
+
+  <section class="sub-page-hero" id="bio-hero">
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#f0f5eb,#e4f0e4)"></div>
+    <div class="inner">
+      <p class="section-tag" style="color:#c4703a">Valentigney · Restaurant Farm-to-Table</p>
+      <h1 style="color:#2d5a2d">Une expérience <em style="color:#c4703a;font-style:italic">farm‑to‑table</em><br>authentique</h1>
+      <p style="color:#4a7a4a">Savourez des ingrédients biologiques fraîchement cueillis et des plats innovants préparés avec amour et respect du vivant.</p>
+      <div class="hero-btns">
+        <a href="#bio-menu" class="btn btn-primary" style="background:#2d5a2d">Explorer le menu</a>
+        <a href="#bio-contact" class="btn btn-outline" style="color:#2d5a2d;border-color:#2d5a2d">Réserver une table</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="bio-about" style="background:var(--cream2)">
+    <div class="container grid2">
+      <div>
+        <p class="section-tag" style="color:#c4703a">Notre histoire</p>
+        <h2 class="section-title" style="color:#2d5a2d">Depuis plus de 20 ans,<br>le goût du vrai</h2>
+        <div class="divider" style="background:#c4703a"></div>
+        <p style="color:var(--muted);line-height:1.7;font-size:.95rem">Nous cultivons notre propre potager et sélectionnons des produits bio issus de fermes locales. Notre passion est d'offrir une expérience culinaire saine et savoureuse, en respectant la planète et le rythme des saisons.</p>
+        <div class="stats-row" style="margin-top:1.5rem">
+          <div class="stat-box"><div class="stat-n" style="color:#2d5a2d">20+</div><div class="stat-l">ans de savoir-faire</div></div>
+          <div class="stat-box"><div class="stat-n" style="color:#2d5a2d">150</div><div class="stat-l">ingrédients cultivés</div></div>
+          <div class="stat-box"><div class="stat-n" style="color:#2d5a2d">5000</div><div class="stat-l">clients satisfaits</div></div>
         </div>
       </div>
-    </section>
+      <div style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0);border-radius:20px;height:300px;display:flex;align-items:center;justify-content:center;font-size:6rem">🥗</div>
+    </div>
+  </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="section testimonials-section">
-      <div class="container">
-        <h2 class="section-title reveal">Ce qu'ils en disent</h2>
-        <p class="section-subtitle reveal" style="margin:0 auto 44px;">Les avis de nos clients sont notre plus belle récompense.</p>
-        <div class="testimonial-slider" id="testimonialSlider">
-          <div class="testimonial-item active">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">« Un vrai voyage culinaire sans quitter Morteau ! Le döner et le baklava sont exceptionnels. Service chaleureux, on se sent comme en famille. »</p>
-            <h4 class="testimonial-author">Marie-Claire B. — Morteau</h4>
-          </div>
-          <div class="testimonial-item">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">« Les mezzés sont généreux et savoureux, l'Adana kebab est le meilleur que j'aie mangé en dehors de Istanbul. Incontournable dans la région. »</p>
-            <h4 class="testimonial-author">Thomas K. — Pontarlier</h4>
-          </div>
-          <div class="testimonial-item">
-            <div class="stars">★★★★☆</div>
-            <p class="testimonial-text">« Ambiance authentique et chaleureuse, plats généreux. Le künefe chaud au miel est une révélation. On reviendra très bientôt ! »</p>
-            <h4 class="testimonial-author">Sophie & Antoine — Besançon</h4>
-          </div>
-        </div>
-        <div class="testimonial-dots" id="testimonialDots"></div>
+  <section class="section" id="bio-menu">
+    <div class="container">
+      <div class="text-center">
+        <p class="section-tag" style="color:#c4703a">La carte</p>
+        <h2 class="section-title" style="color:#2d5a2d">Notre menu de saison</h2>
+        <div class="divider" style="background:#c4703a;margin:.8rem auto 0"></div>
       </div>
-    </section>
-
-    <!-- Team -->
-    <section id="team" class="section team-section">
-      <div class="container">
-        <h2 class="section-title reveal">Notre équipe</h2>
-        <p class="section-subtitle reveal">Des passionnés qui mettent tout leur cœur pour vous faire voyager.</p>
-        <div class="team-grid">
-          <div class="team-card reveal">
-            <div class="team-image">
-              <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&q=80" alt="Chef cuisinier" loading="lazy" />
-            </div>
-            <div class="team-info">
-              <h3>Mehmet Yilmaz</h3>
-              <span class="team-role">Chef exécutif</span>
-              <p class="team-bio">Originaire d'Ankara, Mehmet a perfectionné son art dans les grandes tables d'Istanbul avant de s'établir à Morteau pour partager sa passion.</p>
-              <div class="team-socials">
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-card reveal">
-            <div class="team-image">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" alt="Responsable salle" loading="lazy" />
-            </div>
-            <div class="team-info">
-              <h3>Leyla Demir</h3>
-              <span class="team-role">Responsable de salle</span>
-              <p class="team-bio">Avec sa bienveillance naturelle et sa maîtrise de l'hospitalité turque, Leyla s'assure que chaque client vive une expérience mémorable.</p>
-              <div class="team-socials">
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-card reveal">
-            <div class="team-image">
-              <img src="https://images.unsplash.com/photo-1590422749897-47726d5fdcbc?w=600&q=80" alt="Pâtissier" loading="lazy" />
-            </div>
-            <div class="team-info">
-              <h3>Ahmet Öztürk</h3>
-              <span class="team-role">Maître pâtissier</span>
-              <p class="team-bio">Spécialisé dans les douceurs ottomanes, Ahmet prépare chaque jour baklavas et künefe selon des recettes familiales transmises depuis trois générations.</p>
-              <div class="team-socials">
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="menu-grid" style="margin-top:2.5rem">
+        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🥗</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Salade croquante de saison</h3><p>Mélange de jeunes pousses, crudités bio et vinaigrette maison aux herbes.</p><div class="price" style="color:#c4703a">8 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🥣</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Bowl énergisant</h3><p>Quinoa, pois chiches grillés, légumes rôtis et sauce tahini citronnée.</p><div class="price" style="color:#c4703a">14 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🍵</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Soupe du marché</h3><p>Velouté de légumes de saison, servi avec pain artisanal aux céréales.</p><div class="price" style="color:#c4703a">7 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🍰</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Tarte aux fruits</h3><p>Pâte sablée, crème légère et assortiment de fruits frais du verger.</p><div class="price" style="color:#c4703a">6 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🥤</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Smoothie vert détox</h3><p>Mix d'épinards, banane, pomme, gingembre et graines de chia.</p><div class="price" style="color:#c4703a">5 €</div></div></div>
+        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🫙</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Bol quinoa & légumes</h3><p>Quinoa bio, avocat, légumes croquants, jeunes pois et sauce soja-sésame.</p><div class="price" style="color:#c4703a">12 €</div></div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Blog -->
-    <section id="blog" class="section blog-section">
-      <div class="container">
-        <h2 class="section-title reveal">Blog & actualités</h2>
-        <p class="section-subtitle reveal">Recettes, culture culinaire turque et nouvelles du restaurant.</p>
-        <div class="blog-grid">
-          <article class="blog-post reveal">
-            <div class="blog-image">
-              <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=600&q=80" alt="Les secrets des mezzés" loading="lazy" />
-            </div>
-            <div class="blog-content">
-              <span class="blog-date">10 avril 2026</span>
-              <h3 class="blog-title">Les secrets des mezzés turcs</h3>
-              <p class="blog-excerpt">Le mezzé n'est pas qu'une simple entrée, c'est tout un art de vivre. Découvrez comment préparer houmous et cacık chez vous, à la manière ottomane.</p>
-              <a href="#" class="read-more">Lire la suite <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="blog-post reveal">
-            <div class="blog-image">
-              <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=80" alt="Culture du thé en Turquie" loading="lazy" />
-            </div>
-            <div class="blog-content">
-              <span class="blog-date">15 mars 2026</span>
-              <h3 class="blog-title">Le çay, âme de la Turquie</h3>
-              <p class="blog-excerpt">En Turquie, le thé se boit du matin au soir. On vous explique tout sur le rituel du çay, son histoire et les secrets d'une bonne préparation.</p>
-              <a href="#" class="read-more">Lire la suite <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="blog-post reveal">
-            <div class="blog-image">
-              <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?w=600&q=80" alt="Baklava maison" loading="lazy" />
-            </div>
-            <div class="blog-content">
-              <span class="blog-date">20 février 2026</span>
-              <h3 class="blog-title">Interview : Ahmet et l'art du baklava</h3>
-              <p class="blog-excerpt">Gestes précis, patience et amour du détail : notre pâtissier Ahmet dévoile les coulisses de la préparation de son baklava signature.</p>
-              <a href="#" class="read-more">Lire la suite <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
+  <section class="section" id="bio-journey" style="background:var(--cream2)">
+    <div class="container text-center">
+      <p class="section-tag" style="color:#c4703a">Du champ à l'assiette</p>
+      <h2 class="section-title" style="color:#2d5a2d">Le voyage de nos ingrédients</h2>
+      <div class="divider" style="background:#c4703a;margin:.8rem auto 0"></div>
+      <div class="serv-grid" style="margin-top:2.5rem;--green:#2d5a2d">
+        <div class="serv-card" style="background:#2d5a2d;border-color:rgba(255,255,255,.1)"><div class="serv-icon" style="background:rgba(196,112,58,.2)">🌱</div><h3>À la ferme</h3><p style="color:rgba(255,255,255,.65)">Nos légumes bio poussent dans nos potagers et chez nos agriculteurs partenaires, sans pesticides.</p></div>
+        <div class="serv-card" style="background:#2d5a2d;border-color:rgba(255,255,255,.1)"><div class="serv-icon" style="background:rgba(196,112,58,.2)">🛒</div><h3>Marchés locaux</h3><p style="color:rgba(255,255,255,.65)">Chaque matin, nous sélectionnons les meilleurs produits. Nous privilégions les circuits courts.</p></div>
+        <div class="serv-card" style="background:#2d5a2d;border-color:rgba(255,255,255,.1)"><div class="serv-icon" style="background:rgba(196,112,58,.2)">🍽️</div><h3>En cuisine</h3><p style="color:rgba(255,255,255,.65)">Notre chef transforme ces trésors en plats savoureux, équilibrés et créatifs.</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Reservation -->
-    <section id="reservation" class="section reservation-section">
-      <div class="container">
-        <h2 class="section-title">Réservation</h2>
-        <p class="section-subtitle">Réservez votre table en quelques clics. Nous serons ravis de vous accueillir !</p>
-        <div id="reservationSuccess">
-          <i class="fa-solid fa-circle-check" style="font-size:2.5rem;display:block;margin-bottom:12px;"></i>
-          Merci pour votre réservation ! Nous vous confirmerons par email très prochainement.
+  <section class="section" id="bio-contact">
+    <div class="container text-center">
+      <p class="section-tag" style="color:#c4703a">Réservation</p>
+      <h2 class="section-title" style="color:#2d5a2d">Réserver une table</h2>
+      <div class="divider" style="background:#c4703a;margin:.8rem auto 0"></div>
+      <div class="contact-form-wrap">
+        <div class="form-row2">
+          <div class="form-field"><label>Nom complet</label><input type="text" placeholder="Claire Dupont"/></div>
+          <div class="form-field"><label>Personnes</label><input type="number" min="1" max="20" placeholder="2"/></div>
         </div>
-        <form id="reservationForm" class="reservation-form" novalidate>
-          <div class="form-group">
-            <label for="resName">Nom complet <span>*</span></label>
-            <input type="text" id="resName" name="resName" placeholder="Jean Dupont" required />
-            <div class="invalid-feedback">Merci d'indiquer votre nom.</div>
-          </div>
-          <div class="form-group">
-            <label for="resEmail">Email <span>*</span></label>
-            <input type="email" id="resEmail" name="resEmail" placeholder="jean@exemple.fr" required />
-            <div class="invalid-feedback">Adresse email invalide.</div>
-          </div>
-          <div class="form-group">
-            <label for="resPhone">Téléphone</label>
-            <input type="tel" id="resPhone" name="resPhone" placeholder="06 00 00 00 00" />
-          </div>
-          <div class="form-group">
-            <label for="resGuests">Nombre de personnes <span>*</span></label>
-            <input type="number" id="resGuests" name="resGuests" min="1" max="20" placeholder="2" required />
-            <div class="invalid-feedback">Indiquez le nombre de convives.</div>
-          </div>
-          <div class="form-group">
-            <label for="resDate">Date <span>*</span></label>
-            <input type="date" id="resDate" name="resDate" required />
-            <div class="invalid-feedback">Choisissez une date.</div>
-          </div>
-          <div class="form-group">
-            <label for="resTime">Heure <span>*</span></label>
-            <input type="time" id="resTime" name="resTime" required />
-            <div class="invalid-feedback">Choisissez une heure.</div>
-          </div>
-          <div class="form-group full">
-            <label for="resMessage">Message / allergies</label>
-            <textarea id="resMessage" name="resMessage" rows="3" placeholder="Occasion spéciale, allergies alimentaires…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold"><i class="fa-solid fa-paper-plane"></i> Envoyer la demande</button>
-        </form>
+        <div class="form-row2">
+          <div class="form-field"><label>Date</label><input type="date"/></div>
+          <div class="form-field"><label>Heure</label><input type="time"/></div>
+        </div>
+        <div class="form-field"><label>Email</label><input type="email" placeholder="claire@email.fr"/></div>
+        <div class="form-field"><label>Message (allergies, occasions…)</label><textarea rows="3" placeholder="Précisez toute demande particulière…"></textarea></div>
+        <button class="btn" style="background:#2d5a2d;color:#fff;align-self:center" onclick="submitForm(event,'bio-success')"><i class="fa-solid fa-seedling"></i> Confirmer la réservation</button>
+        <div class="form-success" id="bio-success">✓ Réservation confirmée ! À très bientôt au BioDelight Bistro.</div>
       </div>
-    </section>
+      <p style="margin-top:1.5rem;color:var(--muted);font-size:.9rem">📍 123 Rue des Saveurs, 25700 Valentigney · <a href="tel:+33381000000" style="color:#2d5a2d">03 81 00 00 00</a></p>
+    </div>
+  </section>
+  <footer class="site-footer"><div class="foot-logo" style="color:#7ab87a">BioDelight Bistro</div><p>123 Rue des Saveurs, 25700 Valentigney · contact@biodelight.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
+</div>
 
-    <!-- Contact -->
-    <section id="contact" class="section contact-section">
-      <div class="container contact-container">
-        <div class="contact-info reveal">
-          <h2 class="section-title">Contact</h2>
-          <p>
-            <i class="fa-solid fa-location-dot" style="color:var(--primary);margin-right:8px;"></i>14 Rue Pasteur, 25500 Morteau<br />
-            <i class="fa-solid fa-phone" style="color:var(--primary);margin-right:8px;"></i><a href="tel:+33381670000">+33 3 81 67 00 00</a><br />
-            <i class="fa-solid fa-envelope" style="color:var(--primary);margin-right:8px;"></i><a href="mailto:contact@kizkuleisi-morteau.fr">contact@kizkuleisi-morteau.fr</a>
-          </p>
-          <p class="opening-hours">
-            <strong>Horaires d'ouverture</strong><br />
-            Mar–Sam : 11h30 – 14h00 · 18h30 – 22h30<br />
-            Dim : 12h00 – 15h00<br />
-            Lun : Fermé
-          </p>
-          <div class="social-links">
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
-          </div>
-        </div>
-        <div class="contact-map reveal">
-          <iframe
-            title="Kiz Kulesi Restaurant – Morteau"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2718.9!2d6.601!3d47.065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479199a0b0000001%3A0x1!2sMorteau%2C%20France!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
-            width="100%" height="380"
-            style="border:0" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer">
-      <div class="container footer-container">
-        <div class="footer-logo">☽ Kiz Kulesi</div>
-        <div class="footer-links">
-          <a href="#hero">Accueil</a>
-          <a href="#about">À propos</a>
-          <a href="#menu">Menu</a>
-          <a href="#gallery">Galerie</a>
-          <a href="#team">Équipe</a>
-          <a href="#blog">Blog</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-divider"></div>
-        <div class="newsletter">
-          <h4>Newsletter</h4>
-          <form id="newsletterForm" class="newsletter-form" novalidate>
-            <input type="email" id="newsletterEmail" placeholder="Votre adresse email" required />
-            <button type="submit" class="btn btn-secondary">S'abonner</button>
-          </form>
-        </div>
-        <p class="footer-copy">© 2026 Kiz Kulesi Restaurant — Morteau. Tous droits réservés.</p>
-      </div>
-    </footer>
-
-    <script>
-    // ---- Preloader ----
-    window.addEventListener('load', () => {
-      const p = document.getElementById('preloader');
-      p.classList.add('fade-out');
-      setTimeout(() => p.remove(), 700);
-    });
-
-    // ---- Dark mode ----
-    const darkBtn = document.getElementById('darkToggle');
-    const root = document.documentElement;
-    let dark = localStorage.getItem('kizDark') === '1';
-    const applyDark = () => {
-      root.setAttribute('data-theme', dark ? 'dark' : '');
-      darkBtn.innerHTML = dark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-    };
-    applyDark();
-    darkBtn.addEventListener('click', () => { dark = !dark; localStorage.setItem('kizDark', dark ? '1' : '0'); applyDark(); });
-
-    // ---- Header scroll ----
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 60);
-      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
-    });
-    document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // ---- Mobile nav ----
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navigation-menu');
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
-    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navToggle.classList.remove('open');
-      navMenu.classList.remove('open');
-    }));
-
-    // ---- Menu filters ----
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.menu-item').forEach(item => {
-          if (filter === 'all' || item.dataset.category === filter) {
-            item.classList.remove('hidden-item');
-          } else {
-            item.classList.add('hidden-item');
-          }
-        });
-      });
-    });
-
-    // ---- Lightbox ----
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const src = item.querySelector('img').src;
-        lbImg.src = src;
-        lightbox.classList.remove('hidden');
-      });
-    });
-    document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.add('hidden'));
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.add('hidden'); });
-
-    // ---- Testimonial slider ----
-    const items = document.querySelectorAll('.testimonial-item');
-    const dotsContainer = document.getElementById('testimonialDots');
-    let current = 0;
-    items.forEach((_, i) => {
-      const d = document.createElement('div');
-      d.className = 'dot' + (i === 0 ? ' active' : '');
-      d.addEventListener('click', () => goTo(i));
-      dotsContainer.appendChild(d);
-    });
-    function goTo(n) {
-      items[current].classList.remove('active');
-      dotsContainer.children[current].classList.remove('active');
-      current = n;
-      items[current].classList.add('active');
-      dotsContainer.children[current].classList.add('active');
-    }
-    setInterval(() => goTo((current + 1) % items.length), 5000);
-
-    // ---- Counter animation ----
-    function animateCounters() {
-      document.querySelectorAll('.stat-number').forEach(el => {
-        const target = +el.dataset.target;
-        const duration = 1500;
-        const step = target / (duration / 16);
-        let val = 0;
-        const timer = setInterval(() => {
-          val = Math.min(val + step, target);
-          el.textContent = Math.round(val).toLocaleString('fr-FR');
-          if (val >= target) clearInterval(timer);
-        }, 16);
-      });
-    }
-
-    // ---- Scroll reveal ----
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          if (entry.target.closest('#about')) animateCounters();
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ---- Reservation form ----
-    document.getElementById('reservationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let valid = true;
-      this.querySelectorAll('[required]').forEach(field => {
-        const group = field.closest('.form-group');
-        if (!field.value.trim()) {
-          group.classList.add('error');
-          valid = false;
-        } else {
-          group.classList.remove('error');
-        }
-      });
-      if (valid) {
-        this.style.display = 'none';
-        document.getElementById('reservationSuccess').style.display = 'block';
-      }
-    });
-
-    // ---- Newsletter ----
-    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const input = this.querySelector('input');
-      if (input.value && input.value.includes('@')) {
-        input.value = '';
-        input.placeholder = 'Merci pour votre inscription !';
-      }
-    });
-
-    // ---- Chat ----
-    const bubble = document.getElementById('chatBubble');
-    const win = document.getElementById('chatWindow');
-    bubble.addEventListener('click', () => win.classList.toggle('hidden'));
-    document.getElementById('chatClose').addEventListener('click', () => win.classList.add('hidden'));
-    document.getElementById('chatForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const input = document.getElementById('chatInput');
-      const msg = input.value.trim();
-      if (!msg) return;
-      const body = document.getElementById('chatMessages');
-      body.innerHTML += `<p class="user-msg">${msg}</p>`;
-      input.value = '';
-      setTimeout(() => {
-        body.innerHTML += `<p class="bot-msg">Merci pour votre message ! Pour toute réservation, appelez-nous au <strong>+33 3 81 67 00 00</strong>.</p>`;
-        body.scrollTop = body.scrollHeight;
-      }, 700);
-      body.scrollTop = body.scrollHeight;
-    });
-    </script>
-  </body>
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+function submitForm(e, successId) {
+  e.preventDefault();
+  const el = document.getElementById(successId);
+  el.style.display = 'block';
+  e.target.style.display = 'none';
+}
+function submitHome(e) {
+  e.preventDefault();
+  document.getElementById('home-success').style.display = 'block';
+  e.target.style.display = 'none';
+}
+</script>
+</body>
 </html>
