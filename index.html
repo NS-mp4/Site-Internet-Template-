@@ -1478,7 +1478,15 @@
     // show preloader briefly
     const pre = document.getElementById('preloader');
     pre.style.opacity = '1'; pre.style.visibility = 'visible';
-    setTimeout(() => { pre.classList.add('out'); }, 600);
+    setTimeout(() => {
+      pre.classList.add('out');
+      pre.style.opacity = '0';
+      pre.style.visibility = 'hidden';
+      // sécurité : forcer la disparition du splash aussi
+      splash.classList.add('out');
+      splash.style.opacity = '0';
+      splash.style.visibility = 'hidden';
+    }, 800);
   }
 
   function switchVersion(v) {
