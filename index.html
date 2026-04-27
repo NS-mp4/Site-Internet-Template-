@@ -1,1227 +1,1637 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NovaSite Studio — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
-<style>
-/* ===== RESET & BASE ===== */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:#faf8f4;color:#2c2c2c;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="L'Ardoise Noire – Restaurant gastronomique à Namur. Une cuisine d'auteur audacieuse par le Chef Élias Morel."/>
+  <title>L'Ardoise Noire — Restaurant Gastronomique · Namur</title>
 
-/* ===== SHARED TOKENS ===== */
-:root{
-  --green:#3a6b3a;--green-light:#5a8f5a;--cream:#faf8f4;--cream2:#f2ede4;
-  --gold:#c8943a;--dark:#1c1c1c;--muted:#6b6b6b;
-  --red:#b84040;--blue:#2c5282;--purple:#5b3fa6;--teal:#2a7a6e;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Raleway:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
 
-/* ===== PAGES SYSTEM ===== */
-.page{display:none;min-height:100vh}
-.page.active{display:block}
+  <style>
+  /* ═══════════════════════════════════════════════
+     THEME VARIABLES — 3 VERSIONS
+  ═══════════════════════════════════════════════ */
 
-/* ===== SHARED NAV ===== */
-.site-nav{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 5vw;
-  background:rgba(250,248,244,.95);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(0,0,0,.07);
-}
-.site-nav .logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700}
-.site-nav ul{display:flex;list-style:none;gap:1.8rem}
-.site-nav ul a{font-size:.88rem;font-weight:500;color:var(--dark);transition:color .2s}
-.site-nav ul a:hover{color:var(--green)}
-.nav-btn{
-  padding:.5rem 1.3rem;border-radius:30px;font-size:.85rem;font-weight:600;
-  background:var(--green);color:#fff;transition:background .2s;
-}
-.nav-btn:hover{background:var(--green-light)}
+  /* VERSION CHIC (default) */
+  :root,
+  [data-version="chic"] {
+    --bg:          #080808;
+    --bg2:         #0f0f0f;
+    --bg3:         #141414;
+    --surface:     #1a1a1a;
+    --accent:      #c9a96e;
+    --accent2:     #e8d5a8;
+    --accent3:     #8b6b3d;
+    --text:        #e8e0d0;
+    --text-soft:   #9a8f7e;
+    --text-header: #f0e8d8;
+    --border:      rgba(201,169,110,.18);
+    --shadow:      0 12px 48px rgba(0,0,0,.7);
+    --shadow-lg:   0 32px 80px rgba(0,0,0,.85);
+    --radius:      2px;
+    --header-bg:   rgba(8,8,8,.94);
+    --header-border: rgba(201,169,110,.15);
+    --hero-overlay: linear-gradient(160deg,rgba(8,8,8,.88) 0%,rgba(20,15,5,.65) 55%,rgba(8,8,8,.92) 100%);
+    --section-alt: #0f0f0f;
+    --card-bg:     #141414;
+    --card-border: rgba(201,169,110,.12);
+    --btn-primary-bg: #c9a96e;
+    --btn-primary-text: #080808;
+    --btn-secondary-border: rgba(201,169,110,.5);
+    --btn-secondary-text: #c9a96e;
+    --filter-active: #c9a96e;
+    --filter-active-text: #080808;
+    --stat-color:  #c9a96e;
+    --tag-bg:      rgba(201,169,110,.12);
+    --tag-text:    #c9a96e;
+    --price-color: #c9a96e;
+    --footer-bg:   #040404;
+    --font-display: 'Playfair Display', serif;
+    --font-body:   'Jost', sans-serif;
+    --transition:  .42s cubic-bezier(.4,0,.2,1);
+    --header-h:    80px;
+    --dot-active:  #c9a96e;
+  }
 
-/* Back button */
-.back-btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.5rem 1.2rem;border-radius:30px;
-  background:var(--cream2);border:1px solid #ddd;
-  font-size:.82rem;font-weight:600;color:var(--dark);
-  cursor:pointer;transition:background .2s;margin:.8rem 0 0 1rem;
-}
-.back-btn:hover{background:#e8e2d8}
+  /* VERSION NORMALE */
+  [data-version="normal"] {
+    --bg:          #0e1a11;
+    --bg2:         #141f17;
+    --bg3:         #1a2b1e;
+    --surface:     #1f3325;
+    --accent:      #b87333;
+    --accent2:     #d4935a;
+    --accent3:     #7a4e25;
+    --text:        #f7f2e8;
+    --text-soft:   #a89b7e;
+    --text-header: #f7f2e8;
+    --border:      rgba(184,115,51,.2);
+    --shadow:      0 8px 32px rgba(0,0,0,.4);
+    --shadow-lg:   0 24px 64px rgba(0,0,0,.55);
+    --header-bg:   rgba(14,26,17,.95);
+    --header-border: rgba(184,115,51,.2);
+    --hero-overlay: linear-gradient(160deg,rgba(14,26,17,.85) 0%,rgba(31,51,37,.6) 50%,rgba(14,26,17,.9) 100%);
+    --section-alt: #141f17;
+    --card-bg:     #1a2b1e;
+    --card-border: rgba(184,115,51,.15);
+    --btn-primary-bg: #1f3325;
+    --btn-primary-text: #f7f2e8;
+    --btn-secondary-border: rgba(184,115,51,.5);
+    --btn-secondary-text: #b87333;
+    --filter-active: #1f3325;
+    --filter-active-text: #f7f2e8;
+    --stat-color:  #b87333;
+    --tag-bg:      rgba(74,124,89,.15);
+    --tag-text:    #6b9e7a;
+    --price-color: #b87333;
+    --footer-bg:   #080e0a;
+    --font-display: 'Libre Baskerville', serif;
+    --font-body:   'Raleway', sans-serif;
+    --dot-active:  #1f3325;
+  }
 
-/* ===== HERO SHARED ===== */
-.hero{
-  min-height:86vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:6rem 5vw 4rem;position:relative;overflow:hidden;
-}
-.hero-inner{position:relative;z-index:1;max-width:780px}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);line-height:1.12;margin-bottom:1.2rem}
-.hero p{font-size:1.08rem;line-height:1.7;color:var(--muted);max-width:520px;margin:0 auto 2.2rem}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  /* VERSION CLAIRE */
+  [data-version="light"] {
+    --bg:          #faf8f4;
+    --bg2:         #f3ede3;
+    --bg3:         #ede5d5;
+    --surface:     #ffffff;
+    --accent:      #c24d2c;
+    --accent2:     #e07b5a;
+    --accent3:     #922a10;
+    --text:        #1a1008;
+    --text-soft:   #7a5c40;
+    --text-header: #faf8f4;
+    --border:      rgba(194,77,44,.15);
+    --shadow:      0 6px 24px rgba(26,16,8,.1);
+    --shadow-lg:   0 20px 56px rgba(26,16,8,.18);
+    --header-bg:   rgba(26,16,8,.94);
+    --header-border: rgba(194,77,44,.2);
+    --hero-overlay: linear-gradient(160deg,rgba(15,8,3,.82) 0%,rgba(90,35,15,.55) 55%,rgba(15,8,3,.88) 100%);
+    --section-alt: #f3ede3;
+    --card-bg:     #ffffff;
+    --card-border: rgba(194,77,44,.12);
+    --btn-primary-bg: #c24d2c;
+    --btn-primary-text: #ffffff;
+    --btn-secondary-border: rgba(194,77,44,.5);
+    --btn-secondary-text: #c24d2c;
+    --filter-active: #c24d2c;
+    --filter-active-text: #ffffff;
+    --stat-color:  #c24d2c;
+    --tag-bg:      rgba(194,77,44,.08);
+    --tag-text:    #c24d2c;
+    --price-color: #c24d2c;
+    --footer-bg:   #14100a;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body:   'Raleway', sans-serif;
+    --dot-active:  #c24d2c;
+  }
 
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.8rem;border-radius:30px;font-weight:600;font-size:.9rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(58,107,58,.3)}
-.btn-primary:hover{box-shadow:0 8px 22px rgba(58,107,58,.4)}
-.btn-outline{background:transparent;color:var(--dark);border:2px solid currentColor}
+  /* ═══════════════════════════════════════════════
+     RESET & BASE
+  ═══════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background .5s ease, color .5s ease;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  button { cursor: pointer; border: none; background: none; }
 
-/* ===== SECTIONS ===== */
-.section{padding:5rem 5vw}
-.container{max-width:1150px;margin:0 auto}
-.section-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--dark);margin-bottom:.8rem;line-height:1.2}
-.section-sub{color:var(--muted);font-size:.97rem;line-height:1.7;max-width:500px}
+  /* ═══════════════════════════════════════════════
+     SPLASH SCREEN
+  ═══════════════════════════════════════════════ */
+  #splash {
+    position: fixed; inset: 0; z-index: 10000;
+    background: #050505;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity .8s ease, visibility .8s ease;
+  }
+  #splash.out { opacity: 0; visibility: hidden; pointer-events: none; }
 
-/* ===== DIVIDER ===== */
-.divider{width:60px;height:3px;background:var(--gold);border-radius:2px;margin:.8rem 0 1.4rem}
+  .splash-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    color: #e8d8b8;
+    letter-spacing: .05em;
+    text-align: center;
+    margin-bottom: 8px;
+    animation: splashDrop .9s ease both;
+  }
+  .splash-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+    color: #7a6a50;
+    margin-bottom: 64px;
+    animation: splashDrop .9s .2s ease both;
+  }
+  @keyframes splashDrop { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:none} }
 
-/* ============================================================
-   PAGE 1 — PORTFOLIO AGENCE
-   ============================================================ */
-#page-home .hero{
-  background:linear-gradient(145deg,#f5f0e6 0%,#e8f0e4 50%,#f0ebe0 100%);
-}
-#page-home .hero h1 em{font-style:italic;color:var(--green)}
+  .splash-label {
+    font-family: 'Jost', sans-serif;
+    font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+    color: #5a5040;
+    margin-bottom: 28px;
+    animation: splashDrop .9s .4s ease both;
+  }
 
-.portfolio-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.8rem;margin-top:3rem;
-}
-@media(max-width:900px){.portfolio-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.portfolio-grid{grid-template-columns:1fr}}
+  .splash-versions {
+    display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+    animation: splashDrop .9s .5s ease both;
+  }
 
-.project-card{
-  border-radius:18px;overflow:hidden;background:#fff;
-  box-shadow:0 4px 20px rgba(0,0,0,.07);
-  cursor:pointer;transition:transform .3s,box-shadow .3s;
-}
-.project-card:hover{transform:translateY(-7px);box-shadow:0 16px 40px rgba(0,0,0,.13)}
+  .splash-btn {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 12px;
+    padding: 28px 24px 24px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 4px;
+    cursor: pointer;
+    width: 160px;
+    transition: all .35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .splash-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .splash-btn:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.2); }
+  .splash-btn:hover::before { opacity: 1; }
 
-.project-thumb{
-  height:210px;position:relative;overflow:hidden;
-  display:flex;align-items:flex-end;
-}
-.thumb-gradient{
-  position:absolute;inset:0;
-  transition:opacity .3s;
-}
-.project-card:hover .thumb-overlay{opacity:1}
-.thumb-overlay{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transition:opacity .3s;
-  background:rgba(0,0,0,.32);
-}
-.thumb-overlay span{
-  background:#fff;color:var(--dark);
-  padding:.5rem 1.2rem;border-radius:30px;
-  font-weight:700;font-size:.83rem;
-  display:flex;align-items:center;gap:.4rem;
-}
-/* Thumb mockups */
-.mock{width:100%;height:100%;position:absolute;inset:0;padding:10px;display:flex;flex-direction:column;gap:6px}
-.mock-bar{height:18px;border-radius:4px;width:100%}
-.mock-row{display:flex;gap:5px}
-.mock-block{border-radius:6px;flex:1}
-.mock-h{height:30px} .mock-m{height:20px} .mock-s{height:14px}
-.mock-hero-area{flex:1;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px}
-.mock-line{height:7px;border-radius:4px;opacity:.7}
-.mock-line.w70{width:70%} .mock-line.w50{width:50%} .mock-line.w35{width:35%}
-.mock-cta{height:16px;width:28%;border-radius:8px;margin-top:3px}
-.mock-cards{display:flex;gap:5px;padding:0 5px 5px}
-.mock-card-sm{flex:1;height:40px;border-radius:7px}
+  .splash-btn.chic { background: #111; }
+  .splash-btn.chic::before { background: radial-gradient(circle at 50% 0%, rgba(201,169,110,.15), transparent 70%); }
+  .splash-btn.chic:hover { border-color: rgba(201,169,110,.35); box-shadow: 0 16px 40px rgba(0,0,0,.8); }
 
-/* Thumb color themes */
-.t-bistraut .mock-bar{background:#2c1a0e}
-.t-bistraut .mock-hero-area{background:linear-gradient(135deg,#f5e6d0,#ffe5c0)}
-.t-bistraut .mock-line{background:#2c1a0e}
-.t-bistraut .mock-cta{background:#b84040}
-.t-bistraut .mock-card-sm{background:#f0d9be}
+  .splash-btn.normal { background: #0e1a11; }
+  .splash-btn.normal::before { background: radial-gradient(circle at 50% 0%, rgba(184,115,51,.15), transparent 70%); }
+  .splash-btn.normal:hover { border-color: rgba(184,115,51,.4); box-shadow: 0 16px 40px rgba(0,0,0,.6); }
 
-.t-spa .mock-bar{background:#3d2e5e}
-.t-spa .mock-hero-area{background:linear-gradient(135deg,#f0eaf8,#e8dff5)}
-.t-spa .mock-line{background:#5b3fa6}
-.t-spa .mock-cta{background:#5b3fa6}
-.t-spa .mock-card-sm{background:#e2d6f5}
+  .splash-btn.light { background: #f3ede3; }
+  .splash-btn.light::before { background: radial-gradient(circle at 50% 0%, rgba(194,77,44,.1), transparent 70%); }
+  .splash-btn.light:hover { border-color: rgba(194,77,44,.4); box-shadow: 0 16px 40px rgba(194,77,44,.15); }
 
-.t-immo .mock-bar{background:#1a3a5c}
-.t-immo .mock-hero-area{background:linear-gradient(135deg,#e8f0f8,#d6e8f5)}
-.t-immo .mock-line{background:#1a3a5c}
-.t-immo .mock-cta{background:#c8943a}
-.t-immo .mock-card-sm{background:#cde0ef}
+  .splash-swatch {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .splash-btn.chic .splash-swatch { background: linear-gradient(135deg, #1a1a1a, #2a2a2a); border: 1px solid rgba(201,169,110,.3); }
+  .splash-btn.normal .splash-swatch { background: linear-gradient(135deg, #1f3325, #4a7c59); border: 1px solid rgba(184,115,51,.3); }
+  .splash-btn.light .splash-swatch { background: linear-gradient(135deg, #faf8f4, #f3ede3); border: 1px solid rgba(194,77,44,.25); }
 
-.t-coach .mock-bar{background:#1a4a3a}
-.t-coach .mock-hero-area{background:linear-gradient(135deg,#e0f0e8,#d5ece0)}
-.t-coach .mock-line{background:#1a4a3a}
-.t-coach .mock-cta{background:#c8943a}
-.t-coach .mock-card-sm{background:#c5e4d0}
+  .splash-btn-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700;
+    line-height: 1;
+  }
+  .splash-btn.chic .splash-btn-name { color: #c9a96e; }
+  .splash-btn.normal .splash-btn-name { color: #b87333; }
+  .splash-btn.light .splash-btn-name { color: #c24d2c; }
 
-.t-photo .mock-bar{background:#1c1c1c}
-.t-photo .mock-hero-area{background:linear-gradient(135deg,#2a2a2a,#3a3a3a)}
-.t-photo .mock-line{background:#d4a84a}
-.t-photo .mock-cta{background:#d4a84a}
-.t-photo .mock-card-sm{background:#444}
+  .splash-btn-desc {
+    font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+    line-height: 1.4; text-align: center;
+  }
+  .splash-btn.chic .splash-btn-desc { color: #5a5040; }
+  .splash-btn.normal .splash-btn-desc { color: #5a7060; }
+  .splash-btn.light .splash-btn-desc { color: #7a5c40; }
 
-.t-bio .mock-bar{background:#2d5a2d}
-.t-bio .mock-hero-area{background:linear-gradient(135deg,#e4f0e4,#d8ecd8)}
-.t-bio .mock-line{background:#2d5a2d}
-.t-bio .mock-cta{background:#c4703a}
-.t-bio .mock-card-sm{background:#b8dcb8}
+  /* Divider line on splash */
+  .splash-divider {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,.12), transparent);
+    margin: 40px auto 0;
+    animation: splashDrop .9s .7s ease both;
+  }
 
-.project-body{padding:1.4rem}
-.proj-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.6rem}
-.tag{font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .7rem;border-radius:20px;background:#f0ebe0;color:var(--muted)}
-.tag.green{background:#e4f0e4;color:var(--green)}
-.tag.gold{background:#f8edd8;color:var(--gold)}
-.project-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark);margin-bottom:.35rem}
-.project-body p{font-size:.85rem;color:var(--muted);line-height:1.55}
+  /* ═══════════════════════════════════════════════
+     VERSION SWITCHER (sticky, inside site)
+  ═══════════════════════════════════════════════ */
+  #versionBar {
+    position: fixed; bottom: 24px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 900;
+    background: rgba(5,5,5,.9);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 50px;
+    padding: 6px 8px;
+    display: flex; gap: 4px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  }
+  .vbar-btn {
+    padding: 7px 18px;
+    border-radius: 50px;
+    font-family: 'Jost', sans-serif;
+    font-size: .72rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: #6a6050;
+    transition: all .3s ease;
+  }
+  .vbar-btn.active, .vbar-btn:hover { color: #e8d8b8; background: rgba(255,255,255,.1); }
+  .vbar-btn.v-chic.active { color: #c9a96e; }
+  .vbar-btn.v-normal.active { color: #b87333; }
+  .vbar-btn.v-light.active { color: #e8794a; }
 
-/* Services section */
-.services-section{background:var(--dark)}
-.services-section .section-title{color:#fff}
-.services-section .section-sub{color:rgba(255,255,255,.6)}
-.services-section .section-tag{color:var(--gold)}
-.serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem;margin-top:2.8rem}
-.serv-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:2rem 1.6rem;transition:background .3s}
-.serv-card:hover{background:rgba(255,255,255,.09)}
-.serv-icon{font-size:1.8rem;margin-bottom:1rem}
-.serv-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
-.serv-card p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6}
-.serv-price{display:inline-block;margin-top:.9rem;font-weight:700;color:var(--gold);font-size:.95rem}
+  /* ═══════════════════════════════════════════════
+     PRELOADER
+  ═══════════════════════════════════════════════ */
+  #preloader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity .6s, visibility .6s;
+    pointer-events: none;
+  }
+  #preloader.out { opacity: 0; visibility: hidden; }
+  .pre-ring {
+    width: 44px; height: 44px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-/* CTA strip */
-.cta-strip{background:var(--green);padding:4rem 5vw;text-align:center}
-.cta-strip h2{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:.7rem}
-.cta-strip p{color:rgba(255,255,255,.75);margin-bottom:1.8rem}
-.btn-white{background:#fff;color:var(--green);font-weight:700}
-.btn-white:hover{box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  /* ═══════════════════════════════════════════════
+     UTILITIES
+  ═══════════════════════════════════════════════ */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+  .section { padding: 108px 0; }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 14px;
+    line-height: 1.15;
+    transition: color .4s ease;
+  }
+  [data-version="normal"] .section-title { color: var(--accent2); }
+  [data-version="light"] .section-title { color: var(--text); }
+  .section-subtitle {
+    font-size: 1rem; color: var(--text-soft); margin-bottom: 56px;
+    max-width: 540px; line-height: 1.75;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+    transition: color .4s;
+  }
+  .eyebrow span { width: 28px; height: 1px; background: var(--accent); display: block; transition: background .4s; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 30px; border-radius: var(--radius);
+    font-family: var(--font-body); font-weight: 600;
+    font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
+    transition: all var(--transition);
+  }
+  .btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-text); box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+  .btn-primary:hover { opacity: .88; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
+  .btn-secondary { background: transparent; color: var(--btn-secondary-text); border: 1.5px solid var(--btn-secondary-border); }
+  .btn-secondary:hover { background: var(--btn-primary-bg); color: var(--btn-primary-text); border-color: transparent; transform: translateY(-2px); }
+  .hidden { display: none !important; }
+  .mt-3 { margin-top: 24px; }
 
-/* ============================================================
-   SHARED SUB-PAGES ELEMENTS
-   ============================================================ */
-.sub-page-hero{
-  min-height:70vh;display:flex;align-items:center;
-  padding:7rem 5vw 4rem;position:relative;overflow:hidden;
-}
-.sub-page-hero .inner{position:relative;z-index:1;max-width:680px}
-.sub-page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.12;margin-bottom:1rem}
-.sub-page-hero p{font-size:1.05rem;line-height:1.7;margin-bottom:2rem;opacity:.75}
+  /* ═══════════════════════════════════════════════
+     HEADER
+  ═══════════════════════════════════════════════ */
+  #header {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--header-h);
+    z-index: 700;
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--header-border);
+    transition: height var(--transition), background var(--transition), border-color var(--transition);
+  }
+  #header.scrolled { height: 62px; }
+  .nav { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .04em;
+    transition: color var(--transition);
+  }
+  .logo-sub { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--text-soft); display: block; margin-top: -2px; font-family: var(--font-body); }
+  .nav-menu { display: flex; align-items: center; gap: 4px; }
+  .nav-menu a {
+    font-size: .78rem; font-weight: 500;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: rgba(232,224,208,.65);
+    padding: 7px 12px; border-radius: 2px;
+    transition: color var(--transition);
+  }
+  .nav-menu a:hover { color: var(--accent); }
+  .nav-menu .btn-primary { color: var(--btn-primary-text); padding: 9px 20px; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+  .hamburger, .hamburger::before, .hamburger::after {
+    display: block; width: 22px; height: 1.5px;
+    background: var(--text); border-radius: 2px; transition: all var(--transition);
+  }
+  .hamburger { position: relative; }
+  .hamburger::before, .hamburger::after { content: ''; position: absolute; }
+  .hamburger::before { top: -6px; }
+  .hamburger::after { top: 6px; }
+  .nav-toggle.open .hamburger { background: transparent; }
+  .nav-toggle.open .hamburger::before { transform: rotate(45deg); top: 0; }
+  .nav-toggle.open .hamburger::after { transform: rotate(-45deg); top: 0; }
 
-/* ============================================================
-   PAGE 2 — LE BISTRAUT (restaurant)
-   ============================================================ */
-#page-bistraut .site-nav .logo{color:#2c1a0e}
-#page-bistraut .nav-btn{background:#b84040}
-#page-bistraut .nav-btn:hover{background:#9e3030}
-#page-bistraut .sub-page-hero{background:linear-gradient(160deg,#fdf4ec,#f5e6d0);}
-#page-bistraut .sub-page-hero h1{color:#2c1a0e}
-#page-bistraut .sub-page-hero p{color:#6b4c30}
-#page-bistraut .btn-primary{background:#b84040}
-#page-bistraut .section-tag{color:#b84040}
-#page-bistraut .divider{background:#b84040}
-#page-bistraut .section-title{color:#2c1a0e}
+  /* ═══════════════════════════════════════════════
+     BACK TO TOP + CHAT
+  ═══════════════════════════════════════════════ */
+  #backToTop {
+    position: fixed; bottom: 80px; right: 28px;
+    width: 44px; height: 44px;
+    background: var(--accent); color: var(--bg);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 800; box-shadow: var(--shadow);
+    transition: all var(--transition);
+    opacity: 0; pointer-events: none;
+  }
+  #backToTop.visible { opacity: 1; pointer-events: auto; }
+  #backToTop:hover { transform: translateY(-3px); }
+  .chat-bubble {
+    position: fixed; bottom: 80px; left: 28px;
+    width: 50px; height: 50px;
+    background: var(--surface); color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; z-index: 800;
+    box-shadow: var(--shadow); cursor: pointer;
+    transition: all var(--transition);
+  }
+  .chat-bubble:hover { background: var(--accent); color: var(--bg); transform: scale(1.08); }
+  .chat-window {
+    position: fixed; bottom: 140px; left: 28px;
+    width: 290px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg); z-index: 800;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .chat-header {
+    background: var(--accent); color: var(--bg);
+    padding: 12px 16px; font-weight: 700; font-size: .88rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  #chatClose { cursor: pointer; font-size: 1.2rem; }
+  .chat-body { padding: 14px; min-height: 90px; max-height: 180px; overflow-y: auto; }
+  .bot-msg, .user-msg { padding: 7px 11px; border-radius: 3px; margin-bottom: 7px; font-size: .84rem; line-height: 1.4; }
+  .bot-msg { background: var(--bg2); color: var(--text); }
+  .user-msg { background: var(--accent); color: var(--bg); text-align: right; }
+  .chat-form { display: flex; border-top: 1px solid var(--border); }
+  .chat-form input { flex: 1; padding: 9px 13px; border: none; background: transparent; font-family: var(--font-body); font-size: .84rem; color: var(--text); outline: none; }
+  .chat-form button { padding: 9px 13px; color: var(--accent); font-size: .95rem; }
 
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
-.menu-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 3px 16px rgba(0,0,0,.07)}
-.menu-card-top{height:140px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,#fdf4ec,#ffe5c0)}
-.menu-card-body{padding:1.2rem}
-.menu-card-body h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:#2c1a0e;margin-bottom:.3rem}
-.menu-card-body p{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.7rem}
-.menu-card-body .price{font-weight:700;color:#b84040;font-size:.95rem}
+  /* ═══════════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════════ */
+  .hero-section {
+    min-height: 100vh;
+    background:
+      var(--hero-overlay),
+      url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85') center/cover no-repeat;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: var(--header-h);
+    transition: background .5s ease;
+  }
+  .hero-section::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 140px;
+    background: linear-gradient(to top, var(--bg), transparent);
+    pointer-events: none;
+  }
+  /* CHIC: diagonal gold line */
+  [data-version="chic"] .hero-section::before {
+    content: '';
+    position: absolute; top: 15%; right: 8%;
+    width: 1px; height: 45%;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    transform: rotate(12deg);
+    pointer-events: none;
+  }
+  /* NORMAL: corner bracket */
+  [data-version="normal"] .hero-section::before {
+    content: '';
+    position: absolute; top: 18%; right: 12%;
+    width: 80px; height: 80px;
+    border-top: 1.5px solid rgba(184,115,51,.4);
+    border-right: 1.5px solid rgba(184,115,51,.4);
+    pointer-events: none;
+  }
+  /* LIGHT: nothing */
+  [data-version="light"] .hero-section::before { display: none; }
 
-.horaires-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem}
-.horaire-card{background:#fff;border-radius:12px;padding:1.4rem;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.horaire-card h4{font-family:'Playfair Display',serif;color:#2c1a0e;margin-bottom:.4rem}
-.horaire-card p{font-size:.85rem;color:var(--muted)}
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 680px;
+    padding: 0 28px;
+    margin-left: max(28px, calc((100vw - 1160px)/2));
+    animation: heroIn .9s ease both;
+  }
+  @keyframes heroIn { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
 
-/* ============================================================
-   PAGE 3 — ZEN & SENS (spa/bien-être)
-   ============================================================ */
-#page-spa .site-nav .logo{color:#3d2e5e}
-#page-spa .nav-btn{background:#5b3fa6}
-#page-spa .nav-btn:hover{background:#4a3090}
-#page-spa .sub-page-hero{background:linear-gradient(160deg,#f8f4fe,#ece4f8)}
-#page-spa .sub-page-hero h1{color:#3d2e5e}
-#page-spa .sub-page-hero p{color:#6b5a8e}
-#page-spa .btn-primary{background:#5b3fa6}
-#page-spa .section-tag{color:#5b3fa6}
-#page-spa .divider{background:#5b3fa6}
-#page-spa .section-title{color:#3d2e5e}
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900; line-height: 1.06;
+    color: #f0e8d8;
+    margin-bottom: 24px;
+    transition: font-family var(--transition);
+  }
+  [data-version="chic"] .hero-title em { color: var(--accent); font-style: italic; }
+  [data-version="normal"] .hero-title em { color: var(--accent2); font-style: italic; }
+  [data-version="light"] .hero-title em { color: var(--accent2); font-style: italic; }
+  .hero-subtitle {
+    font-size: 1.05rem; color: rgba(240,232,216,.68);
+    line-height: 1.72; margin-bottom: 38px; max-width: 500px;
+  }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-star {
+    position: absolute; bottom: 180px; right: max(28px, calc((100vw - 1160px)/2));
+    text-align: right; z-index: 1;
+  }
+  .hero-star p {
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 4px;
+  }
+  .hero-stars { color: var(--accent); font-size: 1rem; }
 
-.soins-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem}
-.soin-card{background:#fff;border-radius:14px;padding:1.8rem;text-align:center;box-shadow:0 3px 16px rgba(91,63,166,.1);transition:transform .3s}
-.soin-card:hover{transform:translateY(-5px)}
-.soin-icon{font-size:2.8rem;margin-bottom:1rem}
-.soin-card h3{font-family:'Playfair Display',serif;color:#3d2e5e;margin-bottom:.4rem}
-.soin-card p{font-size:.84rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem}
-.soin-price{font-weight:700;color:#5b3fa6}
+  /* ═══════════════════════════════════════════════
+     ABOUT
+  ═══════════════════════════════════════════════ */
+  .about-section { background: var(--bg2); }
+  .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .about-image { position: relative; }
+  .about-img-main { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+  .about-img-main img { width: 100%; height: 480px; object-fit: cover; }
+  .about-img-inset {
+    position: absolute; bottom: -28px; right: -28px;
+    width: 160px; height: 160px;
+    border-radius: var(--radius); overflow: hidden;
+    border: 4px solid var(--bg2);
+    box-shadow: var(--shadow);
+  }
+  .about-img-inset img { width: 100%; height: 100%; object-fit: cover; }
+  [data-version="chic"] .about-image::before {
+    content: '';
+    position: absolute; top: -16px; left: -16px;
+    width: 72px; height: 72px;
+    border-top: 1px solid var(--accent);
+    border-left: 1px solid var(--accent);
+  }
+  [data-version="normal"] .about-image::before {
+    content: '';
+    position: absolute; bottom: -42px; left: 16px;
+    right: -42px; top: 16px;
+    border: 1px solid var(--accent3);
+    border-radius: var(--radius);
+    z-index: -1;
+  }
+  [data-version="light"] .about-image::before { display: none; }
 
-/* ============================================================
-   PAGE 4 — IMMO PRESTIGE (immobilier)
-   ============================================================ */
-#page-immo .site-nav .logo{color:#1a3a5c}
-#page-immo .nav-btn{background:#1a3a5c}
-#page-immo .nav-btn:hover{background:#142d47}
-#page-immo .sub-page-hero{background:linear-gradient(160deg,#edf4fc,#d6e8f5)}
-#page-immo .sub-page-hero h1{color:#1a3a5c}
-#page-immo .sub-page-hero p{color:#3a5a78}
-#page-immo .btn-primary{background:#1a3a5c}
-#page-immo .btn-outline{color:#1a3a5c;border-color:#1a3a5c}
-#page-immo .section-tag{color:var(--gold)}
-#page-immo .divider{background:var(--gold)}
-#page-immo .section-title{color:#1a3a5c}
+  .about-content p { color: var(--text-soft); line-height: 1.82; margin-bottom: 16px; }
+  .stats { display: flex; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.4rem; font-weight: 700;
+    color: var(--stat-color); line-height: 1;
+    transition: color var(--transition);
+  }
+  .stat-label { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-soft); margin-top: 4px; display: block; }
 
-.biens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.8rem;margin-top:2.5rem}
-.bien-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(26,58,92,.1)}
-.bien-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,#e8f0f8,#cde0ef)}
-.bien-body{padding:1.4rem}
-.bien-badge{display:inline-block;padding:.22rem .8rem;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.6rem}
-.badge-vente{background:#e8f0f8;color:#1a3a5c}
-.badge-loc{background:#f8edd8;color:var(--gold)}
-.bien-body h3{font-family:'Playfair Display',serif;color:#1a3a5c;font-size:1.05rem;margin-bottom:.3rem}
-.bien-body p{font-size:.83rem;color:var(--muted);line-height:1.5}
-.bien-price{font-size:1.1rem;font-weight:700;color:var(--gold);margin-top:.7rem}
-.bien-specs{display:flex;gap:1rem;margin-top:.5rem;font-size:.78rem;color:var(--muted)}
-.bien-specs span{display:flex;align-items:center;gap:.3rem}
+  /* ═══════════════════════════════════════════════
+     MENU
+  ═══════════════════════════════════════════════ */
+  .menu-section { background: var(--bg3); }
+  .menu-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 44px; }
+  .filter-btn {
+    padding: 7px 20px; border-radius: 50px;
+    font-family: var(--font-body); font-size: .78rem; font-weight: 600;
+    letter-spacing: .07em; text-transform: uppercase;
+    border: 1.5px solid var(--border); color: var(--text-soft);
+    transition: all var(--transition);
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--filter-active); border-color: var(--filter-active);
+    color: var(--filter-active-text);
+  }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 24px; }
+  .menu-item {
+    background: var(--card-bg); border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+    overflow: hidden; box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  }
+  .menu-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+  .menu-item.hidden-item { display: none; }
+  .menu-image { height: 210px; overflow: hidden; position: relative; }
+  .menu-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s ease; }
+  .menu-item:hover .menu-image img { transform: scale(1.06); }
+  .menu-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--accent); color: var(--bg);
+    font-size: .68rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 50px;
+  }
+  .menu-info { padding: 22px; }
+  .menu-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--text); margin-bottom: 8px;
+    transition: color var(--transition);
+  }
+  .menu-desc { font-size: .85rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 14px; }
+  .menu-footer { display: flex; align-items: center; justify-content: space-between; }
+  .menu-price { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--price-color); }
+  .menu-tag { font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--tag-text); background: var(--tag-bg); padding: 3px 10px; border-radius: 50px; }
 
-/* ============================================================
-   PAGE 5 — COACH ELITE (coaching)
-   ============================================================ */
-#page-coach .site-nav .logo{color:#1a4a3a}
-#page-coach .nav-btn{background:#1a4a3a}
-#page-coach .nav-btn:hover{background:#133830}
-#page-coach .sub-page-hero{background:linear-gradient(160deg,#e8f5ee,#d5ece0)}
-#page-coach .sub-page-hero h1{color:#1a4a3a}
-#page-coach .sub-page-hero p{color:#2a6a4a}
-#page-coach .btn-primary{background:#1a4a3a}
-#page-coach .section-tag{color:var(--gold)}
-#page-coach .divider{background:var(--gold)}
-#page-coach .section-title{color:#1a4a3a}
+  /* ═══════════════════════════════════════════════
+     PHILOSOPHY (replaces journey)
+  ═══════════════════════════════════════════════ */
+  .philosophy-section {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; }
+  .philosophy-item {
+    padding: 48px 36px;
+    border-right: 1px solid var(--border);
+    transition: background var(--transition);
+  }
+  .philosophy-item:last-child { border-right: none; }
+  .philosophy-item:hover { background: var(--surface); }
+  .philosophy-num {
+    font-family: var(--font-display);
+    font-size: 3.5rem; font-weight: 900;
+    color: var(--border); line-height: 1;
+    margin-bottom: 16px;
+    transition: color var(--transition);
+  }
+  .philosophy-item:hover .philosophy-num { color: var(--accent); }
+  .philosophy-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--accent); margin-bottom: 10px;
+    transition: color var(--transition);
+  }
+  .philosophy-item p { font-size: .88rem; color: var(--text-soft); line-height: 1.72; }
 
-.formules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2.5rem}
-.formule-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 4px 18px rgba(26,74,58,.08);position:relative;transition:transform .3s}
-.formule-card:hover{transform:translateY(-5px)}
-.formule-card.featured{border:2px solid #1a4a3a}
-.featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#1a4a3a;color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .9rem;border-radius:20px;white-space:nowrap;letter-spacing:.06em;text-transform:uppercase}
-.formule-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:#1a4a3a;margin-bottom:.5rem}
-.formule-price{font-size:1.8rem;font-weight:700;color:#1a4a3a;margin:.8rem 0}
-.formule-price span{font-size:.85rem;font-weight:400;color:var(--muted)}
-.formule-list{list-style:none;margin:1rem 0;display:flex;flex-direction:column;gap:.5rem}
-.formule-list li{font-size:.84rem;color:var(--muted);display:flex;gap:.5rem}
-.formule-list li::before{content:"✓";color:#1a4a3a;font-weight:700;flex-shrink:0}
+  /* ═══════════════════════════════════════════════
+     GALLERY
+  ═══════════════════════════════════════════════ */
+  .gallery-section { background: var(--bg2); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 240px 240px;
+    gap: 10px;
+  }
+  .gallery-item { overflow: hidden; border-radius: var(--radius); cursor: pointer; position: relative; }
+  .gallery-item:nth-child(1) { grid-row: span 2; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s ease; }
+  .gallery-item:hover img { transform: scale(1.07); }
+  .gallery-item::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0);
+    transition: background var(--transition);
+  }
+  .gallery-item:hover::after { background: rgba(0,0,0,.4); }
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(0,0,0,.95);
+    z-index: 1000; display: flex; align-items: center; justify-content: center;
+  }
+  .lightbox-close {
+    position: absolute; top: 20px; right: 28px;
+    font-size: 2.5rem; color: #f0e8d8;
+    cursor: pointer; transition: color var(--transition);
+  }
+  .lightbox-close:hover { color: var(--accent); }
+  #lightbox-img { max-width: 90vw; max-height: 85vh; border-radius: var(--radius); }
 
-/* ============================================================
-   PAGE 6 — STUDIO LUMIÈRE (photo)
-   ============================================================ */
-#page-photo .site-nav{background:rgba(20,20,20,.95);border-color:rgba(255,255,255,.08)}
-#page-photo .site-nav .logo{color:#fff}
-#page-photo .site-nav ul a{color:rgba(255,255,255,.75)}
-#page-photo .site-nav ul a:hover{color:var(--gold)}
-#page-photo .nav-btn{background:var(--gold);color:#fff}
-#page-photo .nav-btn:hover{background:#b88030}
-#page-photo .sub-page-hero{background:linear-gradient(160deg,#1c1c1c,#2a2a2a);min-height:75vh}
-#page-photo .sub-page-hero h1{color:#fff}
-#page-photo .sub-page-hero p{color:rgba(255,255,255,.6)}
-#page-photo .btn-primary{background:var(--gold);color:#fff}
-#page-photo .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
-#page-photo .section-tag{color:var(--gold)}
-#page-photo .divider{background:var(--gold)}
-#page-photo .section-title{color:#1c1c1c}
-#page-photo .hero-decor{color:rgba(255,255,255,.04);font-size:14rem;position:absolute;user-select:none}
+  /* ═══════════════════════════════════════════════
+     TESTIMONIALS
+  ═══════════════════════════════════════════════ */
+  .testimonials-section { background: var(--bg3); text-align: center; }
+  .testimonial-slider { max-width: 660px; margin: 0 auto 24px; min-height: 160px; }
+  .testimonial-item { display: none; animation: fadeIn .5s ease; }
+  .testimonial-item.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+  .testimonial-text {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-style: italic;
+    color: var(--text); line-height: 1.65; margin-bottom: 18px;
+  }
+  .testimonial-author { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .stars-row { color: var(--accent); font-size: .88rem; margin-bottom: 10px; }
+  .testimonial-dots { display: flex; gap: 8px; justify-content: center; margin-top: 20px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); cursor: pointer; transition: background var(--transition); }
+  .dot.active { background: var(--dot-active); }
 
-.galerie-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:2.5rem}
-@media(max-width:700px){.galerie-grid{grid-template-columns:repeat(2,1fr)}}
-.galerie-item{border-radius:10px;overflow:hidden;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3rem;background:#2a2a2a;transition:transform .3s}
-.galerie-item:hover{transform:scale(1.03)}
+  /* ═══════════════════════════════════════════════
+     TEAM
+  ═══════════════════════════════════════════════ */
+  .team-section { background: var(--bg2); }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
+  .team-card {
+    background: var(--card-bg); border-radius: var(--radius);
+    border: 1px solid var(--card-border); overflow: hidden;
+    box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+  .team-image { height: 300px; overflow: hidden; }
+  .team-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .team-card:hover .team-image img { transform: scale(1.04); }
+  .team-info { padding: 24px; }
+  .team-info h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .team-role { font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 10px; display: block; transition: color var(--transition); }
+  .team-bio { font-size: .85rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 14px; }
+  .team-socials { display: flex; gap: 10px; }
+  .team-socials a {
+    width: 32px; height: 32px; border: 1px solid var(--border);
+    border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
+    font-size: .78rem; color: var(--accent); transition: all var(--transition);
+  }
+  .team-socials a:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 
-.prestations-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.4rem;margin-top:2.5rem}
-.prestation-card{background:#f5f5f5;border-radius:14px;padding:1.8rem;transition:background .3s}
-.prestation-card:hover{background:#ececec}
-.prestation-card h3{font-family:'Playfair Display',serif;color:#1c1c1c;margin-bottom:.4rem}
-.prestation-card p{font-size:.84rem;color:var(--muted);line-height:1.55;margin-bottom:.6rem}
-.prestation-price{font-weight:700;color:var(--gold)}
+  /* ═══════════════════════════════════════════════
+     BLOG
+  ═══════════════════════════════════════════════ */
+  .blog-section { background: var(--bg); }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .blog-post {
+    background: var(--card-bg); border-radius: var(--radius);
+    border: 1px solid var(--card-border); overflow: hidden;
+    box-shadow: var(--shadow); transition: transform var(--transition);
+  }
+  .blog-post:hover { transform: translateY(-5px); }
+  .blog-image { height: 200px; overflow: hidden; }
+  .blog-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .blog-post:hover .blog-image img { transform: scale(1.06); }
+  .blog-content { padding: 22px; }
+  .blog-date { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
+  .blog-title { font-family: var(--font-display); font-size: 1.12rem; font-weight: 700; color: var(--text); margin-bottom: 9px; line-height: 1.3; }
+  .blog-excerpt { font-size: .84rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 14px; }
+  .read-more { font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: var(--accent); display: inline-flex; align-items: center; gap: 7px; transition: gap var(--transition); }
+  .read-more:hover { gap: 11px; }
 
-/* ============================================================
-   SHARED FOOTER
-   ============================================================ */
-.site-footer{background:var(--dark);padding:2.5rem 5vw;text-align:center}
-.site-footer p{color:rgba(255,255,255,.45);font-size:.82rem}
-.site-footer .foot-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:.4rem}
+  /* ═══════════════════════════════════════════════
+     RESERVATION
+  ═══════════════════════════════════════════════ */
+  .reservation-section {
+    background:
+      var(--hero-overlay),
+      url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=80') center/cover;
+    transition: background .5s ease;
+  }
+  .reservation-section .section-title { color: var(--accent); }
+  .reservation-section .section-subtitle { color: rgba(240,232,216,.55); }
+  .reservation-section > .container { text-align: center; }
+  .reservation-form {
+    max-width: 700px; margin: 0 auto; text-align: left;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: span 2; }
+  .form-group label { font-size: .76rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(240,232,216,.6); }
+  .form-group label span { color: var(--accent); }
+  .form-group input, .form-group textarea, .form-group select {
+    padding: 12px 16px;
+    background: rgba(240,232,216,.07);
+    border: 1px solid rgba(201,169,110,.2);
+    border-radius: var(--radius); color: #f0e8d8;
+    font-family: var(--font-body); font-size: .92rem;
+    outline: none; transition: border-color var(--transition);
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(240,232,216,.3); }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group select option { background: #111; color: #f0e8d8; }
+  .form-group textarea { resize: vertical; }
+  .invalid-feedback { font-size: .75rem; color: #f4a27c; display: none; }
+  .form-group.error .invalid-feedback { display: block; }
+  .form-group.error input { border-color: #f4a27c; }
+  .reservation-form .btn-primary { grid-column: span 2; justify-self: center; margin-top: 8px; padding: 14px 52px; font-size: .9rem; }
+  #reservationSuccess { display: none; text-align: center; padding: 32px; color: var(--accent); font-family: var(--font-display); font-size: 1.35rem; line-height: 1.6; }
 
-/* ===== MISC ===== */
-.text-center{text-align:center}
-.text-center .section-sub{margin:0 auto}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-@media(max-width:650px){.grid2{grid-template-columns:1fr}}
-.stats-row{display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:2rem}
-.stat-box{text-align:center}
-.stat-n{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700}
-.stat-l{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+  /* ═══════════════════════════════════════════════
+     CONTACT
+  ═══════════════════════════════════════════════ */
+  .contact-section { background: var(--bg2); }
+  .contact-container { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+  .contact-info p { color: var(--text-soft); line-height: 1.82; margin-bottom: 22px; }
+  .contact-info a { color: var(--accent); transition: color var(--transition); }
+  .contact-info a:hover { opacity: .8; }
+  .opening-hours { border-left: 2px solid var(--accent); padding-left: 16px; }
+  .social-links { display: flex; gap: 10px; margin-top: 22px; }
+  .social-links a {
+    width: 38px; height: 38px; border: 1px solid var(--border);
+    border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: .85rem; transition: all var(--transition);
+  }
+  .social-links a:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .contact-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .contact-map iframe { display: block; filter: grayscale(20%) brightness(90%); }
 
-.contact-form-wrap{max-width:580px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:.9rem}
-.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-@media(max-width:500px){.form-row2{grid-template-columns:1fr}}
-.form-field label{display:block;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.3rem}
-.form-field input,.form-field textarea,.form-field select{width:100%;padding:.75rem 1rem;border:1.5px solid #ddd;border-radius:10px;font-family:'Poppins',sans-serif;font-size:.9rem;outline:none;transition:border-color .3s;background:#fff}
-.form-field input:focus,.form-field textarea:focus{border-color:var(--green)}
-.form-success{display:none;text-align:center;color:var(--green);font-weight:600;padding:1rem;background:#e4f0e4;border-radius:10px}
-</style>
+  /* ═══════════════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════════════ */
+  #footer { background: var(--footer-bg); color: rgba(240,232,216,.4); padding: 64px 0 32px; transition: background .5s; }
+  .footer-container { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+  .footer-logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a { font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; transition: color var(--transition); }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-divider { width: 48px; height: 1px; background: var(--border); }
+  .newsletter h4 { font-family: var(--font-display); font-size: 1.1rem; color: rgba(240,232,216,.65); margin-bottom: 12px; text-align: center; }
+  .newsletter-form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .newsletter-form input {
+    padding: 10px 16px; background: rgba(240,232,216,.06);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    color: #f0e8d8; font-family: var(--font-body); font-size: .84rem;
+    outline: none; min-width: 220px; transition: border-color var(--transition);
+  }
+  .newsletter-form input:focus { border-color: var(--accent); }
+  .newsletter-form input::placeholder { color: rgba(240,232,216,.28); }
+  .footer-copy { font-size: .74rem; letter-spacing: .04em; }
+
+  /* ═══════════════════════════════════════════════
+     REVEAL
+  ═══════════════════════════════════════════════ */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ═══════════════════════════════════════════════
+     VERSION-SPECIFIC OVERRIDES
+  ═══════════════════════════════════════════════ */
+
+  /* CHIC: gold underline on section titles */
+  [data-version="chic"] .section-title::after {
+    content: '';
+    display: block; width: 40px; height: 1px;
+    background: var(--accent); margin-top: 10px;
+  }
+  /* CHIC: slanted hero */
+  [data-version="chic"] .hero-title { font-style: italic; }
+
+  /* NORMAL: earthy section backgrounds match previous sites */
+  [data-version="normal"] .about-section { background: var(--bg2); }
+  [data-version="normal"] .menu-section { background: var(--bg3); }
+
+  /* LIGHT: section backgrounds brighter */
+  [data-version="light"] .section-subtitle { color: #7a5c40; }
+  [data-version="light"] .philosophy-item p { color: #7a5c40; }
+  [data-version="light"] .team-bio { color: #7a5c40; }
+  [data-version="light"] .about-content p { color: #7a5c40; }
+  [data-version="light"] .menu-desc { color: #7a5c40; }
+  [data-version="light"] .blog-excerpt { color: #7a5c40; }
+  [data-version="light"] .contact-info p { color: #7a5c40; }
+  [data-version="light"] .menu-title { color: #1a1008; }
+  [data-version="light"] .team-info h3 { color: #1a1008; }
+  [data-version="light"] .blog-title { color: #1a1008; }
+  [data-version="light"] .testimonial-text { color: #1a1008; }
+
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .about-container, .contact-container { grid-template-columns: 1fr; }
+    .about-img-main img { height: 360px; }
+    .about-img-inset { display: none; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; }
+    .gallery-item:nth-child(1) { grid-row: span 1; }
+    .nav-toggle { display: flex; }
+    .nav-menu {
+      position: fixed; top: var(--header-h); left: 0; right: 0;
+      background: var(--header-bg);
+      flex-direction: column; gap: 0;
+      padding: 16px 0 28px;
+      transform: translateY(-100%); opacity: 0; pointer-events: none;
+      transition: transform var(--transition), opacity var(--transition);
+      border-bottom: 1px solid var(--header-border);
+    }
+    .nav-menu.open { transform: none; opacity: 1; pointer-events: auto; }
+    .nav-menu li { width: 100%; }
+    .nav-menu a { display: block; padding: 13px 28px; }
+    .nav-menu .btn-primary { margin: 12px 28px 0; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .philosophy-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .philosophy-item:last-child { border-bottom: none; }
+    #versionBar { bottom: 12px; }
+    .splash-versions { flex-direction: column; align-items: center; }
+    .splash-btn { width: 260px; flex-direction: row; }
+  }
+  @media (max-width: 600px) {
+    .section { padding: 76px 0; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .reservation-form { grid-template-columns: 1fr; }
+    .reservation-form .btn-primary { grid-column: span 1; }
+    .form-group.full { grid-column: span 1; }
+    .hero-buttons { flex-direction: column; }
+    .hero-star { display: none; }
+  }
+  </style>
 </head>
-<body>
+<body data-version="chic">
 
-<!-- ============================================================
-     PAGE 1 — PORTFOLIO AGENCE
-     ============================================================ -->
-<div id="page-home" class="page active">
-  <!-- NAV -->
-  <nav class="site-nav">
-    <a class="logo" style="color:var(--green)" href="#">Nova<span style="color:var(--gold)">Site</span></a>
-    <ul>
-      <li><a href="#portfolio-section">Réalisations</a></li>
-      <li><a href="#services-section">Services</a></li>
-      <li><a href="#contact-section">Contact</a></li>
-    </ul>
-    <a href="#contact-section" class="nav-btn">Devis gratuit</a>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home-hero">
-    <div style="position:absolute;inset:0;background:linear-gradient(145deg,#f5f0e6 0%,#eaf2e6 60%,#f0ebe0 100%)"></div>
-    <div class="hero-inner">
-      <p class="section-tag">Agence Web — Création de sites sur-mesure</p>
-      <h1>Des sites qui <em style="font-style:italic;color:var(--green)">convertissent</em>,<br>livrés en 7 jours</h1>
-      <p>NovaSite Studio conçoit des sites vitrine et boutiques en ligne pour artisans, commerçants et PME. Design soigné, code propre, résultats mesurables.</p>
-      <div class="hero-btns">
-        <button class="btn btn-primary" onclick="scrollTo({top:document.getElementById('portfolio-section').offsetTop-60,behavior:'smooth'})"><i class="fa-solid fa-eye"></i> Voir nos réalisations</button>
-        <button class="btn btn-outline" onclick="scrollTo({top:document.getElementById('contact-section').offsetTop-60,behavior:'smooth'})">Demander un devis</button>
-      </div>
-      <div class="stats-row" style="justify-content:center;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(0,0,0,.1)">
-        <div class="stat-box"><div class="stat-n" style="color:var(--green)">30+</div><div class="stat-l">sites livrés</div></div>
-        <div class="stat-box"><div class="stat-n" style="color:var(--green)">7j</div><div class="stat-l">délai moyen</div></div>
-        <div class="stat-box"><div class="stat-n" style="color:var(--green)">100%</div><div class="stat-l">satisfaction</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section class="section" id="portfolio-section">
-    <div class="container">
-      <p class="section-tag">Nos réalisations</p>
-      <h2 class="section-title">Des projets variés, une qualité constante</h2>
-      <div class="divider"></div>
-      <p class="section-sub">Cliquez sur un projet pour visiter le site.</p>
-      <div class="portfolio-grid" style="margin-top:2.5rem">
-
-        <!-- Bistraut -->
-        <div class="project-card" onclick="showPage('page-bistraut')">
-          <div class="project-thumb">
-            <div class="mock t-bistraut">
-              <div class="mock-bar"></div>
-              <div class="mock-hero-area">
-                <div class="mock-line w70"></div>
-                <div class="mock-line w50"></div>
-                <div class="mock-cta"></div>
-              </div>
-              <div class="mock-cards">
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-              </div>
-            </div>
-            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
-          </div>
-          <div class="project-body">
-            <div class="proj-tags"><span class="tag green">Restaurant</span><span class="tag gold">Réservation</span></div>
-            <h3>Le Bistraut — Paris 11e</h3>
-            <p>Site vitrine pour un bistrot franco-japonais. Menu, galerie photos et réservation en ligne.</p>
-          </div>
-        </div>
-
-        <!-- Zen & Sens -->
-        <div class="project-card" onclick="showPage('page-spa')">
-          <div class="project-thumb">
-            <div class="mock t-spa">
-              <div class="mock-bar"></div>
-              <div class="mock-hero-area">
-                <div class="mock-line w70"></div>
-                <div class="mock-line w50"></div>
-                <div class="mock-cta"></div>
-              </div>
-              <div class="mock-cards">
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-              </div>
-            </div>
-            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
-          </div>
-          <div class="project-body">
-            <div class="proj-tags"><span class="tag green">Spa</span><span class="tag gold">Prise de RDV</span></div>
-            <h3>Zen & Sens — Bordeaux</h3>
-            <p>Institut de bien-être haut de gamme. Soins, tarifs et prise de rendez-vous intégrée.</p>
-          </div>
-        </div>
-
-        <!-- Immo Prestige -->
-        <div class="project-card" onclick="showPage('page-immo')">
-          <div class="project-thumb">
-            <div class="mock t-immo">
-              <div class="mock-bar"></div>
-              <div class="mock-hero-area">
-                <div class="mock-line w70"></div>
-                <div class="mock-line w50"></div>
-                <div class="mock-cta"></div>
-              </div>
-              <div class="mock-cards">
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-              </div>
-            </div>
-            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
-          </div>
-          <div class="project-body">
-            <div class="proj-tags"><span class="tag green">Immobilier</span><span class="tag">Catalogue</span></div>
-            <h3>Prestige Immo — Lyon</h3>
-            <p>Agence immobilière de luxe. Listings de biens avec filtres, photos et estimation en ligne.</p>
-          </div>
-        </div>
-
-        <!-- Coach Elite -->
-        <div class="project-card" onclick="showPage('page-coach')">
-          <div class="project-thumb">
-            <div class="mock t-coach">
-              <div class="mock-bar"></div>
-              <div class="mock-hero-area">
-                <div class="mock-line w70"></div>
-                <div class="mock-line w50"></div>
-                <div class="mock-cta"></div>
-              </div>
-              <div class="mock-cards">
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-              </div>
-            </div>
-            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
-          </div>
-          <div class="project-body">
-            <div class="proj-tags"><span class="tag green">Coaching</span><span class="tag gold">Formules</span></div>
-            <h3>Coach Élite — Strasbourg</h3>
-            <p>Coach business & développement personnel. Présentation, formules d'accompagnement et contact.</p>
-          </div>
-        </div>
-
-        <!-- Studio Lumière -->
-        <div class="project-card" onclick="showPage('page-photo')">
-          <div class="project-thumb">
-            <div class="mock t-photo">
-              <div class="mock-bar"></div>
-              <div class="mock-hero-area">
-                <div class="mock-line w70"></div>
-                <div class="mock-line w50"></div>
-                <div class="mock-cta"></div>
-              </div>
-              <div class="mock-cards">
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-              </div>
-            </div>
-            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
-          </div>
-          <div class="project-body">
-            <div class="proj-tags"><span class="tag green">Photographie</span><span class="tag">Dark theme</span></div>
-            <h3>Studio Lumière — Nantes</h3>
-            <p>Photographe mariage & corporate. Portfolio galerie, prestations et galerie client privée.</p>
-          </div>
-        </div>
-
-        <!-- BioDelight -->
-        <div class="project-card" onclick="showPage('page-bio')">
-          <div class="project-thumb">
-            <div class="mock t-bio">
-              <div class="mock-bar"></div>
-              <div class="mock-hero-area">
-                <div class="mock-line w70"></div>
-                <div class="mock-line w50"></div>
-                <div class="mock-cta"></div>
-              </div>
-              <div class="mock-cards">
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-                <div class="mock-card-sm"></div>
-              </div>
-            </div>
-            <div class="thumb-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> Visiter le site</span></div>
-          </div>
-          <div class="project-body">
-            <div class="proj-tags"><span class="tag green">Restaurant Bio</span><span class="tag gold">Farm-to-table</span></div>
-            <h3>BioDelight Bistro — Valentigney</h3>
-            <p>Menu interactif, galerie, réservation et blog culinaire pour ce bistrot farm-to-table.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section services-section" id="services-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-tag">Ce que nous faisons</p>
-        <h2 class="section-title" style="color:#fff">Nos prestations</h2>
-        <p class="section-sub" style="margin:0 auto">Solutions web complètes pour indépendants et PME.</p>
-      </div>
-      <div class="serv-grid">
-        <div class="serv-card"><div class="serv-icon">🖥️</div><h3>Site Vitrine</h3><p>Design sur-mesure, responsive, optimisé SEO. Livré avec formulaire de contact et hébergement.</p><span class="serv-price">Dès 490 €</span></div>
-        <div class="serv-card"><div class="serv-icon">🛍️</div><h3>Boutique en ligne</h3><p>E-commerce complet avec paiement sécurisé, gestion stock et tableau de bord simple.</p><span class="serv-price">Dès 1 290 €</span></div>
-        <div class="serv-card"><div class="serv-icon">📅</div><h3>Réservation & RDV</h3><p>Calendrier de réservation intégré, confirmations automatiques et rappels par email.</p><span class="serv-price">Option 190 €</span></div>
-        <div class="serv-card"><div class="serv-icon">🔍</div><h3>SEO Local</h3><p>Optimisation pour Google, fiche Google Business, mots-clés locaux pour attirer vos clients de proximité.</p><span class="serv-price">Inclus</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-strip">
-    <h2>Votre site en 7 jours ?</h2>
-    <p>Devis gratuit et sans engagement sous 24h.</p>
-    <button class="btn btn-white" onclick="scrollTo({top:document.getElementById('contact-section').offsetTop-60,behavior:'smooth'})"><i class="fa-solid fa-paper-plane"></i> Lancer mon projet</button>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact-section" style="background:var(--cream2)">
-    <div class="container text-center">
-      <p class="section-tag">Contact</p>
-      <h2 class="section-title">Parlons de votre projet</h2>
-      <div class="divider" style="margin:.8rem auto 1.4rem"></div>
-      <div class="contact-form-wrap">
-        <div class="form-row2">
-          <div class="form-field"><label>Prénom</label><input type="text" placeholder="Jean"/></div>
-          <div class="form-field"><label>Nom</label><input type="text" placeholder="Dupont"/></div>
-        </div>
-        <div class="form-field"><label>Email *</label><input type="email" placeholder="jean@monentreprise.fr"/></div>
-        <div class="form-field"><label>Type de site</label>
-          <select><option>Site vitrine</option><option>Boutique en ligne</option><option>Site avec réservation</option><option>Autre</option></select>
-        </div>
-        <div class="form-field"><label>Message</label><textarea rows="4" placeholder="Décrivez votre activité et vos besoins…"></textarea></div>
-        <button class="btn btn-primary" onclick="submitHome(event)" style="align-self:center"><i class="fa-solid fa-paper-plane"></i> Envoyer</button>
-        <div class="form-success" id="home-success">✓ Message reçu ! Je vous réponds sous 24h.</div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="foot-logo">Nova<span style="color:var(--gold)">Site</span> Studio</div>
-    <p>© 2025 NovaSite Studio — Micro-entreprise française · contact@novasite-studio.fr</p>
-  </footer>
-</div>
-
-
-<!-- ============================================================
-     PAGE 2 — LE BISTRAUT
-     ============================================================ -->
-<div id="page-bistraut" class="page">
-  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
-  <nav class="site-nav">
-    <span class="logo">Le Bistraut</span>
-    <ul>
-      <li><a href="#b-menu">Menu</a></li>
-      <li><a href="#b-galerie">Galerie</a></li>
-      <li><a href="#b-contact">Réserver</a></li>
-    </ul>
-    <a href="#b-contact" class="nav-btn">Réserver une table</a>
-  </nav>
-
-  <section class="sub-page-hero" id="b-hero">
-    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#fdf4ec,#f5e6d0)"></div>
-    <div class="inner">
-      <p class="section-tag">Paris 11e · Bistrot franco-japonais</p>
-      <h1 style="color:#2c1a0e">L'alliance du terroir<br><em style="color:#b84040">et de l'umami</em></h1>
-      <p>Cuisine bistrotière française revisitée aux influences nippones. Produits du marché, sake naturels et saké-bières artisanales.</p>
-      <div class="hero-btns">
-        <a href="#b-menu" class="btn btn-primary">Voir le menu</a>
-        <a href="#b-contact" class="btn btn-outline" style="color:#2c1a0e;border-color:#2c1a0e">Réserver</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="b-about" style="background:var(--cream2)">
-    <div class="container grid2">
+<!-- ═══════ SPLASH SCREEN ═══════ -->
+<div id="splash">
+  <div class="splash-logo">L'Ardoise Noire</div>
+  <div class="splash-sub">Restaurant Gastronomique · Namur</div>
+  <div class="splash-label">Choisissez votre expérience</div>
+  <div class="splash-versions">
+    <button class="splash-btn chic" onclick="chooseVersion('chic')">
+      <div class="splash-swatch">🖤</div>
       <div>
-        <p class="section-tag">Notre histoire</p>
-        <h2 class="section-title">Né d'un voyage, <br>ancré dans Paris</h2>
-        <div class="divider"></div>
-        <p style="color:var(--muted);line-height:1.7;font-size:.95rem">Après 3 ans à Tokyo, le chef Raphaël Moreau est rentré à Paris avec une idée simple : créer un bistrot où la côte de bœuf côtoie le dashi, où le vin naturel rencontre le miso. Ouvert en 2021, Le Bistraut est devenu l'adresse incontournable du 11e.</p>
-        <div class="stats-row" style="margin-top:1.5rem">
-          <div class="stat-box"><div class="stat-n" style="color:#b84040">4.9</div><div class="stat-l">Note Google</div></div>
-          <div class="stat-box"><div class="stat-n" style="color:#b84040">320</div><div class="stat-l">avis clients</div></div>
-          <div class="stat-box"><div class="stat-n" style="color:#b84040">2021</div><div class="stat-l">Ouverture</div></div>
-        </div>
+        <div class="splash-btn-name">Chic</div>
+        <div class="splash-btn-desc">Noir & or<br/>Haute gastronomie</div>
       </div>
-      <div style="background:linear-gradient(135deg,#ffe5c0,#f5e6d0);border-radius:20px;height:320px;display:flex;align-items:center;justify-content:center;font-size:6rem">🍱</div>
-    </div>
-  </section>
-
-  <section class="section" id="b-menu">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-tag">La carte</p>
-        <h2 class="section-title">Menu du moment</h2>
-        <div class="divider" style="margin:.8rem auto 0"></div>
-      </div>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-top">🥟</div><div class="menu-card-body"><h3>Gyoza au canard confit</h3><p>Raviolis japonais farcis au canard confit landais, sauce ponzu-yuzu.</p><div class="price">12 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top">🥩</div><div class="menu-card-body"><h3>Côte de bœuf miso-beurre</h3><p>Côte de bœuf charolaise, beurre blanc miso, légumes de saison rôtis.</p><div class="price">38 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top">🍜</div><div class="menu-card-body"><h3>Ramen bœuf bourguignon</h3><p>Bouillon dashi-vin rouge, bœuf mijoté 8h, œuf mollet et nori croustillant.</p><div class="price">22 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top">🍮</div><div class="menu-card-body"><h3>Crème brûlée matcha</h3><p>Crème brûlée au thé matcha de Kyoto, tuile sésame noir.</p><div class="price">9 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top">🐟</div><div class="menu-card-body"><h3>Tartare de bar, huile sésame</h3><p>Bar de ligne, gingembre mariné, huile de sésame grillé, brioche maison.</p><div class="price">16 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top">🍷</div><div class="menu-card-body"><h3>Sélection vins naturels</h3><p>Cave de 80 références, vins vivants de vignerons indépendants.</p><div class="price">7 € / verre</div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="b-galerie" style="background:var(--cream2)">
-    <div class="container text-center">
-      <p class="section-tag">Ambiance</p>
-      <h2 class="section-title">L'univers du Bistraut</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="galerie-grid" style="margin-top:2rem">
-        <div class="galerie-item" style="background:linear-gradient(135deg,#ffe5c0,#f5e6d0)">🍷</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#f5e6d0,#fdf4ec)">🍣</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#fdf4ec,#ffe5c0)">🧑‍🍳</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#ffe5c0,#fdf4ec)">🏮</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#f5e6d0,#ffe5c0)">🥢</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#fdf4ec,#f5e6d0)">🌸</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#ffe5c0,#fdf4ec)">🍱</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#f5e6d0,#fdf4ec)">🥩</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="b-horaires">
-    <div class="container text-center">
-      <p class="section-tag">Informations</p>
-      <h2 class="section-title">Horaires & accès</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="horaires-grid" style="max-width:700px;margin:2rem auto 0">
-        <div class="horaire-card"><h4>Mardi – Vendredi</h4><p>12h00 – 14h30<br>19h00 – 22h30</p></div>
-        <div class="horaire-card"><h4>Samedi</h4><p>12h00 – 15h00<br>19h00 – 23h00</p></div>
-        <div class="horaire-card"><h4>Dimanche</h4><p>12h00 – 15h30<br>Brunch uniquement</p></div>
-        <div class="horaire-card"><h4>Lundi</h4><p>Fermé</p></div>
-      </div>
-      <p style="margin-top:1.5rem;color:var(--muted);font-size:.9rem">📍 42 Rue Oberkampf, 75011 Paris · <a href="tel:+330140000000" style="color:#b84040">01 40 00 00 00</a></p>
-    </div>
-  </section>
-
-  <section class="section" id="b-contact" style="background:var(--cream2)">
-    <div class="container text-center">
-      <p class="section-tag">Réservation</p>
-      <h2 class="section-title">Réserver une table</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="contact-form-wrap">
-        <div class="form-row2">
-          <div class="form-field"><label>Nom</label><input type="text" placeholder="Moreau"/></div>
-          <div class="form-field"><label>Personnes</label><input type="number" min="1" max="12" placeholder="2"/></div>
-        </div>
-        <div class="form-row2">
-          <div class="form-field"><label>Date</label><input type="date"/></div>
-          <div class="form-field"><label>Heure</label><input type="time"/></div>
-        </div>
-        <div class="form-field"><label>Email</label><input type="email" placeholder="votre@email.fr"/></div>
-        <button class="btn" style="background:#b84040;color:#fff;align-self:center" onclick="submitForm(event,'bistraut-success')"><i class="fa-solid fa-utensils"></i> Confirmer la réservation</button>
-        <div class="form-success" id="bistraut-success">✓ Table réservée ! Un email de confirmation vous sera envoyé.</div>
-      </div>
-    </div>
-  </section>
-  <footer class="site-footer"><div class="foot-logo" style="color:#c8943a">Le Bistraut</div><p>42 Rue Oberkampf, 75011 Paris · contact@lebistraut.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
-</div>
-
-
-<!-- ============================================================
-     PAGE 3 — ZEN & SENS
-     ============================================================ -->
-<div id="page-spa" class="page">
-  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
-  <nav class="site-nav">
-    <span class="logo" style="color:#3d2e5e">Zen & Sens</span>
-    <ul>
-      <li><a href="#s-soins">Soins</a></li>
-      <li><a href="#s-tarifs">Tarifs</a></li>
-      <li><a href="#s-contact">Rendez-vous</a></li>
-    </ul>
-    <a href="#s-contact" class="nav-btn">Prendre RDV</a>
-  </nav>
-
-  <section class="sub-page-hero" id="s-hero">
-    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#f8f4fe,#ece4f8)"></div>
-    <div class="inner">
-      <p class="section-tag" style="color:#5b3fa6">Bordeaux · Institut bien-être</p>
-      <h1 style="color:#3d2e5e">Prenez soin de vous,<br><em style="color:#5b3fa6;font-style:italic">vraiment</em></h1>
-      <p style="color:#6b5a8e">Massages, soins du visage, enveloppements et rituels corps. Un havre de paix au cœur de Bordeaux.</p>
-      <div class="hero-btns">
-        <a href="#s-soins" class="btn btn-primary" style="background:#5b3fa6">Découvrir les soins</a>
-        <a href="#s-contact" class="btn btn-outline" style="color:#3d2e5e;border-color:#3d2e5e">Réserver</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="s-soins">
-    <div class="container text-center">
-      <p class="section-tag">Nos soins</p>
-      <h2 class="section-title">Rituels & massages</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="soins-grid" style="margin-top:2.5rem">
-        <div class="soin-card"><div class="soin-icon">🪷</div><h3>Rituel Lotus</h3><p>Massage corps complet aux huiles essentielles, gommage douceur et enveloppement argile blanche. 90 min.</p><div class="soin-price">110 €</div></div>
-        <div class="soin-card"><div class="soin-icon">🌙</div><h3>Soin visage Nuit Étoilée</h3><p>Nettoyage profond, sérum hyaluronique, masque liftant et modelage du visage. 60 min.</p><div class="soin-price">75 €</div></div>
-        <div class="soin-card"><div class="soin-icon">🤲</div><h3>Massage Shiatsu</h3><p>Technique japonaise ancestrale sur points d'acupression. Rééquilibre l'énergie et soulage les tensions. 60 min.</p><div class="soin-price">80 €</div></div>
-        <div class="soin-card"><div class="soin-icon">💆</div><h3>Hammam & Gommage</h3><p>Séance hammam privatif, gommage savon beldi, rinçage et crème corps. 75 min.</p><div class="soin-price">65 €</div></div>
-        <div class="soin-card"><div class="soin-icon">👫</div><h3>Duo Zénitude</h3><p>Soin en couple dans notre cabine duo : massage relaxant synchronisé et bain aromatique. 90 min.</p><div class="soin-price">190 €</div></div>
-        <div class="soin-card"><div class="soin-icon">🎁</div><h3>Carte cadeau</h3><p>Offrez un moment de bien-être. Cartes disponibles de 50 € à 250 €, valables 1 an.</p><div class="soin-price">Dès 50 €</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="s-tarifs" style="background:linear-gradient(135deg,#f8f4fe,#ece4f8)">
-    <div class="container grid2">
+    </button>
+    <button class="splash-btn normal" onclick="chooseVersion('normal')">
+      <div class="splash-swatch">🌿</div>
       <div>
-        <p class="section-tag">L'équipe</p>
-        <h2 class="section-title">Des thérapeutes certifiées</h2>
-        <div class="divider"></div>
-        <p style="color:var(--muted);line-height:1.7;font-size:.95rem">Amandine, Céline et Nora sont toutes diplômées en esthétique et thérapies manuelles. Formation continue annuelle pour rester à la pointe des techniques.</p>
-        <div class="stats-row" style="margin-top:1.5rem">
-          <div class="stat-box"><div class="stat-n" style="color:#5b3fa6">3</div><div class="stat-l">thérapeutes</div></div>
-          <div class="stat-box"><div class="stat-n" style="color:#5b3fa6">4.8★</div><div class="stat-l">note Google</div></div>
-          <div class="stat-box"><div class="stat-n" style="color:#5b3fa6">8 ans</div><div class="stat-l">d'expérience</div></div>
-        </div>
+        <div class="splash-btn-name">Classique</div>
+        <div class="splash-btn-desc">Vert & cuivre<br/>Terroir raffiné</div>
       </div>
-      <div style="background:linear-gradient(135deg,#e8dff5,#d8cff2);border-radius:20px;height:300px;display:flex;align-items:center;justify-content:center;font-size:6rem">🪷</div>
-    </div>
-  </section>
-
-  <section class="section" id="s-contact">
-    <div class="container text-center">
-      <p class="section-tag">Rendez-vous</p>
-      <h2 class="section-title">Réserver un soin</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="contact-form-wrap">
-        <div class="form-field"><label>Votre prénom</label><input type="text" placeholder="Sophie"/></div>
-        <div class="form-field"><label>Soin souhaité</label>
-          <select><option>Rituel Lotus (90 min)</option><option>Soin visage (60 min)</option><option>Massage Shiatsu (60 min)</option><option>Hammam & Gommage</option><option>Duo Zénitude</option></select>
-        </div>
-        <div class="form-row2">
-          <div class="form-field"><label>Date</label><input type="date"/></div>
-          <div class="form-field"><label>Heure souhaitée</label><input type="time"/></div>
-        </div>
-        <div class="form-field"><label>Téléphone</label><input type="tel" placeholder="06 00 00 00 00"/></div>
-        <button class="btn" style="background:#5b3fa6;color:#fff;align-self:center" onclick="submitForm(event,'spa-success')"><i class="fa-solid fa-calendar-check"></i> Confirmer le RDV</button>
-        <div class="form-success" id="spa-success">✓ RDV confirmé ! Vous recevrez un SMS de rappel 24h avant.</div>
-      </div>
-    </div>
-  </section>
-  <footer class="site-footer"><div class="foot-logo" style="color:#c8a8f0">Zen & Sens</div><p>18 Cours de l'Intendance, 33000 Bordeaux · contact@zen-et-sens.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
-</div>
-
-
-<!-- ============================================================
-     PAGE 4 — PRESTIGE IMMO
-     ============================================================ -->
-<div id="page-immo" class="page">
-  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
-  <nav class="site-nav">
-    <span class="logo" style="color:#1a3a5c">Prestige Immo</span>
-    <ul>
-      <li><a href="#i-biens">Nos biens</a></li>
-      <li><a href="#i-services">Services</a></li>
-      <li><a href="#i-contact">Contact</a></li>
-    </ul>
-    <a href="#i-contact" class="nav-btn" style="background:#1a3a5c">Estimation gratuite</a>
-  </nav>
-
-  <section class="sub-page-hero" id="i-hero">
-    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#edf4fc,#d6e8f5)"></div>
-    <div class="inner">
-      <p class="section-tag">Lyon & Métropole · Immobilier de prestige</p>
-      <h1 style="color:#1a3a5c">Votre bien d'exception,<br><em style="color:var(--gold);font-style:italic">notre expertise</em></h1>
-      <p style="color:#3a5a78">Vente, achat et gestion locative de biens haut de gamme. Plus de 15 ans au service de votre patrimoine.</p>
-      <div class="hero-btns">
-        <a href="#i-biens" class="btn btn-primary" style="background:#1a3a5c">Voir les biens</a>
-        <a href="#i-contact" class="btn btn-outline" style="color:#1a3a5c;border-color:#1a3a5c">Estimation gratuite</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="i-biens">
-    <div class="container">
-      <p class="section-tag">Biens disponibles</p>
-      <h2 class="section-title">Sélection du moment</h2>
-      <div class="divider"></div>
-      <div class="biens-grid">
-        <div class="bien-card"><div class="bien-img">🏡</div><div class="bien-body"><span class="bien-badge badge-vente">À vendre</span><h3>Villa contemporaine — Écully</h3><p>5 pièces · 220 m² · Piscine · Vue dégagée sur la métropole lyonnaise</p><div class="bien-price">1 290 000 €</div><div class="bien-specs"><span>🛏️ 4 ch.</span><span>🚿 3 sdb</span><span>🚗 Garage</span></div></div></div>
-        <div class="bien-card"><div class="bien-img">🏢</div><div class="bien-body"><span class="bien-badge badge-loc">À louer</span><h3>Appartement Bellecour — Centre</h3><p>3 pièces · 95 m² · Parquet ancien · Lumineux · Gardien</p><div class="bien-price">2 100 € / mois</div><div class="bien-specs"><span>🛏️ 2 ch.</span><span>🚿 1 sdb</span><span>🌆 Vue</span></div></div></div>
-        <div class="bien-card"><div class="bien-img">🏠</div><div class="bien-body"><span class="bien-badge badge-vente">À vendre</span><h3>Maison de maître — Limonest</h3><p>7 pièces · 380 m² · Parc 2000 m² · Dépendances</p><div class="bien-price">2 450 000 €</div><div class="bien-specs"><span>🛏️ 5 ch.</span><span>🚿 4 sdb</span><span>🌳 Parc</span></div></div></div>
-        <div class="bien-card"><div class="bien-img">🏗️</div><div class="bien-body"><span class="bien-badge badge-vente">Neuf</span><h3>Penthouse — Part-Dieu</h3><p>4 pièces · 160 m² · Grande terrasse · Rooftop privatif · Cave</p><div class="bien-price">890 000 €</div><div class="bien-specs"><span>🛏️ 3 ch.</span><span>🚿 2 sdb</span><span>🌇 Terrasse</span></div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="i-services" style="background:#edf4fc">
-    <div class="container text-center">
-      <p class="section-tag">Nos services</p>
-      <h2 class="section-title">Un accompagnement complet</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="serv-grid" style="margin-top:2rem">
-        <div class="serv-card" style="background:#1a3a5c;border-color:rgba(255,255,255,.1)"><div class="serv-icon">🏠</div><h3>Transaction</h3><p style="color:rgba(255,255,255,.55)">Achat et vente de biens résidentiels et commerciaux. Accompagnement complet de A à Z.</p></div>
-        <div class="serv-card" style="background:#1a3a5c;border-color:rgba(255,255,255,.1)"><div class="serv-icon">📊</div><h3>Estimation</h3><p style="color:rgba(255,255,255,.55)">Évaluation précise de votre bien par nos experts du marché lyonnais. Gratuit et sans engagement.</p></div>
-        <div class="serv-card" style="background:#1a3a5c;border-color:rgba(255,255,255,.1)"><div class="serv-icon">🗝️</div><h3>Gestion locative</h3><p style="color:rgba(255,255,255,.55)">Gestion complète de vos biens en location : recherche de locataires, états des lieux, loyers.</p></div>
-        <div class="serv-card" style="background:#1a3a5c;border-color:rgba(255,255,255,.1)"><div class="serv-icon">⚖️</div><h3>Conseil juridique</h3><p style="color:rgba(255,255,255,.55)">Partenariat avec notaires et avocats spécialisés pour sécuriser chaque transaction.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="i-contact">
-    <div class="container text-center">
-      <p class="section-tag">Contact</p>
-      <h2 class="section-title">Demande d'estimation gratuite</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="contact-form-wrap">
-        <div class="form-row2">
-          <div class="form-field"><label>Prénom & Nom</label><input type="text" placeholder="Jean Dupont"/></div>
-          <div class="form-field"><label>Téléphone</label><input type="tel" placeholder="06 00 00 00 00"/></div>
-        </div>
-        <div class="form-field"><label>Type de bien</label><select><option>Appartement</option><option>Maison / Villa</option><option>Terrain</option><option>Local commercial</option></select></div>
-        <div class="form-field"><label>Description rapide</label><textarea rows="3" placeholder="Surface, localisation, état général…"></textarea></div>
-        <button class="btn" style="background:#1a3a5c;color:#fff;align-self:center" onclick="submitForm(event,'immo-success')"><i class="fa-solid fa-house"></i> Demander une estimation</button>
-        <div class="form-success" id="immo-success">✓ Demande enregistrée ! Un conseiller vous contacte sous 24h.</div>
-      </div>
-    </div>
-  </section>
-  <footer class="site-footer"><div class="foot-logo" style="color:#6a9fcf">Prestige Immo</div><p>Place Bellecour, 69002 Lyon · contact@prestige-immo.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
-</div>
-
-
-<!-- ============================================================
-     PAGE 5 — COACH ELITE
-     ============================================================ -->
-<div id="page-coach" class="page">
-  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
-  <nav class="site-nav">
-    <span class="logo" style="color:#1a4a3a">Coach Élite</span>
-    <ul>
-      <li><a href="#c-methode">Méthode</a></li>
-      <li><a href="#c-formules">Formules</a></li>
-      <li><a href="#c-contact">Démarrer</a></li>
-    </ul>
-    <a href="#c-contact" class="nav-btn" style="background:#1a4a3a">Séance découverte</a>
-  </nav>
-
-  <section class="sub-page-hero" id="c-hero">
-    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#e8f5ee,#d5ece0)"></div>
-    <div class="inner">
-      <p class="section-tag" style="color:var(--gold)">Strasbourg · Coach Business & Leadership</p>
-      <h1 style="color:#1a4a3a">Débloquez votre<br><em style="color:var(--gold);font-style:italic">plein potentiel</em></h1>
-      <p style="color:#2a6a4a">Coaching individuel et collectif pour dirigeants, managers et entrepreneurs qui veulent passer au niveau supérieur.</p>
-      <div class="hero-btns">
-        <a href="#c-formules" class="btn btn-primary" style="background:#1a4a3a">Voir les formules</a>
-        <a href="#c-contact" class="btn btn-outline" style="color:#1a4a3a;border-color:#1a4a3a">Séance gratuite</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="c-methode" style="background:var(--cream2)">
-    <div class="container grid2">
-      <div style="background:linear-gradient(135deg,#c5e4d0,#a8d4b8);border-radius:20px;height:300px;display:flex;align-items:center;justify-content:center;font-size:6rem">🎯</div>
+    </button>
+    <button class="splash-btn light" onclick="chooseVersion('light')">
+      <div class="splash-swatch">☀️</div>
       <div>
-        <p class="section-tag">La méthode</p>
-        <h2 class="section-title">CLEAR : 5 étapes vers l'excellence</h2>
-        <div class="divider"></div>
-        <div style="display:flex;flex-direction:column;gap:.8rem;margin-top:1rem">
-          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">C</div><div><strong style="color:#1a4a3a">Clarifier</strong> — Définir vos objectifs précis et vos valeurs profondes</div></div>
-          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">L</div><div><strong style="color:#1a4a3a">Libérer</strong> — Identifier et dépasser les croyances limitantes</div></div>
-          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">E</div><div><strong style="color:#1a4a3a">Engager</strong> — Construire un plan d'action concret et mesurable</div></div>
-          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">A</div><div><strong style="color:#1a4a3a">Ancrer</strong> — Développer des habitudes de performance durables</div></div>
-          <div style="display:flex;gap:1rem;align-items:flex-start"><div style="width:32px;height:32px;background:#1a4a3a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">R</div><div><strong style="color:#1a4a3a">Rayonner</strong> — Incarner le leadership et inspirer votre entourage</div></div>
-        </div>
+        <div class="splash-btn-name">Clair</div>
+        <div class="splash-btn-desc">Blanc & brique<br/>Bistrot lumineux</div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="c-formules">
-    <div class="container text-center">
-      <p class="section-tag">Tarifs</p>
-      <h2 class="section-title">Choisissez votre formule</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="formules-grid" style="max-width:900px;margin:2.5rem auto 0">
-        <div class="formule-card">
-          <h3>Starter</h3>
-          <p style="color:var(--muted);font-size:.85rem">Pour démarrer votre transformation</p>
-          <div class="formule-price">490 €<span> / mois</span></div>
-          <ul class="formule-list">
-            <li>2 séances individuelles / mois</li>
-            <li>Support WhatsApp en semaine</li>
-            <li>Bilan mensuel écrit</li>
-            <li>Accès ressources en ligne</li>
-          </ul>
-          <button class="btn btn-outline" style="color:#1a4a3a;border-color:#1a4a3a;width:100%;justify-content:center" onclick="scrollTo({top:document.getElementById('c-contact').offsetTop-60,behavior:'smooth'})">Choisir Starter</button>
-        </div>
-        <div class="formule-card featured">
-          <div class="featured-badge">⭐ Le plus choisi</div>
-          <h3>Élite</h3>
-          <p style="color:var(--muted);font-size:.85rem">L'accompagnement complet</p>
-          <div class="formule-price">890 €<span> / mois</span></div>
-          <ul class="formule-list">
-            <li>4 séances individuelles / mois</li>
-            <li>Support illimité 7j/7</li>
-            <li>Bilan hebdomadaire</li>
-            <li>Atelier groupe mensuel</li>
-            <li>Programme personnalisé</li>
-          </ul>
-          <button class="btn btn-primary" style="background:#1a4a3a;width:100%;justify-content:center" onclick="scrollTo({top:document.getElementById('c-contact').offsetTop-60,behavior:'smooth'})">Choisir Élite</button>
-        </div>
-        <div class="formule-card">
-          <h3>Équipe</h3>
-          <p style="color:var(--muted);font-size:.85rem">Pour vos équipes managériales</p>
-          <div class="formule-price">Sur devis</div>
-          <ul class="formule-list">
-            <li>Séances collectives mensuelles</li>
-            <li>Coaching individuel des managers</li>
-            <li>Audit culture d'entreprise</li>
-            <li>Plan de transformation sur 6 mois</li>
-          </ul>
-          <button class="btn btn-outline" style="color:#1a4a3a;border-color:#1a4a3a;width:100%;justify-content:center" onclick="scrollTo({top:document.getElementById('c-contact').offsetTop-60,behavior:'smooth'})">Demander un devis</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="c-contact" style="background:var(--cream2)">
-    <div class="container text-center">
-      <p class="section-tag">Séance découverte</p>
-      <h2 class="section-title">30 min offertes — sans engagement</h2>
-      <div class="divider" style="margin:.8rem auto 0"></div>
-      <div class="contact-form-wrap">
-        <div class="form-field"><label>Votre prénom & nom</label><input type="text" placeholder="Alexandre Martin"/></div>
-        <div class="form-field"><label>Email professionnel</label><input type="email" placeholder="a.martin@entreprise.fr"/></div>
-        <div class="form-field"><label>Votre situation actuelle</label><select><option>Dirigeant / CEO</option><option>Manager / cadre</option><option>Entrepreneur</option><option>En transition professionnelle</option><option>Autre</option></select></div>
-        <div class="form-field"><label>Votre principal défi en ce moment</label><textarea rows="3" placeholder="Décrivez en quelques mots ce sur quoi vous souhaitez travailler…"></textarea></div>
-        <button class="btn" style="background:#1a4a3a;color:#fff;align-self:center" onclick="submitForm(event,'coach-success')"><i class="fa-solid fa-rocket"></i> Réserver ma séance gratuite</button>
-        <div class="form-success" id="coach-success">✓ Demande reçue ! Je vous contacte sous 48h pour planifier votre séance.</div>
-      </div>
-    </div>
-  </section>
-  <footer class="site-footer"><div class="foot-logo" style="color:#7fc49a">Coach Élite</div><p>Strasbourg · contact@coach-elite.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
+    </button>
+  </div>
+  <div class="splash-divider"></div>
 </div>
 
+<!-- ═══════ PRELOADER ═══════ -->
+<div id="preloader"><div class="pre-ring"></div></div>
 
-<!-- ============================================================
-     PAGE 6 — STUDIO LUMIÈRE
-     ============================================================ -->
-<div id="page-photo" class="page">
-  <button class="back-btn" onclick="showPage('page-home')" style="background:#2a2a2a;border-color:#444;color:#fff"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
-  <nav class="site-nav" style="background:rgba(20,20,20,.95);border-color:rgba(255,255,255,.08)">
-    <span class="logo" style="color:#fff">Studio <span style="color:var(--gold)">Lumière</span></span>
-    <ul>
-      <li><a href="#p-galerie" style="color:rgba(255,255,255,.75)">Portfolio</a></li>
-      <li><a href="#p-prestations" style="color:rgba(255,255,255,.75)">Prestations</a></li>
-      <li><a href="#p-contact" style="color:rgba(255,255,255,.75)">Contact</a></li>
+<!-- ═══════ VERSION BAR ═══════ -->
+<div id="versionBar">
+  <button class="vbar-btn v-chic active" onclick="switchVersion('chic')">🖤 Chic</button>
+  <button class="vbar-btn v-normal" onclick="switchVersion('normal')">🌿 Classique</button>
+  <button class="vbar-btn v-light" onclick="switchVersion('light')">☀️ Clair</button>
+</div>
+
+<!-- ═══════ CHAT ═══════ -->
+<div id="chatBubble" class="chat-bubble" role="button" aria-label="Nous contacter">
+  <i class="fa-solid fa-comment-dots"></i>
+</div>
+<div id="chatWindow" class="chat-window hidden">
+  <div class="chat-header">L'Ardoise Noire <span id="chatClose">×</span></div>
+  <div class="chat-body" id="chatMessages">
+    <p class="bot-msg">Bonsoir ! Pour une réservation privée ou un menu dégustation, appelez le +32 81 22 00 00.</p>
+  </div>
+  <form id="chatForm" class="chat-form" novalidate>
+    <input type="text" id="chatInput" placeholder="Votre message…" autocomplete="off"/>
+    <button type="submit" aria-label="Envoyer"><i class="fa-solid fa-paper-plane"></i></button>
+  </form>
+</div>
+
+<!-- ═══════ BACK TO TOP ═══════ -->
+<button id="backToTop" aria-label="Retour en haut"><i class="fa-solid fa-angle-up"></i></button>
+
+<!-- ═══════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════ -->
+<header id="header">
+  <nav class="container nav">
+    <a href="#hero" class="logo">
+      L'Ardoise Noire
+      <span class="logo-sub">Restaurant Gastronomique</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span class="hamburger"></span></button>
+    <ul id="navigation-menu" class="nav-menu">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#about">Notre histoire</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#team">Équipe</a></li>
+      <li><a href="#blog">Carnets</a></li>
+      <li><a href="#reservation" class="btn btn-primary">Réserver</a></li>
     </ul>
-    <a href="#p-contact" class="nav-btn" style="background:var(--gold)">Réserver</a>
   </nav>
+</header>
 
-  <section class="sub-page-hero" id="p-hero" style="background:#1c1c1c">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(212,168,74,.08),transparent)"></div>
-    <div class="inner">
-      <p class="section-tag">Nantes · Photographe mariage & corporate</p>
-      <h1 style="color:#fff">Chaque image,<br><em style="color:var(--gold);font-style:italic">une émotion éternelle</em></h1>
-      <p style="color:rgba(255,255,255,.6)">15 ans d'expérience, 400+ mariages immortalisés. Des images qui racontent votre histoire avec élégance et authenticité.</p>
-      <div class="hero-btns">
-        <a href="#p-galerie" class="btn btn-primary" style="background:var(--gold)">Voir le portfolio</a>
-        <a href="#p-contact" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)">Me contacter</a>
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section id="hero" class="hero-section">
+  <div class="hero-content">
+    <div class="eyebrow"><span></span>Namur · Depuis 2011<span></span></div>
+    <h1 class="hero-title">
+      L'art de la table,<br/><em>réinventé chaque soir</em>
+    </h1>
+    <p class="hero-subtitle">Une cuisine d'auteur portée par le Chef Élias Morel — deux étoiles, une vision, l'obsession du produit juste et de l'émotion vraie.</p>
+    <div class="hero-buttons">
+      <a href="#menu" class="btn btn-secondary">Découvrir la carte</a>
+      <a href="#reservation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i>Réserver</a>
+    </div>
+  </div>
+  <div class="hero-star">
+    <p>Guide Michelin 2025</p>
+    <div class="hero-stars">★★</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════════ -->
+<section id="about" class="section about-section">
+  <div class="container about-container">
+    <div class="about-image reveal">
+      <div class="about-img-main">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85" alt="Salle de L'Ardoise Noire" loading="lazy"/>
+      </div>
+      <div class="about-img-inset">
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80" alt="Chef Élias Morel" loading="lazy"/>
       </div>
     </div>
-  </section>
-
-  <section class="section" id="p-galerie" style="background:#141414">
-    <div class="container text-center">
-      <p class="section-tag">Portfolio</p>
-      <h2 class="section-title" style="color:#fff">Quelques moments capturés</h2>
-      <div class="divider" style="background:var(--gold);margin:.8rem auto 0"></div>
-      <div class="galerie-grid" style="margin-top:2rem">
-        <div class="galerie-item" style="background:linear-gradient(135deg,#2a2014,#3a3020)">💍</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#1a2014,#2a3020)">🌿</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#201420,#302030)">👰</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#142020,#203030)">🏙️</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#2a1a14,#3a2a1a)">🎊</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#1a2a20,#2a3a28)">🌸</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#20141a,#302028)">🤵</div>
-        <div class="galerie-item" style="background:linear-gradient(135deg,#14201a,#203028)">🕯️</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="p-prestations">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-tag">Prestations</p>
-        <h2 class="section-title">Ce que je propose</h2>
-        <div class="divider" style="background:var(--gold);margin:.8rem auto 0"></div>
-      </div>
-      <div class="prestations-grid" style="margin-top:2.5rem">
-        <div class="prestation-card"><h3>Reportage Mariage</h3><p>Journée complète de 9h à minuit. 500+ photos retouchées, galerie privée en ligne sous 4 semaines.</p><div class="prestation-price">2 200 €</div></div>
-        <div class="prestation-card"><h3>Séance couple / Famille</h3><p>2h en extérieur ou en studio. 80 photos retouchées, livraison sous 10 jours.</p><div class="prestation-price">350 €</div></div>
-        <div class="prestation-card"><h3>Corporate & Événements</h3><p>Portraits professionnels, conférences, séminaires. Tarif à la demi-journée ou journée complète.</p><div class="prestation-price">Dès 490 €</div></div>
-        <div class="prestation-card"><h3>Photo culinaire</h3><p>Spécialité restauration : mise en scène, éclairage studio et retouche haut de gamme.</p><div class="prestation-price">Dès 390 €</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="p-contact" style="background:#1c1c1c">
-    <div class="container text-center">
-      <p class="section-tag">Contact</p>
-      <h2 class="section-title" style="color:#fff">Parlons de votre projet photo</h2>
-      <div class="divider" style="background:var(--gold);margin:.8rem auto 0"></div>
-      <div class="contact-form-wrap">
-        <div class="form-row2">
-          <div class="form-field"><label style="color:rgba(255,255,255,.6)">Prénom & Nom</label><input type="text" placeholder="Léa & Thomas" style="background:#2a2a2a;border-color:#444;color:#fff"/></div>
-          <div class="form-field"><label style="color:rgba(255,255,255,.6)">Type de prestation</label><select style="background:#2a2a2a;border-color:#444;color:#fff"><option>Mariage</option><option>Couple / Famille</option><option>Corporate</option><option>Photo culinaire</option></select></div>
+    <div class="about-content reveal">
+      <div class="eyebrow"><span></span>Notre histoire</div>
+      <h2 class="section-title">Une ardoise qui s'écrit<br/>chaque jour</h2>
+      <p>L'Ardoise Noire est née en 2011 d'un rêve du Chef Élias Morel : ouvrir à Namur un restaurant gastronomique qui ne se repose jamais sur ses acquis. L'ardoise — symbole du menu qui change, de la cuisine vivante — est au cœur de tout.</p>
+      <p>Formé chez Bocuse et Passard, Élias revient au pays avec une conviction profonde : la grande cuisine belge existe, elle se forge dans les champs du Condroz, les rivières de l'Ourthe et les caves à fromages du Hainaut. Deux étoiles Michelin plus tard, cette conviction n'a fait que se renforcer.</p>
+      <p>Notre salle de 32 couverts, installée dans un hôtel particulier du XVIIIe siècle, est le théâtre de ce dialogue permanent entre tradition et audace.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="2">0</span>
+          <span class="stat-label">Étoiles Michelin</span>
         </div>
-        <div class="form-field"><label style="color:rgba(255,255,255,.6)">Date souhaitée</label><input type="date" style="background:#2a2a2a;border-color:#444;color:#fff"/></div>
-        <div class="form-field"><label style="color:rgba(255,255,255,.6)">Votre message</label><textarea rows="4" placeholder="Parlez-moi de votre projet…" style="background:#2a2a2a;border-color:#444;color:#fff"></textarea></div>
-        <button class="btn" style="background:var(--gold);color:#fff;align-self:center" onclick="submitForm(event,'photo-success')"><i class="fa-solid fa-camera"></i> Envoyer ma demande</button>
-        <div class="form-success" id="photo-success" style="background:#2a3a2a">✓ Message reçu ! Je vous réponds sous 48h.</div>
-      </div>
-    </div>
-  </section>
-  <footer class="site-footer"><div class="foot-logo" style="color:var(--gold)">Studio Lumière</div><p>Nantes · contact@studio-lumiere.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
-</div>
-
-
-<!-- ============================================================
-     PAGE 7 — BIODELIGHT (style original)
-     ============================================================ -->
-<div id="page-bio" class="page">
-  <button class="back-btn" onclick="showPage('page-home')"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
-  <nav class="site-nav">
-    <span class="logo" style="color:#2d5a2d">BioDelight</span>
-    <ul>
-      <li><a href="#bio-menu">Menu</a></li>
-      <li><a href="#bio-journey">Notre histoire</a></li>
-      <li><a href="#bio-contact">Réserver</a></li>
-    </ul>
-    <a href="#bio-contact" class="nav-btn" style="background:#2d5a2d">Réserver</a>
-  </nav>
-
-  <section class="sub-page-hero" id="bio-hero">
-    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#f0f5eb,#e4f0e4)"></div>
-    <div class="inner">
-      <p class="section-tag" style="color:#c4703a">Valentigney · Restaurant Farm-to-Table</p>
-      <h1 style="color:#2d5a2d">Une expérience <em style="color:#c4703a;font-style:italic">farm‑to‑table</em><br>authentique</h1>
-      <p style="color:#4a7a4a">Savourez des ingrédients biologiques fraîchement cueillis et des plats innovants préparés avec amour et respect du vivant.</p>
-      <div class="hero-btns">
-        <a href="#bio-menu" class="btn btn-primary" style="background:#2d5a2d">Explorer le menu</a>
-        <a href="#bio-contact" class="btn btn-outline" style="color:#2d5a2d;border-color:#2d5a2d">Réserver une table</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="bio-about" style="background:var(--cream2)">
-    <div class="container grid2">
-      <div>
-        <p class="section-tag" style="color:#c4703a">Notre histoire</p>
-        <h2 class="section-title" style="color:#2d5a2d">Depuis plus de 20 ans,<br>le goût du vrai</h2>
-        <div class="divider" style="background:#c4703a"></div>
-        <p style="color:var(--muted);line-height:1.7;font-size:.95rem">Nous cultivons notre propre potager et sélectionnons des produits bio issus de fermes locales. Notre passion est d'offrir une expérience culinaire saine et savoureuse, en respectant la planète et le rythme des saisons.</p>
-        <div class="stats-row" style="margin-top:1.5rem">
-          <div class="stat-box"><div class="stat-n" style="color:#2d5a2d">20+</div><div class="stat-l">ans de savoir-faire</div></div>
-          <div class="stat-box"><div class="stat-n" style="color:#2d5a2d">150</div><div class="stat-l">ingrédients cultivés</div></div>
-          <div class="stat-box"><div class="stat-n" style="color:#2d5a2d">5000</div><div class="stat-l">clients satisfaits</div></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="14">0</span>
+          <span class="stat-label">ans d'existence</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="32">0</span>
+          <span class="stat-label">couverts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span>
+          <span class="stat-label">% produits locaux</span>
         </div>
       </div>
-      <div style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0);border-radius:20px;height:300px;display:flex;align-items:center;justify-content:center;font-size:6rem">🥗</div>
+      <a href="#gallery" class="btn btn-secondary mt-3">Voir la galerie</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="bio-menu">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-tag" style="color:#c4703a">La carte</p>
-        <h2 class="section-title" style="color:#2d5a2d">Notre menu de saison</h2>
-        <div class="divider" style="background:#c4703a;margin:.8rem auto 0"></div>
-      </div>
-      <div class="menu-grid" style="margin-top:2.5rem">
-        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🥗</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Salade croquante de saison</h3><p>Mélange de jeunes pousses, crudités bio et vinaigrette maison aux herbes.</p><div class="price" style="color:#c4703a">8 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🥣</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Bowl énergisant</h3><p>Quinoa, pois chiches grillés, légumes rôtis et sauce tahini citronnée.</p><div class="price" style="color:#c4703a">14 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🍵</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Soupe du marché</h3><p>Velouté de légumes de saison, servi avec pain artisanal aux céréales.</p><div class="price" style="color:#c4703a">7 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🍰</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Tarte aux fruits</h3><p>Pâte sablée, crème légère et assortiment de fruits frais du verger.</p><div class="price" style="color:#c4703a">6 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🥤</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Smoothie vert détox</h3><p>Mix d'épinards, banane, pomme, gingembre et graines de chia.</p><div class="price" style="color:#c4703a">5 €</div></div></div>
-        <div class="menu-card"><div class="menu-card-top" style="background:linear-gradient(135deg,#d8ecd8,#c0dcc0)">🫙</div><div class="menu-card-body"><h3 style="color:#2d5a2d">Bol quinoa & légumes</h3><p>Quinoa bio, avocat, légumes croquants, jeunes pois et sauce soja-sésame.</p><div class="price" style="color:#c4703a">12 €</div></div></div>
-      </div>
+<!-- ═══════════════════════════════════════════════
+     MENU
+═══════════════════════════════════════════════ -->
+<section id="menu" class="section menu-section">
+  <div class="container">
+    <h2 class="section-title reveal">La carte</h2>
+    <p class="section-subtitle reveal">Menus dégustation 7 ou 12 services, carte blanche saisonnière. Produits en provenance des meilleurs artisans de Wallonie.</p>
+    <div class="menu-filters reveal">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="amuse">Amuse-bouches</button>
+      <button class="filter-btn" data-filter="entree">Entrées</button>
+      <button class="filter-btn" data-filter="plat">Plats</button>
+      <button class="filter-btn" data-filter="dessert">Desserts</button>
     </div>
-  </section>
+    <div class="menu-grid">
 
-  <section class="section" id="bio-journey" style="background:var(--cream2)">
-    <div class="container text-center">
-      <p class="section-tag" style="color:#c4703a">Du champ à l'assiette</p>
-      <h2 class="section-title" style="color:#2d5a2d">Le voyage de nos ingrédients</h2>
-      <div class="divider" style="background:#c4703a;margin:.8rem auto 0"></div>
-      <div class="serv-grid" style="margin-top:2.5rem;--green:#2d5a2d">
-        <div class="serv-card" style="background:#2d5a2d;border-color:rgba(255,255,255,.1)"><div class="serv-icon" style="background:rgba(196,112,58,.2)">🌱</div><h3>À la ferme</h3><p style="color:rgba(255,255,255,.65)">Nos légumes bio poussent dans nos potagers et chez nos agriculteurs partenaires, sans pesticides.</p></div>
-        <div class="serv-card" style="background:#2d5a2d;border-color:rgba(255,255,255,.1)"><div class="serv-icon" style="background:rgba(196,112,58,.2)">🛒</div><h3>Marchés locaux</h3><p style="color:rgba(255,255,255,.65)">Chaque matin, nous sélectionnons les meilleurs produits. Nous privilégions les circuits courts.</p></div>
-        <div class="serv-card" style="background:#2d5a2d;border-color:rgba(255,255,255,.1)"><div class="serv-icon" style="background:rgba(196,112,58,.2)">🍽️</div><h3>En cuisine</h3><p style="color:rgba(255,255,255,.65)">Notre chef transforme ces trésors en plats savoureux, équilibrés et créatifs.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="bio-contact">
-    <div class="container text-center">
-      <p class="section-tag" style="color:#c4703a">Réservation</p>
-      <h2 class="section-title" style="color:#2d5a2d">Réserver une table</h2>
-      <div class="divider" style="background:#c4703a;margin:.8rem auto 0"></div>
-      <div class="contact-form-wrap">
-        <div class="form-row2">
-          <div class="form-field"><label>Nom complet</label><input type="text" placeholder="Claire Dupont"/></div>
-          <div class="form-field"><label>Personnes</label><input type="number" min="1" max="20" placeholder="2"/></div>
+      <div class="menu-item reveal" data-category="amuse">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80" alt="Amuse-bouche" loading="lazy"/>
+          <span class="menu-badge">Signature</span>
         </div>
-        <div class="form-row2">
-          <div class="form-field"><label>Date</label><input type="date"/></div>
-          <div class="form-field"><label>Heure</label><input type="time"/></div>
+        <div class="menu-info">
+          <h3 class="menu-title">Mise en bouche du Chef</h3>
+          <p class="menu-desc">Œuf de caille mollet, caviar d'Aquitaine, émulsion de topinambour fumé et chips de riz soufflé.</p>
+          <div class="menu-footer"><span class="menu-price">Inclus</span><span class="menu-tag">Signature</span></div>
         </div>
-        <div class="form-field"><label>Email</label><input type="email" placeholder="claire@email.fr"/></div>
-        <div class="form-field"><label>Message (allergies, occasions…)</label><textarea rows="3" placeholder="Précisez toute demande particulière…"></textarea></div>
-        <button class="btn" style="background:#2d5a2d;color:#fff;align-self:center" onclick="submitForm(event,'bio-success')"><i class="fa-solid fa-seedling"></i> Confirmer la réservation</button>
-        <div class="form-success" id="bio-success">✓ Réservation confirmée ! À très bientôt au BioDelight Bistro.</div>
       </div>
-      <p style="margin-top:1.5rem;color:var(--muted);font-size:.9rem">📍 123 Rue des Saveurs, 25700 Valentigney · <a href="tel:+33381000000" style="color:#2d5a2d">03 81 00 00 00</a></p>
-    </div>
-  </section>
-  <footer class="site-footer"><div class="foot-logo" style="color:#7ab87a">BioDelight Bistro</div><p>123 Rue des Saveurs, 25700 Valentigney · contact@biodelight.fr · Site réalisé par <a href="#" onclick="showPage('page-home')" style="color:var(--gold)">NovaSite Studio</a></p></footer>
-</div>
 
+      <div class="menu-item reveal" data-category="entree">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Saint-Jacques" loading="lazy"/>
+          <span class="menu-badge">Saison</span>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Saint-Jacques de Dieppe</h3>
+          <p class="menu-desc">Noix snackée, beurre blanc à la Lambic, purée de céleri et graines de sarrasin toastées.</p>
+          <div class="menu-footer"><span class="menu-price">34 €</span><span class="menu-tag">Mer</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="entree">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?w=600&q=80" alt="Foie gras" loading="lazy"/>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Foie gras torchon & cerise</h3>
+          <p class="menu-desc">Mi-cuit de foie gras de canard, compotée de griottes au vinaigre de Xérès, pain brioché maison et fleur de sel de Guérande.</p>
+          <div class="menu-footer"><span class="menu-price">38 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="plat">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Pigeon rôti" loading="lazy"/>
+          <span class="menu-badge">Plat phare</span>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Pigeon de Namur rôti entier</h3>
+          <p class="menu-desc">Cuit en deux services : filets rosés au genévrier, cuisse confite au thym, jus corsé aux morilles et gnocchi à la semoule.</p>
+          <div class="menu-footer"><span class="menu-price">56 €</span><span class="menu-tag">Gibier</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="plat">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80" alt="Turbot" loading="lazy"/>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Turbot de ligne & beurre noisette</h3>
+          <p class="menu-desc">Cuit à basse température, beurre noisette aux câpres, velouté d'asperges blanches et chorizo ibérique.</p>
+          <div class="menu-footer"><span class="menu-price">58 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="plat">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1559181567-c3190ca9d5db?w=600&q=80" alt="Wagyu belge" loading="lazy"/>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Wagyu belge de la ferme Destree</h3>
+          <p class="menu-desc">Entrecôte maturée 60 jours, jus au vin rouge de Côte-de-Namur, écrasée de pommes de terre à la truffe noire.</p>
+          <div class="menu-footer"><span class="menu-price">68 €</span><span class="menu-tag">Excellence</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="dessert">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Soufflé au chocolat" loading="lazy"/>
+          <span class="menu-badge">Fait minute</span>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Soufflé chaud au chocolat Valrhona</h3>
+          <p class="menu-desc">Chocolat Guanaja 70 %, glace à la vanille Bourbon, sauce chocolat au lait et fleur de sel.</p>
+          <div class="menu-footer"><span class="menu-price">22 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="dessert">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80" alt="Mille-feuille" loading="lazy"/>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Mille-feuille revisité à la verveine</h3>
+          <p class="menu-desc">Feuilletage inversé caramélisé, crème diplomate à la verveine fraîche, fraises des bois et sucre soufflé.</p>
+          <div class="menu-footer"><span class="menu-price">18 €</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PHILOSOPHY
+═══════════════════════════════════════════════ -->
+<section id="philosophy" class="section philosophy-section">
+  <div class="container">
+    <h2 class="section-title reveal" style="text-align:center;margin-bottom:0">Notre philosophie</h2>
+    <p class="section-subtitle reveal" style="margin:14px auto 52px;text-align:center">Quatre convictions qui guident chaque geste en cuisine.</p>
+    <div class="philosophy-grid">
+      <div class="philosophy-item reveal">
+        <div class="philosophy-num">01</div>
+        <h3>Le produit, toujours</h3>
+        <p>Un plat ne peut être grand que si son produit est exceptionnel. Nous sourçons chaque ingrédient chez des artisans que nous connaissons personnellement.</p>
+      </div>
+      <div class="philosophy-item reveal">
+        <div class="philosophy-num">02</div>
+        <h3>L'audace maîtrisée</h3>
+        <p>Nous ne cherchons pas la provocation, mais la surprise juste. Chaque accord inattendu est né d'un goûté, d'un échange, d'une certitude.</p>
+      </div>
+      <div class="philosophy-item reveal">
+        <div class="philosophy-num">03</div>
+        <h3>La saisonnalité absolue</h3>
+        <p>Notre carte change toutes les trois semaines. Ce qui pousse, ce que les pêcheurs remontent — voilà qui détermine le menu, pas l'inverse.</p>
+      </div>
+      <div class="philosophy-item reveal">
+        <div class="philosophy-num">04</div>
+        <h3>L'humilité en cuisine</h3>
+        <p>Le talent ne suffit pas. Nous apprenons chaque jour de nos équipes, de nos producteurs, de nos convives et de nos erreurs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     GALLERY
+═══════════════════════════════════════════════ -->
+<section id="gallery" class="section gallery-section">
+  <div class="container">
+    <h2 class="section-title reveal">Galerie</h2>
+    <p class="section-subtitle reveal">L'espace, l'assiette, l'instant.</p>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85" alt="Salle de restaurant" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Plat Saint-Jacques" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Viande" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80" alt="Table dressée" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Dessert" loading="lazy"/>
+      </div>
+    </div>
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
+      <span id="lightbox-close" class="lightbox-close">×</span>
+      <img id="lightbox-img" src="" alt="Vue agrandie"/>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════════ -->
+<section id="testimonials" class="section testimonials-section">
+  <div class="container">
+    <h2 class="section-title reveal">Paroles de convives</h2>
+    <p class="section-subtitle reveal" style="margin:0 auto 44px;">Ce que nos hôtes gardent de leur soirée à L'Ardoise Noire.</p>
+    <div class="testimonial-slider">
+      <div class="testimonial-item active">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-text">« Le pigeon de Namur est une révélation absolue. Chaque service était une découverte, chaque accord une évidence. Une soirée qu'on n'oublie pas. »</p>
+        <h4 class="testimonial-author">Alexandre R. — Bruxelles</h4>
+      </div>
+      <div class="testimonial-item">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-text">« Élias Morel est un génie de la discrétion. Pas de mise en scène inutile — juste la vérité du produit, portée à son état le plus pur. Digne des deux étoiles. »</p>
+        <h4 class="testimonial-author">Isabelle V. — Paris</h4>
+      </div>
+      <div class="testimonial-item">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-text">« Le soufflé Valrhona servi en fin de menu est la meilleure conclusion d'un repas que j'aie vécue. Le service, royal. L'ambiance, parfaite. »</p>
+        <h4 class="testimonial-author">Thomas & Nora — Luxembourg</h4>
+      </div>
+    </div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TEAM
+═══════════════════════════════════════════════ -->
+<section id="team" class="section team-section">
+  <div class="container">
+    <h2 class="section-title reveal">L'équipe</h2>
+    <p class="section-subtitle reveal">Des artisans du goût réunis autour d'une même exigence.</p>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-image">
+          <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&q=80" alt="Chef Élias Morel" loading="lazy"/>
+        </div>
+        <div class="team-info">
+          <h3>Élias Morel</h3>
+          <span class="team-role">Chef exécutif & fondateur ★★</span>
+          <p class="team-bio">Né à Namur en 1979, formé chez Bocuse et Passard, Élias porte une vision radicale : que la Wallonie puisse nourrir une cuisine au sommet du monde. Deux étoiles Michelin lui donnent raison.</p>
+          <div class="team-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-image">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" alt="Céline Arnaud" loading="lazy"/>
+        </div>
+        <div class="team-info">
+          <h3>Céline Arnaud</h3>
+          <span class="team-role">Directrice de salle</span>
+          <p class="team-bio">Ancienne du Ritz Paris et du Comme chez Soi, Céline orchestre chaque service avec une précision et une chaleur rares. Son sens de l'hôtellerie est la moitié de l'expérience.</p>
+          <div class="team-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-image">
+          <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=600&q=80" alt="Hugo Vanderberg" loading="lazy"/>
+        </div>
+        <div class="team-info">
+          <h3>Hugo Vanderberg</h3>
+          <span class="team-role">Sommelier & chef pâtissier</span>
+          <p class="team-bio">Meilleur Sommelier de Belgique 2019, Hugo compose des accords mets-vins et mets-bières qui prolongent chaque plat dans une autre dimension. Sa cave compte 680 références.</p>
+          <div class="team-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     BLOG
+═══════════════════════════════════════════════ -->
+<section id="blog" class="section blog-section">
+  <div class="container">
+    <h2 class="section-title reveal">Carnets de cuisine</h2>
+    <p class="section-subtitle reveal">Réflexions, coulisses et rencontres avec nos producteurs.</p>
+    <div class="blog-grid">
+      <article class="blog-post reveal">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Saint-Jacques" loading="lazy"/>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">18 avril 2026</span>
+          <h3 class="blog-title">Pourquoi la Saint-Jacques de Dieppe est unique</h3>
+          <p class="blog-excerpt">Texture, iode, douceur — Élias explique ce qui fait de ce coquillage l'un des rares produits auxquels il revient chaque saison sans se lasser.</p>
+          <a href="#" class="read-more">Lire <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-post reveal">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600&q=80" alt="Cave à vins" loading="lazy"/>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">1 mars 2026</span>
+          <h3 class="blog-title">La renaissance du vin de la Côte de Namur</h3>
+          <p class="blog-excerpt">Hugo Vanderberg présente les vignerons namurois qui, en quelques années, ont fait émerger une identité viticole wallonne crédible et excitante.</p>
+          <a href="#" class="read-more">Lire <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-post reveal">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Wagyu belge" loading="lazy"/>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">10 janvier 2026</span>
+          <h3 class="blog-title">Portrait : Gilles Destree, éleveur de wagyu belge</h3>
+          <p class="blog-excerpt">À Havelange, Gilles élève depuis 2016 des Wagyu croisées avec une patience rare. Une visite de ferme qui a changé notre façon de cuire la viande.</p>
+          <a href="#" class="read-more">Lire <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     RESERVATION
+═══════════════════════════════════════════════ -->
+<section id="reservation" class="section reservation-section">
+  <div class="container">
+    <h2 class="section-title">Réservation</h2>
+    <p class="section-subtitle">32 couverts — nous recommandons de réserver au moins 3 semaines à l'avance.</p>
+    <div id="reservationSuccess">
+      <i class="fa-solid fa-circle-check" style="font-size:2.5rem;display:block;margin-bottom:14px;color:var(--accent)"></i>
+      Merci pour votre réservation.<br/>Nous vous confirmerons sous 24 heures.
+    </div>
+    <form id="reservationForm" class="reservation-form" novalidate>
+      <div class="form-group">
+        <label for="resName">Nom <span>*</span></label>
+        <input type="text" id="resName" placeholder="Jean-Pierre Morel" required/>
+        <div class="invalid-feedback">Champ requis.</div>
+      </div>
+      <div class="form-group">
+        <label for="resEmail">Email <span>*</span></label>
+        <input type="email" id="resEmail" placeholder="jean@exemple.be" required/>
+        <div class="invalid-feedback">Email invalide.</div>
+      </div>
+      <div class="form-group">
+        <label for="resPhone">Téléphone</label>
+        <input type="tel" id="resPhone" placeholder="+32 81 00 00 00"/>
+      </div>
+      <div class="form-group">
+        <label for="resGuests">Couverts <span>*</span></label>
+        <input type="number" id="resGuests" min="1" max="32" placeholder="2" required/>
+        <div class="invalid-feedback">Requis.</div>
+      </div>
+      <div class="form-group">
+        <label for="resDate">Date <span>*</span></label>
+        <input type="date" id="resDate" required/>
+        <div class="invalid-feedback">Choisissez une date.</div>
+      </div>
+      <div class="form-group">
+        <label for="resMenu">Menu souhaité</label>
+        <select id="resMenu">
+          <option value="">— Choisir —</option>
+          <option>Menu Dégustation 7 services (95 €)</option>
+          <option>Menu Dégustation 12 services (145 €)</option>
+          <option>Carte blanche du Chef (185 €)</option>
+          <option>Menu à la carte</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label for="resMessage">Allergies & demandes</label>
+        <textarea id="resMessage" rows="3" placeholder="Allergies, occasion spéciale, demandes particulières…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i>Envoyer la demande</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════════ -->
+<section id="contact" class="section contact-section">
+  <div class="container contact-container">
+    <div class="contact-info reveal">
+      <h2 class="section-title">Nous trouver</h2>
+      <p>
+        <i class="fa-solid fa-location-dot" style="color:var(--accent);margin-right:8px;"></i>14 Rue des Brasseurs, 5000 Namur<br/>
+        <i class="fa-solid fa-phone" style="color:var(--accent);margin-right:8px;"></i><a href="tel:+3281220000">+32 81 22 00 00</a><br/>
+        <i class="fa-solid fa-envelope" style="color:var(--accent);margin-right:8px;"></i><a href="mailto:contact@ardoisenoire.be">contact@ardoisenoire.be</a>
+      </p>
+      <p class="opening-hours">
+        <strong>Service du soir uniquement</strong><br/>
+        Mar–Sam : 19h00 → 22h30<br/>
+        Dim & Lun : Fermé<br/>
+        Fermeture annuelle : 3 semaines en août
+      </p>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+      </div>
+    </div>
+    <div class="contact-map reveal">
+      <iframe
+        title="L'Ardoise Noire – Namur"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2537.0!2d4.867!3d50.467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c17d20e0000001%3A0x1!2sNamur%2C+Belgique!5e0!3m2!1sfr!2sBE!4v1700000000001!5m2!1sfr!2sBE"
+        width="100%" height="380"
+        style="border:0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container footer-container">
+    <div class="footer-logo">L'Ardoise Noire</div>
+    <div class="footer-links">
+      <a href="#hero">Accueil</a>
+      <a href="#about">Histoire</a>
+      <a href="#menu">Carte</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#team">Équipe</a>
+      <a href="#blog">Carnets</a>
+      <a href="#reservation">Réservation</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="newsletter">
+      <h4>Carnets & actualités</h4>
+      <form id="newsletterForm" class="newsletter-form" novalidate>
+        <input type="email" placeholder="votre@email.be" required/>
+        <button type="submit" class="btn btn-secondary" style="color:rgba(240,232,216,.7);border-color:rgba(240,232,216,.2);">S'inscrire</button>
+      </form>
+    </div>
+    <p class="footer-copy">© 2026 L'Ardoise Noire · Namur, Belgique. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
 <script>
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0, 0);
-}
-function submitForm(e, successId) {
-  e.preventDefault();
-  const el = document.getElementById(successId);
-  el.style.display = 'block';
-  e.target.style.display = 'none';
-}
-function submitHome(e) {
-  e.preventDefault();
-  document.getElementById('home-success').style.display = 'block';
-  e.target.style.display = 'none';
-}
+  /* ── Version management ── */
+  function chooseVersion(v) {
+    document.body.setAttribute('data-version', v);
+    localStorage.setItem('anVersion', v);
+    // fade out splash
+    const splash = document.getElementById('splash');
+    splash.classList.add('out');
+    // update version bar
+    updateVBar(v);
+    // show preloader briefly
+    const pre = document.getElementById('preloader');
+    pre.style.opacity = '1'; pre.style.visibility = 'visible';
+    setTimeout(() => { pre.classList.add('out'); }, 600);
+  }
+
+  function switchVersion(v) {
+    document.body.setAttribute('data-version', v);
+    localStorage.setItem('anVersion', v);
+    updateVBar(v);
+    // brief flash
+    const pre = document.getElementById('preloader');
+    pre.style.opacity = '1'; pre.style.visibility = 'visible';
+    pre.classList.remove('out');
+    setTimeout(() => pre.classList.add('out'), 400);
+  }
+
+  function updateVBar(v) {
+    document.querySelectorAll('.vbar-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.v-${v}`)?.classList.add('active');
+  }
+
+  /* ── Init: check saved version or show splash ── */
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('anVersion');
+    if (saved) {
+      chooseVersion(saved);
+    } else {
+      // Show splash; preloader stays until version chosen
+      document.getElementById('preloader').classList.add('out');
+    }
+  });
+
+  /* ── Header scroll ── */
+  const header = document.getElementById('header');
+  const backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+    backBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Mobile nav ── */
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navigation-menu');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+  navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navToggle.classList.remove('open');
+    navMenu.classList.remove('open');
+  }));
+
+  /* ── Menu filters ── */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.classList.toggle('hidden-item', f !== 'all' && item.dataset.category !== f);
+      });
+    });
+  });
+
+  /* ── Lightbox ── */
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => { lbImg.src = item.querySelector('img').src; lightbox.classList.remove('hidden'); });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.add('hidden'));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.add('hidden'); });
+
+  /* ── Testimonials ── */
+  const tItems = document.querySelectorAll('.testimonial-item');
+  const dotsC = document.getElementById('testimonialDots');
+  let cur = 0;
+  tItems.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsC.appendChild(d);
+  });
+  function goTo(n) {
+    tItems[cur].classList.remove('active'); dotsC.children[cur].classList.remove('active');
+    cur = n;
+    tItems[cur].classList.add('active'); dotsC.children[cur].classList.add('active');
+  }
+  setInterval(() => goTo((cur + 1) % tItems.length), 5500);
+
+  /* ── Counters ── */
+  let counted = false;
+  function animateCounters() {
+    if (counted) return; counted = true;
+    document.querySelectorAll('.stat-number').forEach(el => {
+      const target = +el.dataset.target;
+      let val = 0; const step = target / (1200 / 16);
+      const t = setInterval(() => {
+        val = Math.min(val + step, target);
+        el.textContent = Math.round(val).toLocaleString('fr-BE');
+        if (val >= target) clearInterval(t);
+      }, 16);
+    });
+  }
+
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.closest('#about')) animateCounters();
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── Reservation form ── */
+  document.getElementById('reservationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+    this.querySelectorAll('[required]').forEach(field => {
+      const g = field.closest('.form-group');
+      if (!field.value.trim()) { g.classList.add('error'); valid = false; }
+      else g.classList.remove('error');
+    });
+    if (valid) { this.style.display = 'none'; document.getElementById('reservationSuccess').style.display = 'block'; }
+  });
+
+  /* ── Newsletter ── */
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const i = this.querySelector('input');
+    if (i.value.includes('@')) { i.value = ''; i.placeholder = 'Merci !'; }
+  });
+
+  /* ── Chat ── */
+  const bubble = document.getElementById('chatBubble');
+  const win = document.getElementById('chatWindow');
+  bubble.addEventListener('click', () => win.classList.toggle('hidden'));
+  document.getElementById('chatClose').addEventListener('click', () => win.classList.add('hidden'));
+  document.getElementById('chatForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+    const body = document.getElementById('chatMessages');
+    body.innerHTML += `<p class="user-msg">${msg}</p>`;
+    input.value = '';
+    setTimeout(() => {
+      body.innerHTML += `<p class="bot-msg">Merci ! Pour toute réservation urgente, appelez le <strong>+32 81 22 00 00</strong>.</p>`;
+      body.scrollTop = body.scrollHeight;
+    }, 750);
+    body.scrollTop = body.scrollHeight;
+  });
 </script>
 </body>
 </html>
