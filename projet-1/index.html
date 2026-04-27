@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="L'Ardoise Noire – Restaurant gastronomique à Besançon. Une cuisine d'auteur audacieuse par le Chef Yanis Marguet."/>
+  <title>L'Ardoise Noire — Restaurant Gastronomique · Besançon</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Raleway:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
+
+  <style>
+  /* ═══════════════════════════════════════════════
+     THEME VARIABLES — 3 VERSIONS
+  ═══════════════════════════════════════════════ */
+
+  /* VERSION CHIC (default) */
+  :root,
+  [data-version="chic"] {
+    --bg:          #080808;
+    --bg2:         #0f0f0f;
+    --bg3:         #141414;
+    --surface:     #1a1a1a;
+    --accent:      #c9a96e;
+    --accent2:     #e8d5a8;
+    --accent3:     #8b6b3d;
+    --text:        #e8e0d0;
+    --text-soft:   #9a8f7e;
+    --text-header: #f0e8d8;
+    --border:      rgba(201,169,110,.18);
+    --shadow:      0 12px 48px rgba(0,0,0,.7);
+    --shadow-lg:   0 32px 80px rgba(0,0,0,.85);
+    --radius:      2px;
+    --header-bg:   rgba(8,8,8,.94);
+    --header-border: rgba(201,169,110,.15);
+    --hero-overlay: linear-gradient(160deg,rgba(8,8,8,.88) 0%,rgba(20,15,5,.65) 55%,rgba(8,8,8,.92) 100%);
+    --section-alt: #0f0f0f;
+    --card-bg:     #141414;
+    --card-border: rgba(201,169,110,.12);
+    --btn-primary-bg: #c9a96e;
+    --btn-primary-text: #080808;
+    --btn-secondary-border: rgba(201,169,110,.5);
+    --btn-secondary-text: #c9a96e;
+    --filter-active: #c9a96e;
+    --filter-active-text: #080808;
+    --stat-color:  #c9a96e;
+    --tag-bg:      rgba(201,169,110,.12);
+    --tag-text:    #c9a96e;
+    --price-color: #c9a96e;
+    --footer-bg:   #040404;
+    --font-display: 'Playfair Display', serif;
+    --font-body:   'Jost', sans-serif;
+    --transition:  .42s cubic-bezier(.4,0,.2,1);
+    --header-h:    80px;
+    --dot-active:  #c9a96e;
+  }
+
+  /* VERSION NORMALE */
+  [data-version="normal"] {
+    --bg:          #0e1a11;
+    --bg2:         #141f17;
+    --bg3:         #1a2b1e;
+    --surface:     #1f3325;
+    --accent:      #b87333;
+    --accent2:     #d4935a;
+    --accent3:     #7a4e25;
+    --text:        #f7f2e8;
+    --text-soft:   #a89b7e;
+    --text-header: #f7f2e8;
+    --border:      rgba(184,115,51,.2);
+    --shadow:      0 8px 32px rgba(0,0,0,.4);
+    --shadow-lg:   0 24px 64px rgba(0,0,0,.55);
+    --header-bg:   rgba(14,26,17,.95);
+    --header-border: rgba(184,115,51,.2);
+    --hero-overlay: linear-gradient(160deg,rgba(14,26,17,.85) 0%,rgba(31,51,37,.6) 50%,rgba(14,26,17,.9) 100%);
+    --section-alt: #141f17;
+    --card-bg:     #1a2b1e;
+    --card-border: rgba(184,115,51,.15);
+    --btn-primary-bg: #1f3325;
+    --btn-primary-text: #f7f2e8;
+    --btn-secondary-border: rgba(184,115,51,.5);
+    --btn-secondary-text: #b87333;
+    --filter-active: #1f3325;
+    --filter-active-text: #f7f2e8;
+    --stat-color:  #b87333;
+    --tag-bg:      rgba(74,124,89,.15);
+    --tag-text:    #6b9e7a;
+    --price-color: #b87333;
+    --footer-bg:   #080e0a;
+    --font-display: 'Libre Baskerville', serif;
+    --font-body:   'Raleway', sans-serif;
+    --dot-active:  #1f3325;
+  }
+
+  /* VERSION CLAIRE */
+  [data-version="light"] {
+    --bg:          #faf8f4;
+    --bg2:         #f3ede3;
+    --bg3:         #ede5d5;
+    --surface:     #ffffff;
+    --accent:      #c24d2c;
+    --accent2:     #e07b5a;
+    --accent3:     #922a10;
+    --text:        #1a1008;
+    --text-soft:   #7a5c40;
+    --text-header: #faf8f4;
+    --border:      rgba(194,77,44,.15);
+    --shadow:      0 6px 24px rgba(26,16,8,.1);
+    --shadow-lg:   0 20px 56px rgba(26,16,8,.18);
+    --header-bg:   rgba(26,16,8,.94);
+    --header-border: rgba(194,77,44,.2);
+    --hero-overlay: linear-gradient(160deg,rgba(15,8,3,.82) 0%,rgba(90,35,15,.55) 55%,rgba(15,8,3,.88) 100%);
+    --section-alt: #f3ede3;
+    --card-bg:     #ffffff;
+    --card-border: rgba(194,77,44,.12);
+    --btn-primary-bg: #c24d2c;
+    --btn-primary-text: #ffffff;
+    --btn-secondary-border: rgba(194,77,44,.5);
+    --btn-secondary-text: #c24d2c;
+    --filter-active: #c24d2c;
+    --filter-active-text: #ffffff;
+    --stat-color:  #c24d2c;
+    --tag-bg:      rgba(194,77,44,.08);
+    --tag-text:    #c24d2c;
+    --price-color: #c24d2c;
+    --footer-bg:   #14100a;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body:   'Raleway', sans-serif;
+    --dot-active:  #c24d2c;
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESET & BASE
+  ═══════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background .5s ease, color .5s ease;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  button { cursor: pointer; border: none; background: none; }
+
+  /* ═══════════════════════════════════════════════
+     SPLASH SCREEN
+  ═══════════════════════════════════════════════ */
+  #splash {
+    position: fixed; inset: 0; z-index: 10000;
+    background: #050505;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity .8s ease, visibility .8s ease;
+  }
+  #splash.out { opacity: 0; visibility: hidden; pointer-events: none; }
+
+  .splash-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    color: #e8d8b8;
+    letter-spacing: .05em;
+    text-align: center;
+    margin-bottom: 8px;
+    animation: splashDrop .9s ease both;
+  }
+  .splash-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+    color: #7a6a50;
+    margin-bottom: 64px;
+    animation: splashDrop .9s .2s ease both;
+  }
+  @keyframes splashDrop { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:none} }
+
+  .splash-label {
+    font-family: 'Jost', sans-serif;
+    font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+    color: #5a5040;
+    margin-bottom: 28px;
+    animation: splashDrop .9s .4s ease both;
+  }
+
+  .splash-versions {
+    display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+    animation: splashDrop .9s .5s ease both;
+  }
+
+  .splash-btn {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 12px;
+    padding: 28px 24px 24px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 4px;
+    cursor: pointer;
+    width: 160px;
+    transition: all .35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .splash-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .splash-btn:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.2); }
+  .splash-btn:hover::before { opacity: 1; }
+
+  .splash-btn.chic { background: #111; }
+  .splash-btn.chic::before { background: radial-gradient(circle at 50% 0%, rgba(201,169,110,.15), transparent 70%); }
+  .splash-btn.chic:hover { border-color: rgba(201,169,110,.35); box-shadow: 0 16px 40px rgba(0,0,0,.8); }
+
+  .splash-btn.normal { background: #0e1a11; }
+  .splash-btn.normal::before { background: radial-gradient(circle at 50% 0%, rgba(184,115,51,.15), transparent 70%); }
+  .splash-btn.normal:hover { border-color: rgba(184,115,51,.4); box-shadow: 0 16px 40px rgba(0,0,0,.6); }
+
+  .splash-btn.light { background: #f3ede3; }
+  .splash-btn.light::before { background: radial-gradient(circle at 50% 0%, rgba(194,77,44,.1), transparent 70%); }
+  .splash-btn.light:hover { border-color: rgba(194,77,44,.4); box-shadow: 0 16px 40px rgba(194,77,44,.15); }
+
+  .splash-swatch {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .splash-btn.chic .splash-swatch { background: linear-gradient(135deg, #1a1a1a, #2a2a2a); border: 1px solid rgba(201,169,110,.3); }
+  .splash-btn.normal .splash-swatch { background: linear-gradient(135deg, #1f3325, #4a7c59); border: 1px solid rgba(184,115,51,.3); }
+  .splash-btn.light .splash-swatch { background: linear-gradient(135deg, #faf8f4, #f3ede3); border: 1px solid rgba(194,77,44,.25); }
+
+  .splash-btn-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700;
+    line-height: 1;
+  }
+  .splash-btn.chic .splash-btn-name { color: #c9a96e; }
+  .splash-btn.normal .splash-btn-name { color: #b87333; }
+  .splash-btn.light .splash-btn-name { color: #c24d2c; }
+
+  .splash-btn-desc {
+    font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+    line-height: 1.4; text-align: center;
+  }
+  .splash-btn.chic .splash-btn-desc { color: #5a5040; }
+  .splash-btn.normal .splash-btn-desc { color: #5a7060; }
+  .splash-btn.light .splash-btn-desc { color: #7a5c40; }
+
+  /* Divider line on splash */
+  .splash-divider {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,.12), transparent);
+    margin: 40px auto 0;
+    animation: splashDrop .9s .7s ease both;
+  }
+
+  /* ═══════════════════════════════════════════════
+     VERSION SWITCHER (sticky, inside site)
+  ═══════════════════════════════════════════════ */
+  #versionBar {
+    position: fixed; bottom: 24px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 900;
+    background: rgba(5,5,5,.9);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 50px;
+    padding: 6px 8px;
+    display: flex; gap: 4px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  }
+  .vbar-btn {
+    padding: 7px 18px;
+    border-radius: 50px;
+    font-family: 'Jost', sans-serif;
+    font-size: .72rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: #6a6050;
+    transition: all .3s ease;
+  }
+  .vbar-btn.active, .vbar-btn:hover { color: #e8d8b8; background: rgba(255,255,255,.1); }
+  .vbar-btn.v-chic.active { color: #c9a96e; }
+  .vbar-btn.v-normal.active { color: #b87333; }
+  .vbar-btn.v-light.active { color: #e8794a; }
+
+  /* ═══════════════════════════════════════════════
+     PRELOADER
+  ═══════════════════════════════════════════════ */
+  #preloader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity .6s, visibility .6s;
+    pointer-events: none;
+  }
+  #preloader.out { opacity: 0; visibility: hidden; }
+  .pre-ring {
+    width: 44px; height: 44px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ═══════════════════════════════════════════════
+     UTILITIES
+  ═══════════════════════════════════════════════ */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+  .section { padding: 108px 0; }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 14px;
+    line-height: 1.15;
+    transition: color .4s ease;
+  }
+  [data-version="normal"] .section-title { color: var(--accent2); }
+  [data-version="light"] .section-title { color: var(--text); }
+  .section-subtitle {
+    font-size: 1rem; color: var(--text-soft); margin-bottom: 56px;
+    max-width: 540px; line-height: 1.75;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+    transition: color .4s;
+  }
+  .eyebrow span { width: 28px; height: 1px; background: var(--accent); display: block; transition: background .4s; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 30px; border-radius: var(--radius);
+    font-family: var(--font-body); font-weight: 600;
+    font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
+    transition: all var(--transition);
+  }
+  .btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-text); box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+  .btn-primary:hover { opacity: .88; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
+  .btn-secondary { background: transparent; color: var(--btn-secondary-text); border: 1.5px solid var(--btn-secondary-border); }
+  .btn-secondary:hover { background: var(--btn-primary-bg); color: var(--btn-primary-text); border-color: transparent; transform: translateY(-2px); }
+  .hidden { display: none !important; }
+  .mt-3 { margin-top: 24px; }
+
+  /* ═══════════════════════════════════════════════
+     HEADER
+  ═══════════════════════════════════════════════ */
+  #header {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--header-h);
+    z-index: 700;
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--header-border);
+    transition: height var(--transition), background var(--transition), border-color var(--transition);
+  }
+  #header.scrolled { height: 62px; }
+  .nav { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .04em;
+    transition: color var(--transition);
+  }
+  .logo-sub { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--text-soft); display: block; margin-top: -2px; font-family: var(--font-body); }
+  .nav-menu { display: flex; align-items: center; gap: 4px; }
+  .nav-menu a {
+    font-size: .78rem; font-weight: 500;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: rgba(232,224,208,.65);
+    padding: 7px 12px; border-radius: 2px;
+    transition: color var(--transition);
+  }
+  .nav-menu a:hover { color: var(--accent); }
+  .nav-menu .btn-primary { color: var(--btn-primary-text); padding: 9px 20px; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+  .hamburger, .hamburger::before, .hamburger::after {
+    display: block; width: 22px; height: 1.5px;
+    background: var(--text); border-radius: 2px; transition: all var(--transition);
+  }
+  .hamburger { position: relative; }
+  .hamburger::before, .hamburger::after { content: ''; position: absolute; }
+  .hamburger::before { top: -6px; }
+  .hamburger::after { top: 6px; }
+  .nav-toggle.open .hamburger { background: transparent; }
+  .nav-toggle.open .hamburger::before { transform: rotate(45deg); top: 0; }
+  .nav-toggle.open .hamburger::after { transform: rotate(-45deg); top: 0; }
+
+  /* ═══════════════════════════════════════════════
+     BACK TO TOP + CHAT
+  ═══════════════════════════════════════════════ */
+  #backToTop {
+    position: fixed; bottom: 80px; right: 28px;
+    width: 44px; height: 44px;
+    background: var(--accent); color: var(--bg);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 800; box-shadow: var(--shadow);
+    transition: all var(--transition);
+    opacity: 0; pointer-events: none;
+  }
+  #backToTop.visible { opacity: 1; pointer-events: auto; }
+  #backToTop:hover { transform: translateY(-3px); }
+  .chat-bubble {
+    position: fixed; bottom: 80px; left: 28px;
+    width: 50px; height: 50px;
+    background: var(--surface); color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; z-index: 800;
+    box-shadow: var(--shadow); cursor: pointer;
+    transition: all var(--transition);
+  }
+  .chat-bubble:hover { background: var(--accent); color: var(--bg); transform: scale(1.08); }
+  .chat-window {
+    position: fixed; bottom: 140px; left: 28px;
+    width: 290px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg); z-index: 800;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .chat-header {
+    background: var(--accent); color: var(--bg);
+    padding: 12px 16px; font-weight: 700; font-size: .88rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  #chatClose { cursor: pointer; font-size: 1.2rem; }
+  .chat-body { padding: 14px; min-height: 90px; max-height: 180px; overflow-y: auto; }
+  .bot-msg, .user-msg { padding: 7px 11px; border-radius: 3px; margin-bottom: 7px; font-size: .84rem; line-height: 1.4; }
+  .bot-msg { background: var(--bg2); color: var(--text); }
+  .user-msg { background: var(--accent); color: var(--bg); text-align: right; }
+  .chat-form { display: flex; border-top: 1px solid var(--border); }
+  .chat-form input { flex: 1; padding: 9px 13px; border: none; background: transparent; font-family: var(--font-body); font-size: .84rem; color: var(--text); outline: none; }
+  .chat-form button { padding: 9px 13px; color: var(--accent); font-size: .95rem; }
+
+  /* ═══════════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════════ */
+  .hero-section {
+    min-height: 100vh;
+    background:
+      var(--hero-overlay),
+      url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85') center/cover no-repeat;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: var(--header-h);
+    transition: background .5s ease;
+  }
+  .hero-section::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 140px;
+    background: linear-gradient(to top, var(--bg), transparent);
+    pointer-events: none;
+  }
+  /* CHIC: diagonal gold line */
+  [data-version="chic"] .hero-section::before {
+    content: '';
+    position: absolute; top: 15%; right: 8%;
+    width: 1px; height: 45%;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    transform: rotate(12deg);
+    pointer-events: none;
+  }
+  /* NORMAL: corner bracket */
+  [data-version="normal"] .hero-section::before {
+    content: '';
+    position: absolute; top: 18%; right: 12%;
+    width: 80px; height: 80px;
+    border-top: 1.5px solid rgba(184,115,51,.4);
+    border-right: 1.5px solid rgba(184,115,51,.4);
+    pointer-events: none;
+  }
+  /* LIGHT: nothing */
+  [data-version="light"] .hero-section::before { display: none; }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 680px;
+    padding: 0 28px;
+    margin-left: max(28px, calc((100vw - 1160px)/2));
+    animation: heroIn .9s ease both;
+  }
+  @keyframes heroIn { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900; line-height: 1.06;
+    color: #f0e8d8;
+    margin-bottom: 24px;
+    transition: font-family var(--transition);
+  }
+  [data-version="chic"] .hero-title em { color: var(--accent); font-style: italic; }
+  [data-version="normal"] .hero-title em { color: var(--accent2); font-style: italic; }
+  [data-version="light"] .hero-title em { color: var(--accent2); font-style: italic; }
+  .hero-subtitle {
+    font-size: 1.05rem; color: rgba(240,232,216,.68);
+    line-height: 1.72; margin-bottom: 38px; max-width: 500px;
+  }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-star {
+    position: absolute; bottom: 180px; right: max(28px, calc((100vw - 1160px)/2));
+    text-align: right; z-index: 1;
+  }
+  .hero-star p {
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 4px;
+  }
+  .hero-stars { color: var(--accent); font-size: 1rem; }
+
+  /* ═══════════════════════════════════════════════
+     ABOUT
+  ═══════════════════════════════════════════════ */
+  .about-section { background: var(--bg2); }
+  .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .about-image { position: relative; }
+  .about-img-main { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+  .about-img-main img { width: 100%; height: 480px; object-fit: cover; }
+  .about-img-inset {
+    position: absolute; bottom: -28px; right: -28px;
+    width: 160px; height: 160px;
+    border-radius: var(--radius); overflow: hidden;
+    border: 4px solid var(--bg2);
+    box-shadow: var(--shadow);
+  }
+  .about-img-inset img { width: 100%; height: 100%; object-fit: cover; }
+  [data-version="chic"] .about-image::before {
+    content: '';
+    position: absolute; top: -16px; left: -16px;
+    width: 72px; height: 72px;
+    border-top: 1px solid var(--accent);
+    border-left: 1px solid var(--accent);
+  }
+  [data-version="normal"] .about-image::before {
+    content: '';
+    position: absolute; bottom: -42px; left: 16px;
+    right: -42px; top: 16px;
+    border: 1px solid var(--accent3);
+    border-radius: var(--radius);
+    z-index: -1;
+  }
+  [data-version="light"] .about-image::before { display: none; }
+
+  .about-content p { color: var(--text-soft); line-height: 1.82; margin-bottom: 16px; }
+  .stats { display: flex; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.4rem; font-weight: 700;
+    color: var(--stat-color); line-height: 1;
+    transition: color var(--transition);
+  }
+  .stat-label { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-soft); margin-top: 4px; display: block; }
+
+  /* ═══════════════════════════════════════════════
+     MENU
+  ═══════════════════════════════════════════════ */
+  .menu-section { background: var(--bg3); }
+  .menu-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 44px; }
+  .filter-btn {
+    padding: 7px 20px; border-radius: 50px;
+    font-family: var(--font-body); font-size: .78rem; font-weight: 600;
+    letter-spacing: .07em; text-transform: uppercase;
+    border: 1.5px solid var(--border); color: var(--text-soft);
+    transition: all var(--transition);
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--filter-active); border-color: var(--filter-active);
+    color: var(--filter-active-text);
+  }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 24px; }
+  .menu-item {
+    background: var(--card-bg); border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+    overflow: hidden; box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  }
+  .menu-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+  .menu-item.hidden-item { display: none; }
+  .menu-image { height: 210px; overflow: hidden; position: relative; }
+  .menu-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s ease; }
+  .menu-item:hover .menu-image img { transform: scale(1.06); }
+  .menu-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--accent); color: var(--bg);
+    font-size: .68rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 50px;
+  }
+  .menu-info { padding: 22px; }
+  .menu-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--text); margin-bottom: 8px;
+    transition: color var(--transition);
+  }
+  .menu-desc { font-size: .85rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 14px; }
+  .menu-footer { display: flex; align-items: center; justify-content: space-between; }
+  .menu-price { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--price-color); }
+  .menu-tag { font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--tag-text); background: var(--tag-bg); padding: 3px 10px; border-radius: 50px; }
+
+  /* ═══════════════════════════════════════════════
+     PHILOSOPHY (replaces journey)
+  ═══════════════════════════════════════════════ */
+  .philosophy-section {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; }
+  .philosophy-item {
+    padding: 48px 36px;
+    border-right: 1px solid var(--border);
+    transition: background var(--transition);
+  }
+  .philosophy-item:last-child { border-right: none; }
+  .philosophy-item:hover { background: var(--surface); }
+  .philosophy-num {
+    font-family: var(--font-display);
+    font-size: 3.5rem; font-weight: 900;
+    color: var(--border); line-height: 1;
+    margin-bottom: 16px;
+    transition: color var(--transition);
+  }
+  .philosophy-item:hover .philosophy-num { color: var(--accent); }
+  .philosophy-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--accent); margin-bottom: 10px;
+    transition: color var(--transition);
+  }
+  .philosophy-item p { font-size: .88rem; color: var(--text-soft); line-height: 1.72; }
+
+  /* ═══════════════════════════════════════════════
+     GALLERY
+  ═══════════════════════════════════════════════ */
+  .gallery-section { background: var(--bg2); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 240px 240px;
+    gap: 10px;
+  }
+  .gallery-item { overflow: hidden; border-radius: var(--radius); cursor: pointer; position: relative; }
+  .gallery-item:nth-child(1) { grid-row: span 2; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s ease; }
+  .gallery-item:hover img { transform: scale(1.07); }
+  .gallery-item::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0);
+    transition: background var(--transition);
+  }
+  .gallery-item:hover::after { background: rgba(0,0,0,.4); }
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(0,0,0,.95);
+    z-index: 1000; display: flex; align-items: center; justify-content: center;
+  }
+  .lightbox-close {
+    position: absolute; top: 20px; right: 28px;
+    font-size: 2.5rem; color: #f0e8d8;
+    cursor: pointer; transition: color var(--transition);
+  }
+  .lightbox-close:hover { color: var(--accent); }
+  #lightbox-img { max-width: 90vw; max-height: 85vh; border-radius: var(--radius); }
+
+  /* ═══════════════════════════════════════════════
+     TESTIMONIALS
+  ═══════════════════════════════════════════════ */
+  .testimonials-section { background: var(--bg3); text-align: center; }
+  .testimonial-slider { max-width: 660px; margin: 0 auto 24px; min-height: 160px; }
+  .testimonial-item { display: none; animation: fadeIn .5s ease; }
+  .testimonial-item.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+  .testimonial-text {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-style: italic;
+    color: var(--text); line-height: 1.65; margin-bottom: 18px;
+  }
+  .testimonial-author { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .stars-row { color: var(--accent); font-size: .88rem; margin-bottom: 10px; }
+  .testimonial-dots { display: flex; gap: 8px; justify-content: center; margin-top: 20px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); cursor: pointer; transition: background var(--transition); }
+  .dot.active { background: var(--dot-active); }
+
+  /* ═══════════════════════════════════════════════
+     TEAM
+  ═══════════════════════════════════════════════ */
+  .team-section { background: var(--bg2); }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
+  .team-card {
+    background: var(--card-bg); border-radius: var(--radius);
+    border: 1px solid var(--card-border); overflow: hidden;
+    box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+  .team-image { height: 300px; overflow: hidden; }
+  .team-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .team-card:hover .team-image img { transform: scale(1.04); }
+  .team-info { padding: 24px; }
+  .team-info h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .team-role { font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 10px; display: block; transition: color var(--transition); }
+  .team-bio { font-size: .85rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 14px; }
+  .team-socials { display: flex; gap: 10px; }
+  .team-socials a {
+    width: 32px; height: 32px; border: 1px solid var(--border);
+    border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
+    font-size: .78rem; color: var(--accent); transition: all var(--transition);
+  }
+  .team-socials a:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+  /* ═══════════════════════════════════════════════
+     BLOG
+  ═══════════════════════════════════════════════ */
+  .blog-section { background: var(--bg); }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .blog-post {
+    background: var(--card-bg); border-radius: var(--radius);
+    border: 1px solid var(--card-border); overflow: hidden;
+    box-shadow: var(--shadow); transition: transform var(--transition);
+  }
+  .blog-post:hover { transform: translateY(-5px); }
+  .blog-image { height: 200px; overflow: hidden; }
+  .blog-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .blog-post:hover .blog-image img { transform: scale(1.06); }
+  .blog-content { padding: 22px; }
+  .blog-date { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
+  .blog-title { font-family: var(--font-display); font-size: 1.12rem; font-weight: 700; color: var(--text); margin-bottom: 9px; line-height: 1.3; }
+  .blog-excerpt { font-size: .84rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 14px; }
+  .read-more { font-size: .78rem; font-weight: 700; letter-spacing: .05em; color: var(--accent); display: inline-flex; align-items: center; gap: 7px; transition: gap var(--transition); }
+  .read-more:hover { gap: 11px; }
+
+  /* ═══════════════════════════════════════════════
+     RESERVATION
+  ═══════════════════════════════════════════════ */
+  .reservation-section {
+    background:
+      var(--hero-overlay),
+      url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=80') center/cover;
+    transition: background .5s ease;
+  }
+  .reservation-section .section-title { color: var(--accent); }
+  .reservation-section .section-subtitle { color: rgba(240,232,216,.55); }
+  .reservation-section > .container { text-align: center; }
+  .reservation-form {
+    max-width: 700px; margin: 0 auto; text-align: left;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: span 2; }
+  .form-group label { font-size: .76rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(240,232,216,.6); }
+  .form-group label span { color: var(--accent); }
+  .form-group input, .form-group textarea, .form-group select {
+    padding: 12px 16px;
+    background: rgba(240,232,216,.07);
+    border: 1px solid rgba(201,169,110,.2);
+    border-radius: var(--radius); color: #f0e8d8;
+    font-family: var(--font-body); font-size: .92rem;
+    outline: none; transition: border-color var(--transition);
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(240,232,216,.3); }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group select option { background: #111; color: #f0e8d8; }
+  .form-group textarea { resize: vertical; }
+  .invalid-feedback { font-size: .75rem; color: #f4a27c; display: none; }
+  .form-group.error .invalid-feedback { display: block; }
+  .form-group.error input { border-color: #f4a27c; }
+  .reservation-form .btn-primary { grid-column: span 2; justify-self: center; margin-top: 8px; padding: 14px 52px; font-size: .9rem; }
+  #reservationSuccess { display: none; text-align: center; padding: 32px; color: var(--accent); font-family: var(--font-display); font-size: 1.35rem; line-height: 1.6; }
+
+  /* ═══════════════════════════════════════════════
+     CONTACT
+  ═══════════════════════════════════════════════ */
+  .contact-section { background: var(--bg2); }
+  .contact-container { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+  .contact-info p { color: var(--text-soft); line-height: 1.82; margin-bottom: 22px; }
+  .contact-info a { color: var(--accent); transition: color var(--transition); }
+  .contact-info a:hover { opacity: .8; }
+  .opening-hours { border-left: 2px solid var(--accent); padding-left: 16px; }
+  .social-links { display: flex; gap: 10px; margin-top: 22px; }
+  .social-links a {
+    width: 38px; height: 38px; border: 1px solid var(--border);
+    border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: .85rem; transition: all var(--transition);
+  }
+  .social-links a:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .contact-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .contact-map iframe { display: block; filter: grayscale(20%) brightness(90%); }
+
+  /* ═══════════════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════════════ */
+  #footer { background: var(--footer-bg); color: rgba(240,232,216,.4); padding: 64px 0 32px; transition: background .5s; }
+  .footer-container { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+  .footer-logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a { font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; transition: color var(--transition); }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-divider { width: 48px; height: 1px; background: var(--border); }
+  .newsletter h4 { font-family: var(--font-display); font-size: 1.1rem; color: rgba(240,232,216,.65); margin-bottom: 12px; text-align: center; }
+  .newsletter-form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .newsletter-form input {
+    padding: 10px 16px; background: rgba(240,232,216,.06);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    color: #f0e8d8; font-family: var(--font-body); font-size: .84rem;
+    outline: none; min-width: 220px; transition: border-color var(--transition);
+  }
+  .newsletter-form input:focus { border-color: var(--accent); }
+  .newsletter-form input::placeholder { color: rgba(240,232,216,.28); }
+  .footer-copy { font-size: .74rem; letter-spacing: .04em; }
+
+  /* ═══════════════════════════════════════════════
+     REVEAL
+  ═══════════════════════════════════════════════ */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ═══════════════════════════════════════════════
+     VERSION-SPECIFIC OVERRIDES
+  ═══════════════════════════════════════════════ */
+
+  /* CHIC: gold underline on section titles */
+  [data-version="chic"] .section-title::after {
+    content: '';
+    display: block; width: 40px; height: 1px;
+    background: var(--accent); margin-top: 10px;
+  }
+  /* CHIC: slanted hero */
+  [data-version="chic"] .hero-title { font-style: italic; }
+
+  /* NORMAL: earthy section backgrounds match previous sites */
+  [data-version="normal"] .about-section { background: var(--bg2); }
+  [data-version="normal"] .menu-section { background: var(--bg3); }
+
+  /* LIGHT: section backgrounds brighter */
+  [data-version="light"] .section-subtitle { color: #7a5c40; }
+  [data-version="light"] .philosophy-item p { color: #7a5c40; }
+  [data-version="light"] .team-bio { color: #7a5c40; }
+  [data-version="light"] .about-content p { color: #7a5c40; }
+  [data-version="light"] .menu-desc { color: #7a5c40; }
+  [data-version="light"] .blog-excerpt { color: #7a5c40; }
+  [data-version="light"] .contact-info p { color: #7a5c40; }
+  [data-version="light"] .menu-title { color: #1a1008; }
+  [data-version="light"] .team-info h3 { color: #1a1008; }
+  [data-version="light"] .blog-title { color: #1a1008; }
+  [data-version="light"] .testimonial-text { color: #1a1008; }
+
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .about-container, .contact-container { grid-template-columns: 1fr; }
+    .about-img-main img { height: 360px; }
+    .about-img-inset { display: none; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; }
+    .gallery-item:nth-child(1) { grid-row: span 1; }
+    .nav-toggle { display: flex; }
+    .nav-menu {
+      position: fixed; top: var(--header-h); left: 0; right: 0;
+      background: var(--header-bg);
+      flex-direction: column; gap: 0;
+      padding: 16px 0 28px;
+      transform: translateY(-100%); opacity: 0; pointer-events: none;
+      transition: transform var(--transition), opacity var(--transition);
+      border-bottom: 1px solid var(--header-border);
+    }
+    .nav-menu.open { transform: none; opacity: 1; pointer-events: auto; }
+    .nav-menu li { width: 100%; }
+    .nav-menu a { display: block; padding: 13px 28px; }
+    .nav-menu .btn-primary { margin: 12px 28px 0; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .philosophy-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .philosophy-item:last-child { border-bottom: none; }
+    #versionBar { bottom: 12px; }
+    .splash-versions { flex-direction: column; align-items: center; }
+    .splash-btn { width: 260px; flex-direction: row; }
+  }
+  @media (max-width: 600px) {
+    .section { padding: 76px 0; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .reservation-form { grid-template-columns: 1fr; }
+    .reservation-form .btn-primary { grid-column: span 1; }
+    .form-group.full { grid-column: span 1; }
+    .hero-buttons { flex-direction: column; }
+    .hero-star { display: none; }
+  }
+  </style>
+</head>
+<body data-version="chic">
+
+<!-- ═══════ SPLASH SCREEN ═══════ -->
+<div id="splash">
+  <div class="splash-logo">L'Ardoise Noire</div>
+  <div class="splash-sub">Restaurant Gastronomique · Besançon</div>
+  <div class="splash-label">Choisissez votre expérience</div>
+  <div class="splash-versions">
+    <button class="splash-btn chic" onclick="chooseVersion('chic')">
+      <div class="splash-swatch">🖤</div>
+      <div>
+        <div class="splash-btn-name">Chic</div>
+        <div class="splash-btn-desc">Noir & or<br/>Haute gastronomie</div>
+      </div>
+    </button>
+    <button class="splash-btn normal" onclick="chooseVersion('normal')">
+      <div class="splash-swatch">🌿</div>
+      <div>
+        <div class="splash-btn-name">Classique</div>
+        <div class="splash-btn-desc">Vert & cuivre<br/>Terroir raffiné</div>
+      </div>
+    </button>
+    <button class="splash-btn light" onclick="chooseVersion('light')">
+      <div class="splash-swatch">☀️</div>
+      <div>
+        <div class="splash-btn-name">Clair</div>
+        <div class="splash-btn-desc">Blanc & brique<br/>Bistrot lumineux</div>
+      </div>
+    </button>
+  </div>
+  <div class="splash-divider"></div>
+</div>
+
+<!-- ═══════ PRELOADER ═══════ -->
+<div id="preloader"><div class="pre-ring"></div></div>
+
+<!-- ═══════ VERSION BAR ═══════ -->
+<div id="versionBar">
+  <button class="vbar-btn v-chic active" onclick="switchVersion('chic')">🖤 Chic</button>
+  <button class="vbar-btn v-normal" onclick="switchVersion('normal')">🌿 Classique</button>
+  <button class="vbar-btn v-light" onclick="switchVersion('light')">☀️ Clair</button>
+</div>
+
+<!-- ═══════ CHAT ═══════ -->
+<div id="chatBubble" class="chat-bubble" role="button" aria-label="Nous contacter">
+  <i class="fa-solid fa-comment-dots"></i>
+</div>
+<div id="chatWindow" class="chat-window hidden">
+  <div class="chat-header">L'Ardoise Noire <span id="chatClose">×</span></div>
+  <div class="chat-body" id="chatMessages">
+    <p class="bot-msg">Bonsoir ! Pour une réservation privée ou un menu dégustation, appelez le +33 00 00 00 00.</p>
+  </div>
+  <form id="chatForm" class="chat-form" novalidate>
+    <input type="text" id="chatInput" placeholder="Votre message…" autocomplete="off"/>
+    <button type="submit" aria-label="Envoyer"><i class="fa-solid fa-paper-plane"></i></button>
+  </form>
+</div>
+
+<!-- ═══════ BACK TO TOP ═══════ -->
+<button id="backToTop" aria-label="Retour en haut"><i class="fa-solid fa-angle-up"></i></button>
+
+<!-- ═══════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════ -->
+<header id="header">
+  <nav class="container nav">
+    <a href="#hero" class="logo">
+      L'Ardoise Noire
+      <span class="logo-sub">Restaurant Gastronomique</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span class="hamburger"></span></button>
+    <ul id="navigation-menu" class="nav-menu">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#about">Notre histoire</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#team">Équipe</a></li>
+      <li><a href="#blog">Carnets</a></li>
+      <li><a href="#reservation" class="btn btn-primary">Réserver</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section id="hero" class="hero-section">
+  <div class="hero-content">
+    <div class="eyebrow"><span></span>Besançon · Depuis 2026<span></span></div>
+    <h1 class="hero-title">
+      L'art de la table,<br/><em>réinventé chaque soir</em>
+    </h1>
+    <p class="hero-subtitle">Une cuisine d'auteur portée par le Chef Yanis Marguet — deux étoiles, une vision, l'obsession du produit juste et de l'émotion vraie.</p>
+    <div class="hero-buttons">
+      <a href="#menu" class="btn btn-secondary">Découvrir la carte</a>
+      <a href="#reservation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i>Réserver</a>
+    </div>
+  </div>
+  <div class="hero-star">
+    <p>Guide Michelin 2026</p>
+    <div class="hero-stars">★★</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════════ -->
+<section id="about" class="section about-section">
+  <div class="container about-container">
+    <div class="about-image reveal">
+      <div class="about-img-main">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85" alt="Salle de L'Ardoise Noire" loading="lazy"/>
+      </div>
+      <div class="about-img-inset">
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80" alt="Chef Yanis Marguet" loading="lazy"/>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <div class="eyebrow"><span></span>Notre histoire</div>
+      <h2 class="section-title">Une ardoise qui s'écrit<br/>chaque jour</h2>
+      <p>L'Ardoise Noire est née en 2026 d'un rêve du Chef Yanis Marguet : ouvrir à Besançon un restaurant gastronomique qui ne se repose jamais sur ses acquis. L'ardoise — symbole du menu qui change, de la cuisine vivante — est au cœur de tout.</p>
+      <p>Formé chez Bocuse et Passard, Yanis revient au pays avec une conviction profonde : la grande cuisine Francaise existe, elle se forge dans les champs du Jura, les rivières de l'Arve et les caves à fromages du Jura. Deux étoiles Michelin plus tard, cette conviction n'a fait que se renforcer.</p>
+      <p>Notre salle de 32 couverts, installée dans un hôtel particulier du XVIIIe siècle, est le théâtre de ce dialogue permanent entre tradition et audace.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="2">0</span>
+          <span class="stat-label">Étoiles Michelin</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="14">0</span>
+          <span class="stat-label">ans d'existence</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="32">0</span>
+          <span class="stat-label">couverts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span>
+          <span class="stat-label">% produits locaux</span>
+        </div>
+      </div>
+      <a href="#gallery" class="btn btn-secondary mt-3">Voir la galerie</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MENU
+═══════════════════════════════════════════════ -->
+<section id="menu" class="section menu-section">
+  <div class="container">
+    <h2 class="section-title reveal">La carte</h2>
+    <p class="section-subtitle reveal">Menus dégustation 7 ou 12 services, carte blanche saisonnière. Produits en provenance des meilleurs artisans de Jurat.</p>
+    <div class="menu-filters reveal">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="amuse">Amuse-bouches</button>
+      <button class="filter-btn" data-filter="entree">Entrées</button>
+      <button class="filter-btn" data-filter="plat">Plats</button>
+      <button class="filter-btn" data-filter="dessert">Desserts</button>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-item reveal" data-category="amuse">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80" alt="Amuse-bouche" loading="lazy"/>
+          <span class="menu-badge">Signature</span>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Mise en bouche du Chef</h3>
+          <p class="menu-desc">Œuf de caille mollet, caviar d'Aquitaine, émulsion de topinambour fumé et chips de riz soufflé.</p>
+          <div class="menu-footer"><span class="menu-price">Inclus</span><span class="menu-tag">Signature</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="entree">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Saint-Jacques" loading="lazy"/>
+          <span class="menu-badge">Saison</span>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Saint-Jacques de Dieppe</h3>
+          <p class="menu-desc">Noix snackée, beurre blanc à la Lambic, purée de céleri et graines de sarrasin toastées.</p>
+          <div class="menu-footer"><span class="menu-price">34 €</span><span class="menu-tag">Mer</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="entree">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?w=600&q=80" alt="Foie gras" loading="lazy"/>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Foie gras torchon & cerise</h3>
+          <p class="menu-desc">Mi-cuit de foie gras de canard, compotée de griottes au vinaigre de Xérès, pain brioché maison et fleur de sel de Guérande.</p>
+          <div class="menu-footer"><span class="menu-price">38 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="plat">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Pigeon rôti" loading="lazy"/>
+          <span class="menu-badge">Plat phare</span>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Pigeon de Besançon rôti entier</h3>
+          <p class="menu-desc">Cuit en deux services : filets rosés au genévrier, cuisse confite au thym, jus corsé aux morilles et gnocchi à la semoule.</p>
+          <div class="menu-footer"><span class="menu-price">56 €</span><span class="menu-tag">Gibier</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="plat">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80" alt="Turbot" loading="lazy"/>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Turbot de ligne & beurre noisette</h3>
+          <p class="menu-desc">Cuit à basse température, beurre noisette aux câpres, velouté d'asperges blanches et chorizo ibérique.</p>
+          <div class="menu-footer"><span class="menu-price">58 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="plat">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1559181567-c3190ca9d5db?w=600&q=80" alt="Wagyu Français" loading="lazy"/>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Wagyu Français de la ferme Destree</h3>
+          <p class="menu-desc">Entrecôte maturée 60 jours, jus au vin rouge de Côte-de-Besançon, écrasée de pommes de terre à la truffe noire.</p>
+          <div class="menu-footer"><span class="menu-price">68 €</span><span class="menu-tag">Excellence</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="dessert">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Soufflé au chocolat" loading="lazy"/>
+          <span class="menu-badge">Fait minute</span>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Soufflé chaud au chocolat Valrhona</h3>
+          <p class="menu-desc">Chocolat Guanaja 70 %, glace à la vanille Bourbon, sauce chocolat au lait et fleur de sel.</p>
+          <div class="menu-footer"><span class="menu-price">22 €</span></div>
+        </div>
+      </div>
+
+      <div class="menu-item reveal" data-category="dessert">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80" alt="Mille-feuille" loading="lazy"/>
+        </div>
+        <div class="menu-info">
+          <h3 class="menu-title">Mille-feuille revisité à la verveine</h3>
+          <p class="menu-desc">Feuilletage inversé caramélisé, crème diplomate à la verveine fraîche, fraises des bois et sucre soufflé.</p>
+          <div class="menu-footer"><span class="menu-price">18 €</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PHILOSOPHY
+═══════════════════════════════════════════════ -->
+<section id="philosophy" class="section philosophy-section">
+  <div class="container">
+    <h2 class="section-title reveal" style="text-align:center;margin-bottom:0">Notre philosophie</h2>
+    <p class="section-subtitle reveal" style="margin:14px auto 52px;text-align:center">Quatre convictions qui guident chaque geste en cuisine.</p>
+    <div class="philosophy-grid">
+      <div class="philosophy-item reveal">
+        <div class="philosophy-num">01</div>
+        <h3>Le produit, toujours</h3>
+        <p>Un plat ne peut être grand que si son produit est exceptionnel. Nous sourçons chaque ingrédient chez des artisans que nous connaissons personnellement.</p>
+      </div>
+      <div class="philosophy-item reveal">
+        <div class="philosophy-num">02</div>
+        <h3>L'audace maîtrisée</h3>
+        <p>Nous ne cherchons pas la provocation, mais la surprise juste. Chaque accord inattendu est né d'un goûté, d'un échange, d'une certitude.</p>
+      </div>
+      <div class="philosophy-item reveal">
+        <div class="philosophy-num">03</div>
+        <h3>La saisonnalité absolue</h3>
+        <p>Notre carte change toutes les trois semaines. Ce qui pousse, ce que les pêcheurs remontent — voilà qui détermine le menu, pas l'inverse.</p>
+      </div>
+      <div class="philosophy-item reveal">
+        <div class="philosophy-num">04</div>
+        <h3>L'humilité en cuisine</h3>
+        <p>Le talent ne suffit pas. Nous apprenons chaque jour de nos équipes, de nos producteurs, de nos convives et de nos erreurs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     GALLERY
+═══════════════════════════════════════════════ -->
+<section id="gallery" class="section gallery-section">
+  <div class="container">
+    <h2 class="section-title reveal">Galerie</h2>
+    <p class="section-subtitle reveal">L'espace, l'assiette, l'instant.</p>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85" alt="Salle de restaurant" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Plat Saint-Jacques" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Viande" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80" alt="Table dressée" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Dessert" loading="lazy"/>
+      </div>
+    </div>
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
+      <span id="lightbox-close" class="lightbox-close">×</span>
+      <img id="lightbox-img" src="" alt="Vue agrandie"/>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════════ -->
+<section id="testimonials" class="section testimonials-section">
+  <div class="container">
+    <h2 class="section-title reveal">Paroles de convives</h2>
+    <p class="section-subtitle reveal" style="margin:0 auto 44px;">Ce que nos hôtes gardent de leur soirée à L'Ardoise Noire.</p>
+    <div class="testimonial-slider">
+      <div class="testimonial-item active">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-text">« Le pigeon de Besançon est une révélation absolue. Chaque service était une découverte, chaque accord une évidence. Une soirée qu'on n'oublie pas. »</p>
+        <h4 class="testimonial-author">Alexandre R. — Bruxelles</h4>
+      </div>
+      <div class="testimonial-item">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-text">« Élias Morel est un génie de la discrétion. Pas de mise en scène inutile — juste la vérité du produit, portée à son état le plus pur. Digne des deux étoiles. »</p>
+        <h4 class="testimonial-author">Isabelle V. — Paris</h4>
+      </div>
+      <div class="testimonial-item">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-text">« Le soufflé Valrhona servi en fin de menu est la meilleure conclusion d'un repas que j'aie vécue. Le service, royal. L'ambiance, parfaite. »</p>
+        <h4 class="testimonial-author">Thomas & Nora — Luxembourg</h4>
+      </div>
+    </div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TEAM
+═══════════════════════════════════════════════ -->
+<section id="team" class="section team-section">
+  <div class="container">
+    <h2 class="section-title reveal">L'équipe</h2>
+    <p class="section-subtitle reveal">Des artisans du goût réunis autour d'une même exigence.</p>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-image">
+          <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&q=80" alt="Chef Élias Morel" loading="lazy"/>
+        </div>
+        <div class="team-info">
+          <h3>Élias Morel</h3>
+          <span class="team-role">Chef exécutif & fondateur ★★</span>
+          <p class="team-bio">Né à Besançon en 1979, formé chez Bocuse et Passard, Élias porte une vision radicale : que la Jurat puisse nourrir une cuisine au sommet du monde. Deux étoiles Michelin lui donnent raison.</p>
+          <div class="team-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-image">
+          <img src="https://resize.elle.fr/portrait/var/plain_site/storage/images/beaute/news-beaute/beaute-des-stars/elue-la-plus-belle-femme-et-c-est-prouve-scientifiquement-1999428/21199912-1-fre-FR/Elue-la-plus-belle-femme-et-c-est-prouve-scientifiquement.jpg" alt="Céline Arnaud" loading="lazy"/>
+        </div>
+        <div class="team-info">
+          <h3>Céline Arnaud</h3>
+          <span class="team-role">Directrice de salle</span>
+          <p class="team-bio">Ancienne du Ritz Paris et du Comme chez Soi, Céline orchestre chaque service avec une précision et une chaleur rares. Son sens de l'hôtellerie est la moitié de l'expérience.</p>
+          <div class="team-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-image">
+          <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=600&q=80" alt="Hugo Vanderberg" loading="lazy"/>
+        </div>
+        <div class="team-info">
+          <h3>Hugo Vanderberg</h3>
+          <span class="team-role">Sommelier & chef pâtissier</span>
+          <p class="team-bio">Meilleur Sommelier de Belgique 2019, Hugo compose des accords mets-vins et mets-bières qui prolongent chaque plat dans une autre dimension. Sa cave compte 680 références.</p>
+          <div class="team-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     BLOG
+═══════════════════════════════════════════════ -->
+<section id="blog" class="section blog-section">
+  <div class="container">
+    <h2 class="section-title reveal">Carnets de cuisine</h2>
+    <p class="section-subtitle reveal">Réflexions, coulisses et rencontres avec nos producteurs.</p>
+    <div class="blog-grid">
+      <article class="blog-post reveal">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Saint-Jacques" loading="lazy"/>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">18 avril 2026</span>
+          <h3 class="blog-title">Pourquoi la Saint-Jacques de Dieppe est unique</h3>
+          <p class="blog-excerpt">Texture, iode, douceur — Élias explique ce qui fait de ce coquillage l'un des rares produits auxquels il revient chaque saison sans se lasser.</p>
+          <a href="#" class="read-more">Lire <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-post reveal">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600&q=80" alt="Cave à vins" loading="lazy"/>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">1 mars 2026</span>
+          <h3 class="blog-title">La renaissance du vin de la Côte de Besançon</h3>
+          <p class="blog-excerpt">Hugo Vanderberg présente les vignerons Besançonois qui, en quelques années, ont fait émerger une identité viticole wallonne crédible et excitante.</p>
+          <a href="#" class="read-more">Lire <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-post reveal">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Wagyu Français" loading="lazy"/>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">10 janvier 2026</span>
+          <h3 class="blog-title">Portrait : Gilles Destree, éleveur de wagyu Français</h3>
+          <p class="blog-excerpt">À Havelange, Gilles élève depuis 2016 des Wagyu croisées avec une patience rare. Une visite de ferme qui a changé notre façon de cuire la viande.</p>
+          <a href="#" class="read-more">Lire <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     RESERVATION
+═══════════════════════════════════════════════ -->
+<section id="reservation" class="section reservation-section">
+  <div class="container">
+    <h2 class="section-title">Réservation</h2>
+    <p class="section-subtitle">32 couverts — nous recommandons de réserver au moins 3 semaines à l'avance.</p>
+    <div id="reservationSuccess">
+      <i class="fa-solid fa-circle-check" style="font-size:2.5rem;display:block;margin-bottom:14px;color:var(--accent)"></i>
+      Merci pour votre réservation.<br/>Nous vous confirmerons sous 24 heures.
+    </div>
+    <form id="reservationForm" class="reservation-form" action="https://formspree.io/f/xyklqgrn" method="POST">
+      <div class="form-group">
+        <label for="resName">Nom <span>*</span></label>
+        <input type="text" id="resName" name="Nom" placeholder="Jean-Pierre Morel" required/>
+        <div class="invalid-feedback">Champ requis.</div>
+      </div>
+      <div class="form-group">
+        <label for="resEmail">Email <span>*</span></label>
+        <input type="email" id="resEmail" name="Email" placeholder="antonwou@gmail.com" required/>
+        <div class="invalid-feedback">Email invalide.</div>
+      </div>
+      <div class="form-group">
+        <label for="resPhone">Téléphone</label>
+        <input type="tel" id="resPhone" name="Téléphone" placeholder="+32 81 00 00 00"/>
+      </div>
+      <div class="form-group">
+        <label for="resGuests">Couverts <span>*</span></label>
+        <input type="number" id="resGuests" name="Couverts" min="1" max="32" placeholder="2" required/>
+        <div class="invalid-feedback">Requis.</div>
+      </div>
+      <div class="form-group">
+        <label for="resDate">Date <span>*</span></label>
+        <input type="date" id="resDate" name="Date" required/>
+        <div class="invalid-feedback">Choisissez une date.</div>
+      </div>
+      <div class="form-group">
+        <label for="resMenu">Menu souhaité</label>
+        <select id="resMenu" name="Menu">
+          <option value="">— Choisir —</option>
+          <option>Menu Dégustation 7 services (95 €)</option>
+          <option>Menu Dégustation 12 services (145 €)</option>
+          <option>Carte blanche du Chef (185 €)</option>
+          <option>Menu à la carte</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label for="resMessage">Allergies & demandes</label>
+        <textarea id="resMessage" name="Allergies_et_demandes" rows="3" placeholder="Allergies, occasion spéciale, demandes particulières…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i>Envoyer la demande</button>
+      <input type="hidden" name="_subject" value="Nouvelle réservation L'Ardoise Noire" />
+      <input type="hidden" name="_replyto" value="{resEmail}" />
+      <input type="hidden" name="_next" value="#reservationSuccess" />
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════════ -->
+<section id="contact" class="section contact-section">
+  <div class="container contact-container">
+    <div class="contact-info reveal">
+      <h2 class="section-title">Nous trouver</h2>
+      <p>
+        <i class="fa-solid fa-location-dot" style="color:var(--accent);margin-right:8px;"></i>14 Rue des Brasseurs, 25000 Besançon<br/>
+        <i class="fa-solid fa-phone" style="color:var(--accent);margin-right:8px;"></i><a href="tel:+3281220000">+33 00 00 00 00</a><br/>
+        <i class="fa-solid fa-envelope" style="color:var(--accent);margin-right:8px;"></i><a href="mailto:contact@ardoisenoire.be">contact@ardoisenoire.be</a>
+      </p>
+      <p class="opening-hours">
+        <strong>Service du soir uniquement</strong><br/>
+        Mar–Sam : 19h00 → 22h30<br/>
+        Dim & Lun : Fermé<br/>
+        Fermeture annuelle : 3 semaines en août
+      </p>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+      </div>
+    </div>
+    <div class="contact-map reveal">
+      <iframe
+        title="L'Ardoise Noire – Besançon"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2537.0!2d4.867!3d50.467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c17d20e0000001%3A0x1!2sBesançon%2C+Belgique!5e0!3m2!1sfr!2sBE!4v1700000000001!5m2!1sfr!2sBE"
+        width="100%" height="380"
+        style="border:0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container footer-container">
+    <div class="footer-logo">L'Ardoise Noire</div>
+    <div class="footer-links">
+      <a href="#hero">Accueil</a>
+      <a href="#about">Histoire</a>
+      <a href="#menu">Carte</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#team">Équipe</a>
+      <a href="#blog">Carnets</a>
+      <a href="#reservation">Réservation</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="newsletter">
+      <h4>Carnets & actualités</h4>
+      <form id="newsletterForm" class="newsletter-form" novalidate>
+        <input type="email" placeholder="votre@email.be" required/>
+        <button type="submit" class="btn btn-secondary" style="color:rgba(240,232,216,.7);border-color:rgba(240,232,216,.2);">S'inscrire</button>
+      </form>
+    </div>
+    <p class="footer-copy">© 2026 L'Ardoise Noire · Besançon, Belgique. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+  /* ── Version management ── */
+  function chooseVersion(v) {
+    document.body.setAttribute('data-version', v);
+    localStorage.setItem('anVersion', v);
+    // fade out splash
+    const splash = document.getElementById('splash');
+    splash.classList.add('out');
+    // update version bar
+    updateVBar(v);
+    // show preloader briefly
+    const pre = document.getElementById('preloader');
+    pre.style.opacity = '1'; pre.style.visibility = 'visible';
+    setTimeout(() => {
+      pre.classList.add('out');
+      pre.style.opacity = '0';
+      pre.style.visibility = 'hidden';
+    }, 800);
+  }
+
+  function switchVersion(v) {
+    document.body.setAttribute('data-version', v);
+    localStorage.setItem('anVersion', v);
+    updateVBar(v);
+    // brief flash
+    const pre = document.getElementById('preloader');
+    pre.style.opacity = '1'; pre.style.visibility = 'visible';
+    pre.classList.remove('out');
+    setTimeout(() => {
+      pre.classList.add('out');
+      pre.style.opacity = '0';
+      pre.style.visibility = 'hidden';
+    }, 400);
+  }
+
+  function updateVBar(v) {
+    document.querySelectorAll('.vbar-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.v-${v}`)?.classList.add('active');
+  }
+
+  /* ── Init: check saved version or show splash ── */
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('anVersion');
+    if (saved) {
+      chooseVersion(saved);
+    } else {
+      // Show splash; preloader stays until version chosen
+      document.getElementById('preloader').classList.add('out');
+    }
+  });
+
+  /* ── Header scroll ── */
+  const header = document.getElementById('header');
+  const backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+    backBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Mobile nav ── */
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navigation-menu');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+  navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navToggle.classList.remove('open');
+    navMenu.classList.remove('open');
+  }));
+
+  /* ── Menu filters ── */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.classList.toggle('hidden-item', f !== 'all' && item.dataset.category !== f);
+      });
+    });
+  });
+
+  /* ── Lightbox ── */
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => { lbImg.src = item.querySelector('img').src; lightbox.classList.remove('hidden'); });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.add('hidden'));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.add('hidden'); });
+
+  /* ── Testimonials ── */
+  const tItems = document.querySelectorAll('.testimonial-item');
+  const dotsC = document.getElementById('testimonialDots');
+  let cur = 0;
+  tItems.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsC.appendChild(d);
+  });
+  function goTo(n) {
+    tItems[cur].classList.remove('active'); dotsC.children[cur].classList.remove('active');
+    cur = n;
+    tItems[cur].classList.add('active'); dotsC.children[cur].classList.add('active');
+  }
+  setInterval(() => goTo((cur + 1) % tItems.length), 5500);
+
+  /* ── Counters ── */
+  let counted = false;
+  function animateCounters() {
+    if (counted) return; counted = true;
+    document.querySelectorAll('.stat-number').forEach(el => {
+      const target = +el.dataset.target;
+      let val = 0; const step = target / (1200 / 16);
+      const t = setInterval(() => {
+        val = Math.min(val + step, target);
+        el.textContent = Math.round(val).toLocaleString('fr-BE');
+        if (val >= target) clearInterval(t);
+      }, 16);
+    });
+  }
+
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.closest('#about')) animateCounters();
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── Reservation form ── */
+  document.getElementById('reservationForm').addEventListener('submit', function(e) {
+    
+    let valid = true;
+    this.querySelectorAll('[required]').forEach(field => {
+      const g = field.closest('.form-group');
+      if (!field.value.trim()) { g.classList.add('error'); valid = false; }
+      else g.classList.remove('error');
+    });
+    if (valid) { this.style.display = 'none'; document.getElementById('reservationSuccess').style.display = 'block'; }
+  });
+
+  /* ── Newsletter ── */
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const i = this.querySelector('input');
+    if (i.value.includes('@')) { i.value = ''; i.placeholder = 'Merci !'; }
+  });
+
+  /* ── Chat ── */
+  const bubble = document.getElementById('chatBubble');
+  const win = document.getElementById('chatWindow');
+  bubble.addEventListener('click', () => win.classList.toggle('hidden'));
+  document.getElementById('chatClose').addEventListener('click', () => win.classList.add('hidden'));
+  document.getElementById('chatForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+    const body = document.getElementById('chatMessages');
+    body.innerHTML += `<p class="user-msg">${msg}</p>`;
+    input.value = '';
+    setTimeout(() => {
+      body.innerHTML += `<p class="bot-msg">Merci ! Pour toute réservation urgente, appelez le <strong>+33 00 00 00 00</strong>.</p>`;
+      body.scrollTop = body.scrollHeight;
+    }, 750);
+    body.scrollTop = body.scrollHeight;
+  });
+</script>
+</body>
+</html>
