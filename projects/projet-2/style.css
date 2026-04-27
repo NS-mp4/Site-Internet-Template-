@@ -1,0 +1,61 @@
+:root {
+    --primary: #8b0000;
+    --dark: #121212;
+    --card: #1e1e1e;
+    --light: #f4f4f4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+body { background-color: var(--dark); color: var(--light); line-height: 1.6; }
+
+/* NAV */
+header { background: rgba(0,0,0,0.95); padding: 1rem 5%; position: fixed; width: 100%; z-index: 1000; border-bottom: 2px solid var(--primary); }
+.navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+.logo span { color: var(--primary); font-weight: bold; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; }
+.cart-icon { cursor: pointer; position: relative; font-size: 1.2rem; }
+#cart-count { background: var(--primary); font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; position: absolute; top: -10px; right: -15px; }
+
+/* HERO */
+.hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551028150-64b9f398f678?w=1200'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+
+/* BOUTONS */
+.btn-primary { background: var(--primary); color: white; padding: 12px 25px; border: none; cursor: pointer; text-decoration: none; font-weight: bold; display: inline-block; }
+.btn-secondary { border: 2px solid white; color: white; padding: 10px 23px; text-decoration: none; margin-left: 10px; font-weight: bold; }
+
+/* PRODUITS */
+.shop-section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; }
+.filters { text-align: center; margin-bottom: 30px; }
+.filter-btn { background: transparent; border: 1px solid #444; color: white; padding: 8px 15px; margin: 5px; cursor: pointer; transition: 0.3s; }
+.filter-btn.active, .filter-btn:hover { background: var(--primary); border-color: var(--primary); }
+
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.product-card { background: var(--card); border-radius: 5px; overflow: hidden; position: relative; border: 1px solid #333; transition: 0.3s; }
+.product-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+.product-card img { width: 100%; height: 200px; object-fit: cover; }
+.product-info { padding: 20px; }
+.price { color: var(--primary); font-size: 1.4rem; font-weight: bold; margin: 10px 0; }
+.product-badge { position: absolute; top: 10px; left: 10px; background: var(--primary); color: white; padding: 4px 8px; font-size: 0.7rem; z-index: 5; }
+
+/* PANIER */
+.side-cart { position: fixed; right: -400px; top: 0; width: 350px; height: 100%; background: #111; z-index: 2000; padding: 20px; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.5); display: flex; flex-direction: column; }
+.side-cart.active { right: 0; }
+.cart-header { display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.close-cart { cursor: pointer; font-size: 1.5rem; }
+#cart-items { flex-grow: 1; overflow-y: auto; margin: 20px 0; }
+.cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; }
+.btn-checkout { width: 100%; background: var(--primary); border: none; color: white; padding: 15px; cursor: pointer; font-weight: bold; }
+
+/* ENGAGEMENTS */
+.features { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 60px 5%; background: #0a0a0a; }
+.feature-card { flex: 1; min-width: 280px; max-width: 350px; background: var(--card); padding: 30px; text-align: center; border-top: 4px solid var(--primary); }
+.feature-card h3 { color: var(--primary); margin-bottom: 10px; }
+
+/* CONTACT */
+.contact-section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+input, textarea { width: 100%; padding: 10px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: white; }
+footer { text-align: center; padding: 30px; border-top: 1px solid #333; color: #666; font-size: 0.8rem; }

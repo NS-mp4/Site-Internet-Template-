@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mie Dorée | Boulangerie Artisanale</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">La Mie <span>Dorée</span></div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#produits">Produits</a></li>
+            <li><a href="#propos">À propos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="btn-order">Commander</button>
+    </nav>
+
+    <header id="accueil" class="hero">
+        <div class="hero-content fade-in">
+            <h1>Le goût authentique du savoir-faire artisanal</h1>
+            <p>Du pain pétri avec passion, cuit chaque matin pour réveiller vos sens.</p>
+            <a href="#produits" class="cta-button">Découvrir nos délices</a>
+        </div>
+    </header>
+
+    <section class="intro section-padding">
+        <div class="container text-center">
+            <h2>Bienvenue chez La Mie Dorée</h2>
+            <p>Située au cœur du quartier, notre boulangerie célèbre l'amour du bon pain et des ingrédients locaux de haute qualité.</p>
+        </div>
+    </section>
+
+    <section id="produits" class="products section-padding">
+        <div class="container">
+            <h2 class="section-title">Nos Créations</h2>
+            <div class="product-grid">
+                <div class="product-card reveal">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=500');"></div>
+                    <h3>Le Tradition</h3>
+                    <p>Croûte craquante et mie alvéolée.</p>
+                    <span class="price">1.20€</span>
+                </div>
+                <div class="product-card reveal">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=500');"></div>
+                    <h3>Croissant Pur Beurre</h3>
+                    <p>Un feuilletage d'exception.</p>
+                    <span class="price">1.50€</span>
+                </div>
+                <div class="product-card reveal">
+                    <div class="product-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxs9zU7IVzQhOtwGdzf3-VeT1lARHm5DkJjw&s');"></div>
+                    <h3>Éclair Chocolat</h3>
+                    <p>Crème onctueuse et cacao grand cru.</p>
+                    <span class="price">3.50€</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="propos" class="about section-padding">
+        <div class="container about-flex">
+            <div class="about-text reveal">
+                <h2>Notre Histoire</h2>
+                <p>Depuis trois générations, la famille Lefebvre perpétue les gestes ancestraux. Nous utilisons exclusivement des farines biologiques issues de moulins locaux pour vous garantir une fraîcheur et un goût inégalés.</p>
+            </div>
+            <div class="about-image reveal">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=600" alt="Artisan au travail">
+            </div>
+        </div>
+    </section>
+
+    <section class="info section-padding">
+        <div class="container info-grid">
+            <div class="hours">
+                <h3>Horaires d'Ouverture</h3>
+                <ul>
+                    <li>Lundi - Vendredi : 07h00 - 19h30</li>
+                    <li>Samedi : 07h30 - 18h00</li>
+                    <li>Dimanche : Fermé</li>
+                </ul>
+                <p><strong>Adresse :</strong> 12 rue de la Farine, 75000 Paris</p>
+                <p><strong>Téléphone :</strong> 01 23 45 67 89</p>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.2922926156743895!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca97efal6423c!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1625562000000!5m2!1sfr!2sfr" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <h2 class="section-title">Nous contacter</h2>
+            <form class="contact-form" action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST">
+    <input type="text" name="nom" placeholder="Nom complet" required>
+    <input type="email" name="email" placeholder="Votre Email" required>
+    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+    <button type="submit" class="cta-button">Envoyer</button>
+</form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 La Mie Dorée - Tous droits réservés</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

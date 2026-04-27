@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boucherie du Terroir | Viandes d'Exception</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Boucherie <span>du Terroir</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#produits">La Boutique</a></li>
+                <li><a href="#engagements">Nos Engagements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Viande d’exception, sélectionnée auprès d’éleveurs locaux</h1>
+            <p>Le goût de l'authentique et le respect de l'animal.</p>
+            <div class="hero-btns">
+                <a href="#produits" class="btn-primary">Commander maintenant</a>
+                <a href="#engagements" class="btn-secondary">Nos Engagements</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="produits" class="shop-section">
+        <h2 class="section-title">Notre Sélection du Boucher</h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="boeuf">Bœuf</button>
+            <button class="filter-btn" data-filter="volaille">Volaille</button>
+            <button class="filter-btn" data-filter="agneau">Agneau</button>
+            <button class="filter-btn" data-filter="porc">Porc</button>
+            <button class="filter-btn" data-filter="maison">Traiteur</button>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+            <div class="product-card" data-category="boeuf">
+                <div class="product-badge">Label Rouge</div>
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500" alt="Bœuf">
+                <div class="product-info">
+                    <h3>Côte de Bœuf Maturée</h3>
+                    <p class="origin">Origine : Limousin</p>
+                    <p class="price">34.90€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Côte de Bœuf" data-price="34.90">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="volaille">
+                <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=500" alt="Poulet">
+                <div class="product-info">
+                    <h3>Poulet Fermier Entier</h3>
+                    <p class="origin">Élevage : Landes</p>
+                    <p class="price">12.50€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Poulet Fermier" data-price="12.50">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="porc">
+                <img src="https://images.unsplash.com/photo-1602491673980-73aa38de027a?w=500" alt="Porc">
+                <div class="product-info">
+                    <h3>Rôti de Porc Filet</h3>
+                    <p class="origin">Origine : Bretagne</p>
+                    <p class="price">14.80€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Rôti de Porc" data-price="14.80">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="maison">
+                <div class="product-badge">Maison</div>
+                <img src="https://images.unsplash.com/photo-1529692236671-f1f6e9460272?w=500" alt="Saucisses">
+                <div class="product-info">
+                    <h3>Saucisses de Toulouse</h3>
+                    <p class="origin">Recette Artisanale</p>
+                    <p class="price">15.90€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Saucisses Toulouse" data-price="15.90">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="agneau">
+                <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=500" alt="Agneau">
+                <div class="product-info">
+                    <h3>Gigot d'Agneau</h3>
+                    <p class="origin">Origine : Sisteron</p>
+                    <p class="price">28.00€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Gigot d'Agneau" data-price="28.00">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="boeuf">
+                <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=500" alt="Entrecôte">
+                <div class="product-info">
+                    <h3>Entrecôte Persillée</h3>
+                    <p class="origin">Origine : Aubrac</p>
+                    <p class="price">31.50€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Entrecôte Aubrac" data-price="31.50">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="volaille">
+                <img src="https://images.unsplash.com/photo-1606728035253-49df886300ed?w=500" alt="Canard">
+                <div class="product-info">
+                    <h3>Magret de Canard</h3>
+                    <p class="origin">Origine : Sud-Ouest</p>
+                    <p class="price">24.90€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Magret de Canard" data-price="24.90">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="maison">
+                <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=500" alt="Brochettes">
+                <div class="product-info">
+                    <h3>Brochettes de Bœuf</h3>
+                    <p class="origin">Marinade Maison</p>
+                    <p class="price">19.50€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Brochettes" data-price="19.50">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="porc">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500" alt="Ribs">
+                <div class="product-info">
+                    <h3>Travers de Porc (Ribs)</h3>
+                    <p class="origin">Origine : France</p>
+                    <p class="price">13.20€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Ribs de Porc" data-price="13.20">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="boeuf">
+                <img src="https://images.unsplash.com/photo-1529132432581-f2894e631980?w=500" alt="Haché">
+                <div class="product-info">
+                    <h3>Bœuf Haché Frais</h3>
+                    <p class="origin">Préparé à la minute</p>
+                    <p class="price">14.50€ <span>/kg</span></p>
+                    <button class="btn-primary add-to-cart" data-name="Bœuf Haché" data-price="14.50">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="engagements" class="features">
+        <h2 class="section-title" style="width: 100%; color: white; margin-bottom: 40px;">Nos Engagements</h2>
+        <div class="feature-card">
+            <h3>🌿 Bien-être Animal</h3>
+            <p>Sélection rigoureuse d'élevages respectueux et en plein air.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🚜 Circuit Court</h3>
+            <p>Directement du producteur à notre étal, sans intermédiaire.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🔪 Tradition</h3>
+            <p>Une découpe artisanale pour préserver toutes les saveurs.</p>
+        </div>
+    </section>
+
+    <div id="side-cart" class="side-cart">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <span class="close-cart" onclick="toggleCart()">×</span>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <p>Total : <span id="cart-total">0.00</span>€</p>
+            <button class="btn-checkout">Valider en Click & Collect</button>
+        </div>
+    </div>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h3>Une demande spéciale ?</h3>
+                <form>
+                    <input type="text" placeholder="Nom" required>
+                    <input type="tel" placeholder="Téléphone" required>
+                    <textarea placeholder="Votre message..."></textarea>
+                    <button type="submit" class="btn-primary">Envoyer</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Boucherie du Terroir</h3>
+                <p>📍 12 Rue des Artisans, Paris</p>
+                <p>📞 01 23 45 67 89</p>
+                <p>🕒 Mar - Sam : 8h00 - 19h00</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Boucherie du Terroir. Viandes de qualité supérieure.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
