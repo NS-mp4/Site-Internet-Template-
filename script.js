@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadProjects() {
         try {
             // Étape 1 : Lire le catalogue
-            const response = await fetch('projects.json');
+            const response = await fetch('./projects.json');
             const projectFolders = await response.json();
 
             // Étape 2 : Boucler sur chaque dossier et récupérer data.json
