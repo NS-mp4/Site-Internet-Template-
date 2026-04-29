@@ -18,28 +18,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('portfolio-grid');
     const myProjects = [
         { 
-            title: "Projet Alpha", 
+            title: "Boucherie du Terroir", 
             category: "ecommerce", 
-            desc: "Une boutique moderne avec gestion de panier fluide.",
-            url: "projet-1/index.html" 
+            desc: "Un site moderne avec gestion de panier fluide.",
+            url: "projects/projet-1/index.html" 
         },
         { 
-            title: "Cabinet Medical", 
+            title: "Boucherie du Terroir", 
             category: "vitrine", 
             desc: "Site professionnel avec formulaire de rendez-vous.",
-            url: "projet-2/index.html" 
+            url: "projects/projet-2/index.html" 
         },
         { 
             title: "Portfolio Artiste", 
             category: "vitrine", 
             desc: "Mise en avant visuelle avec galerie interactive.",
-            url: "projet-3/index.html"
+            url: "projects/projet-3/index.html"
         },
         { 
             title: "Dashboard SaaS", 
             category: "ecommerce", 
             desc: "Interface de gestion de données et statistiques.",
-            url: "projet-4/index.html"
+            url: "projects/projet-4/index.html"
         }
     ];
 
