@@ -3,106 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yanis Marguet | WebStudio</title>
+    <title>Yanis Marguet | WebStudio Expert</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <div id="scroll-indicator"></div>
+
     <nav id="navbar">
         <div class="logo">WebStudio.</div>
         <ul>
             <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Réalisations</a></li>
-            <li><button id="theme-toggle" title="Changer de mode">🌙</button></li>
+            <li><button id="theme-toggle">🌙</button></li>
             <li><a href="#contact" class="btn-outline">Contact</a></li>
         </ul>
     </nav>
 
     <header class="hero">
         <div class="hero-content fade-in">
-            <h1>Je crée des sites web <br><span class="accent">modernes et performants.</span></h1>
-            <p>Propulsez votre entreprise avec des expériences digitales sur-mesure, élégantes et ultra-rapides.</p>
-            <a href="#portfolio" class="btn-primary">Voir mes réalisations</a>
+            <h1>L'art du web <br><span class="accent">haute performance.</span></h1>
+            <p>Design magnétique, code épuré et résultats garantis par Yanis Marguet.</p>
+            <a href="#portfolio" class="btn-primary">Explorer mes travaux</a>
         </div>
     </header>
 
-    <section id="about" class="about">
-        <div class="container fade-in">
-            <h2>L'humain derrière le code</h2>
-            
-            <div class="founder-profile">
-                <div class="founder-img" id="parallax-img">
-                    <span>YM</span> 
-                </div>
-                <div class="founder-text">
-                    <h3>Yanis Marguet</h3>
-                    <p class="role">Fondateur & Développeur Web Indépendant</p>
-                    <p>En tant qu'unique interlocuteur de WebStudio, je gère votre projet de A à Z. Mon approche artisanale garantit une attention aux détails et une réactivité que les grandes structures ne peuvent offrir.</p>
-                </div>
+    <section id="services" class="container">
+        <h2 class="fade-in">Mon Expertise</h2>
+        <div class="bento-grid fade-in">
+            <div class="bento-item large">
+                <span class="icon">💻</span>
+                <h3>Développement Full-Stack</h3>
+                <p>Des applications web robustes et évolutives avec les dernières technos.</p>
             </div>
-
-            <div class="tech-stack">
-                <p>Mon arsenal technologique :</p>
-                <div class="tech-logos">
-                    <span class="tech-badge">HTML5</span>
-                    <span class="tech-badge">CSS3</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Node.js</span>
-                </div>
+            <div class="bento-item medium">
+                <span class="icon">🎨</span>
+                <h3>UI/UX Design</h3>
+                <p>Interfaces épurées et intuitives.</p>
             </div>
+            <div class="bento-item small">
+                <span class="icon">🚀</span>
+                <h3>SEO & Vitesse</h3>
+                <p>Score 100/100 Lighthouse.</p>
+            </div>
+            <div class="bento-item small">
+                <span class="icon">📱</span>
+                <h3>Mobile First</h3>
+                <p>Adapté à tous les écrans.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="values-grid">
-                <div class="value-card">
-                    <h3>Design Épuré</h3>
-                    <p>Inspiré des standards modernes pour une lisibilité parfaite.</p>
-                </div>
-                <div class="value-card">
-                    <h3>Performance</h3>
-                    <p>Optimisé pour le SEO et une vitesse de chargement instantanée.</p>
-                </div>
-                <div class="value-card">
-                    <h3>Sur-mesure</h3>
-                    <p>Chaque ligne de code est écrite pour répondre à vos besoins spécifiques.</p>
-                </div>
+    <section class="horizontal-scroll-wrapper">
+        <div class="horizontal-scroll">
+            <div class="process-step">
+                <h2>01. Analyse</h2>
+                <p>On définit vos objectifs et votre cible.</p>
+            </div>
+            <div class="process-step">
+                <h2>02. Design</h2>
+                <p>Conception visuelle et expérience utilisateur.</p>
+            </div>
+            <div class="process-step">
+                <h2>03. Code</h2>
+                <p>Développement propre, rapide et sécurisé.</p>
+            </div>
+            <div class="process-step">
+                <h2>04. Lancement</h2>
+                <p>Mise en ligne et optimisation continue.</p>
             </div>
         </div>
     </section>
 
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="fade-in">Mes Réalisations</h2>
-            <div class="filters fade-in">
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="vitrine">Vitrine</button>
-                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
-            </div>
-            <div id="portfolio-grid" class="grid fade-in"></div>
+            <h2 class="fade-in">Réalisations Magnétiques</h2>
+            <div id="portfolio-grid" class="grid fade-in">
+                </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container fade-in">
-            <h2>Prêt à lancer votre projet ?</h2>
-            <form id="main-contact-form" class="contact-form">
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre adresse email" required>
-                <textarea rows="5" placeholder="Parlez-moi de votre projet..." required></textarea>
-                <button type="submit" class="btn-primary">Envoyer le message</button>
-            </form>
-        </div>
+    <section id="contact" class="contact container">
+        <form id="main-contact-form" class="contact-form fade-in">
+            <h2>Démarrons un projet</h2>
+            <input type="text" placeholder="Votre nom" required>
+            <input type="email" placeholder="Votre email" required>
+            <textarea rows="5" placeholder="Votre projet..." required></textarea>
+            <button type="submit" class="btn-primary">Envoyer</button>
+        </form>
     </section>
-
-    <footer>
-        <p>&copy; 2026 WebStudio. Créé par Yanis Marguet.</p>
-    </footer>
 
     <div id="thanks-modal" class="modal">
         <div class="modal-content">
-            <h3>Merci ! 🚀</h3>
-            <p>Message envoyé avec succès. Je reviens vers vous rapidement.</p>
-            <button onclick="closeModal()" class="btn-primary" style="margin-top:1rem;">Fermer</button>
+            <h3>C'est parti ! 🚀</h3>
+            <p>Je reviens vers vous sous 24h.</p>
+            <button onclick="closeModal()" class="btn-primary">Fermer</button>
         </div>
     </div>
 
