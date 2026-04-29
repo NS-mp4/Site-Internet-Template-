@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Gestion du Thème (Dark Mode)
+    // 1. Dark Mode
     const themeToggle = document.getElementById('theme-toggle');
     const storedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', storedTheme);
@@ -14,31 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
 
-    // 2. Liste des Projets
+    // 2. Projets (Chemins relatifs pour ta structure de dossiers)
     const grid = document.getElementById('portfolio-grid');
     const myProjects = [
         { 
             title: "Boucherie du Terroir", 
             category: "ecommerce", 
-            desc: "Un site moderne avec gestion de panier fluide.",
+            desc: "Plateforme de vente en ligne avec Click & Collect.",
             url: "projects/projet-1/index.html" 
         },
         { 
             title: "Cabinet Médical", 
             category: "vitrine", 
-            desc: "Site professionnel avec formulaire de rendez-vous.",
+            desc: "Interface de présentation et prise de contact.",
             url: "projects/projet-2/index.html" 
         },
         { 
             title: "Portfolio Artiste", 
             category: "vitrine", 
-            desc: "Mise en avant visuelle avec galerie interactive.",
+            desc: "Galerie immersive haute résolution.",
             url: "projects/projet-3/index.html"
         },
         { 
-            title: "Dashboard SaaS", 
+            title: "SaaS Analytics", 
             category: "ecommerce", 
-            desc: "Interface de gestion de données et statistiques.",
+            desc: "Tableau de bord de gestion de données métier.",
             url: "projects/projet-4/index.html"
         }
     ];
@@ -46,44 +46,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Skeleton Loading
     function showSkeletons() {
         grid.innerHTML = '';
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             const s = document.createElement('div');
-            s.className = 'project-card skeleton-card';
+            s.className = 'project-card';
             s.innerHTML = `
                 <div class="skel skel-tag"></div>
                 <div class="skel skel-title"></div>
                 <div class="skel skel-text"></div>
-                <div class="skel skel-text short"></div>
-                <div class="skel skel-link"></div>`;
+                <div class="skel skel-text"></div>
+            `;
             grid.appendChild(s);
         }
     }
 
     function renderProjects(filter = 'all') {
         showSkeletons();
-        
-        // Simulation d'un délai de chargement pour l'effet skeleton
         setTimeout(() => {
             grid.innerHTML = '';
             const filtered = filter === 'all' ? myProjects : myProjects.filter(p => p.category === filter);
-
             filtered.forEach(p => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
                 card.innerHTML = `
                     <div>
-                        <span class="project-category">${p.category}</span>
-                        <h3>${p.title}</h3>
-                        <p>${p.desc}</p>
+                        <span class="project-category" style="color:var(--accent-color); font-size:0.7rem; font-weight:800; text-transform:uppercase;">${p.category}</span>
+                        <h3 style="margin: 0.5rem 0;">${p.title}</h3>
+                        <p style="font-size:0.9rem; color:var(--text-light);">${p.desc}</p>
                     </div>
-                    <a href="${p.url}" target="_blank" class="accent" style="text-decoration:none; font-weight:700; margin-top:1.5rem; display:block;">Découvrir le projet →</a>
+                    <a href="${p.url}" target="_blank" class="accent" style="text-decoration:none; font-weight:700; margin-top:1.5rem; display:block; font-size:0.9rem;">Explorer le projet →</a>
                 `;
                 grid.appendChild(card);
             });
-        }, 600);
+        }, 600); // Temps du skeleton
     }
 
-    // 4. Système de Filtres
+    // 4. Filtres
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -93,18 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Formulaire & Success Modal
-    const form = document.getElementById('main-contact-form');
-    const modal = document.getElementById('thanks-modal');
-    if(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            modal.style.display = 'flex';
-            form.reset();
-        });
-    }
-
-    // 6. Animations d'apparition (Scroll)
+    // 5. Scroll Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -112,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Initialisation
+    // Init
     renderProjects();
 });
 
