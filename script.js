@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
 
-    // 2. Liste des Projets (Relie tes dossiers ici)
+    // 2. Liste des Projets
     const grid = document.getElementById('portfolio-grid');
     const myProjects = [
         { 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             url: "projects/projet-1/index.html" 
         },
         { 
-            title: "Boucherie du Terroir", 
+            title: "Cabinet Médical", 
             category: "vitrine", 
             desc: "Site professionnel avec formulaire de rendez-vous.",
             url: "projects/projet-2/index.html" 
@@ -43,26 +43,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    function renderProjects(filter = 'all') {
+    // 3. Skeleton Loading
+    function showSkeletons() {
         grid.innerHTML = '';
-        const filtered = filter === 'all' ? myProjects : myProjects.filter(p => p.category === filter);
-
-        filtered.forEach(p => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.innerHTML = `
-                <div>
-                    <span class="project-category">${p.category}</span>
-                    <h3>${p.title}</h3>
-                    <p>${p.desc}</p>
-                </div>
-                <a href="${p.url}" target="_blank" class="accent" style="text-decoration:none; font-weight:700; margin-top:1.5rem; display:block;">Découvrir le projet →</a>
-            `;
-            grid.appendChild(card);
-        });
+        for (let i = 0; i < 4; i++) {
+            const s = document.createElement('div');
+            s.className = 'project-card skeleton-card';
+            s.innerHTML = `
+                <div class="skel skel-tag"></div>
+                <div class="skel skel-title"></div>
+                <div class="skel skel-text"></div>
+                <div class="skel skel-text short"></div>
+                <div class="skel skel-link"></div>`;
+            grid.appendChild(s);
+        }
     }
 
-    // 3. Système de Filtres
+    function renderProjects(filter = 'all') {
+        showSkeletons();
+        
+        // Simulation d'un délai de chargement pour l'effet skeleton
+        setTimeout(() => {
+            grid.innerHTML = '';
+            const filtered = filter === 'all' ? myProjects : myProjects.filter(p => p.category === filter);
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div>
+                        <span class="project-category">${p.category}</span>
+                        <h3>${p.title}</h3>
+                        <p>${p.desc}</p>
+                    </div>
+                    <a href="${p.url}" target="_blank" class="accent" style="text-decoration:none; font-weight:700; margin-top:1.5rem; display:block;">Découvrir le projet →</a>
+                `;
+                grid.appendChild(card);
+            });
+        }, 600);
+    }
+
+    // 4. Système de Filtres
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -72,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Formulaire & Success Modal
+    // 5. Formulaire & Success Modal
     const form = document.getElementById('main-contact-form');
     const modal = document.getElementById('thanks-modal');
     if(form) {
@@ -83,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Animations d'apparition (Scroll)
+    // 6. Animations d'apparition (Scroll)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -95,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
 });
 
-// Fonction pour fermer la modal
 function closeModal() {
     document.getElementById('thanks-modal').style.display = 'none';
 }
