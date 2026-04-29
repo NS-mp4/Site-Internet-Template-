@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Dark Mode
+    // 1. Gestion du Thème (Dark Mode)
     const themeToggle = document.getElementById('theme-toggle');
     const storedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', storedTheme);
@@ -14,13 +14,33 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
 
-    // 2. Projets (Données)
+    // 2. Liste des Projets (Relie tes dossiers ici)
     const grid = document.getElementById('portfolio-grid');
     const myProjects = [
-        { title: "E-Commerce Luxe", category: "ecommerce", desc: "Une boutique minimaliste pour une marque de montres." },
-        { title: "Cabinet d'Avocats", category: "vitrine", desc: "Site institutionnel avec gestion de prise de RDV." },
-        { title: "Portfolio Créatif", category: "vitrine", desc: "Site pour un photographe avec animations fluides." },
-        { title: "Marketplace Art", category: "ecommerce", desc: "Vente d'œuvres numériques avec système d'enchères." }
+        { 
+            title: "Projet Alpha", 
+            category: "ecommerce", 
+            desc: "Une boutique moderne avec gestion de panier fluide.",
+            url: "projet-1/index.html" 
+        },
+        { 
+            title: "Cabinet Medical", 
+            category: "vitrine", 
+            desc: "Site professionnel avec formulaire de rendez-vous.",
+            url: "projet-2/index.html" 
+        },
+        { 
+            title: "Portfolio Artiste", 
+            category: "vitrine", 
+            desc: "Mise en avant visuelle avec galerie interactive.",
+            url: "projet-3/index.html"
+        },
+        { 
+            title: "Dashboard SaaS", 
+            category: "ecommerce", 
+            desc: "Interface de gestion de données et statistiques.",
+            url: "projet-4/index.html"
+        }
     ];
 
     function renderProjects(filter = 'all') {
@@ -36,13 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>${p.title}</h3>
                     <p>${p.desc}</p>
                 </div>
-                <a href="#" class="accent" style="text-decoration:none; font-weight:700; margin-top:1rem; display:block;">Découvrir →</a>
+                <a href="${p.url}" target="_blank" class="accent" style="text-decoration:none; font-weight:700; margin-top:1.5rem; display:block;">Découvrir le projet →</a>
             `;
             grid.appendChild(card);
         });
     }
 
-    // 3. Filtrage
+    // 3. Système de Filtres
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -52,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Modal & Formulaire
+    // 4. Formulaire & Success Modal
     const form = document.getElementById('main-contact-form');
     const modal = document.getElementById('thanks-modal');
     if(form) {
@@ -63,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Observer pour animations au scroll
+    // 5. Animations d'apparition (Scroll)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -75,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
 });
 
+// Fonction pour fermer la modal
 function closeModal() {
     document.getElementById('thanks-modal').style.display = 'none';
 }
