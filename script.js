@@ -1,87 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Chargement Dynamique des Projets ---
-    const grid = document.getElementById('portfolio-grid');
-    let allProjects = [];
+    // 1. GESTION DU DARK MODE
+    const themeToggle = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme') || 'light';
+    
+    document.documentElement.setAttribute('data-theme', storedTheme);
+    themeToggle.textContent = storedTheme === 'dark' ? '☀️' : '🌙';
 
-    async function loadProjects() {
-        try {
-            // Étape 1 : Lire le catalogue
-            const response = await fetch('./projects.json');
-            const projectFolders = await response.json();
-
-            // Étape 2 : Boucler sur chaque dossier et récupérer data.json
-            for (const folder of projectFolders) {
-                const dataResponse = await fetch(`projects/${folder}/data.json`);
-                const projectData = await dataResponse.json();
-                
-                // Ajouter le nom du dossier pour construire les liens
-                projectData.folder = folder; 
-                allProjects.push(projectData);
-            }
-
-            renderProjects(allProjects);
-
-        } catch (error) {
-            console.error("Erreur lors du chargement des projets:", error);
-            grid.innerHTML = "<p>Impossible de charger les projets pour le moment.</p>";
-        }
-    }
-
-    function renderProjects(projects) {
-        grid.innerHTML = ''; // On vide la grille
-        projects.forEach(project => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.setAttribute('data-category', project.category);
-            
-            card.innerHTML = `
-                <img src="projects/${project.folder}/preview.png" alt="${project.title}" loading="lazy">
-                <div class="project-info">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <a href="projects/${project.folder}/index.html" target="_blank">Voir le site →</a>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    }
-
-    // --- 2. Filtrage des Projets ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            // Gérer le style actif
-            filterBtns.forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-
-            // Filtrer
-            const filterValue = e.target.getAttribute('data-filter');
-            const cards = document.querySelectorAll('.project-card');
-
-            cards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
 
-    // --- 3. Animations au Scroll (Intersection Observer) ---
+    // 2. PARALLAXE LÉGÈRE SUR LA PHOTO
+    const parallaxImg = document.getElementById('parallax-img');
+    document.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.pageX) / 30;
+        const y = (window.innerHeight / 2 - e.pageY) / 30;
+        if(parallaxImg) parallaxImg.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // 3. FORMULAIRE & MODAL
+    const form = document.getElementById('main-contact-form');
+    const modal = document.getElementById('thanks-modal');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        modal.style.display = 'flex';
+        form.reset();
+    });
+
+    window.closeModal = () => {
+        modal.style.display = 'none';
+    };
+
+    // 4. ANIMATIONS AU SCROLL
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-in').forEach((el) => {
-        observer.observe(el);
-    });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Lancer le chargement
-    loadProjects();
+    // 5. CHARGEMENT DES PROJETS (Simulation ou Fetch)
+    const grid = document.getElementById('portfolio-grid');
+    // Note: Remplace ce tableau par ton fetch() réel si tu as un fichier JSON
+    const demoProjects = [
+        { title: "Eco-Shop", category: "ecommerce", desc: "Boutique en ligne minimaliste." },
+        { title: "Horizon", category: "vitrine", desc: "Site vitrine pour agence de voyage." }
+    ];
+
+    function render(projects) {
+        grid.innerHTML = projects.map(p => `
+            <div class="project-card" data-category="${p.category}">
+                <div style="height:200px; background:#ddd;"></div>
+                <div class="project-info">
+                    <h3>${p.title}</h3>
+                    <p>${p.desc}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+    render(demoProjects);
 });
