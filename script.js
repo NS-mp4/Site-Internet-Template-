@@ -1,53 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Thème
-    const btn = document.getElementById('theme-toggle');
-    btn.addEventListener('click', () => {
-        const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', t);
-        btn.textContent = t === 'dark' ? '☀️' : '🌙';
+    // Gestion du Thème Sombre
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', () => {
+        const body = document.documentElement;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
 
-    // Projets
+    // Données des Projets
     const grid = document.getElementById('portfolio-grid');
     const projects = [
-        { title: "Boucherie Terroir", cat: "ecommerce", desc: "Vente en ligne avec Click & Collect." },
-        { title: "Cabinet Médical", cat: "vitrine", desc: "Présentation et prise de contact." },
-        { title: "SaaS Analytics", cat: "ecommerce", desc: "Gestion de données en temps réel." }
+        { title: "Boucherie du Terroir", cat: "Ecommerce", desc: "Vente en ligne avec système de Click & Collect optimisé." },
+        { title: "Cabinet Médical", cat: "Vitrine", desc: "Site professionnel avec prise de rendez-vous et SEO local." },
+        { title: "SaaS Analytics", cat: "Web App", desc: "Dashboard complexe de gestion de données en temps réel." }
     ];
 
-    function render(filter = 'all') {
-        grid.innerHTML = '<div class="skel skel-tag"></div><div class="skel skel-title"></div>'; // Skeleton simplifié
-        setTimeout(() => {
-            grid.innerHTML = '';
-            projects.filter(p => filter === 'all' || p.cat === filter).forEach(p => {
-                grid.innerHTML += `
-                    <div class="project-card">
-                        <div>
-                            <span style="color:var(--accent-color); font-size:0.7rem; font-weight:800;">${p.cat.toUpperCase()}</span>
-                            <h3>${p.title}</h3>
-                            <p style="color:var(--text-light); font-size:0.9rem;">${p.desc}</p>
-                        </div>
-                        <a href="#" class="accent" style="text-decoration:none; margin-top:1rem; font-weight:700;">Explorer →</a>
-                    </div>
-                `;
-            });
-        }, 400);
-    }
+    // Injection des projets
+    grid.innerHTML = projects.map(p => `
+        <div class="project-card">
+            <div>
+                <span class="accent" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:1px;">${p.cat}</span>
+                <h3 style="margin:0.5rem 0 1rem;">${p.title}</h3>
+                <p style="color:var(--text-light); font-size:0.95rem;">${p.desc}</p>
+            </div>
+            <a href="#" style="text-decoration:none; font-weight:700; color:var(--accent-color); margin-top:2rem; display:inline-block;">Explorer le projet →</a>
+        </div>
+    `).join('');
 
-    document.querySelectorAll('.filter-btn').forEach(b => {
-        b.addEventListener('click', (e) => {
-            document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active'));
-            e.target.classList.add('active');
-            render(e.target.dataset.filter);
+    // Animation au scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
-    });
+    }, { threshold: 0.1 });
 
-    // Fade-in
-    const obs = new IntersectionObserver(entries => {
-        entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('visible') });
-    });
-    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
-    render();
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
