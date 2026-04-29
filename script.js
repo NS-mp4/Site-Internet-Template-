@@ -1,15 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Barre de progression
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        const indicator = document.getElementById('scroll-indicator');
-        if(indicator) indicator.style.width = scrolled + "%";
-    });
-
-    // 2. Dark Mode
+    // 1. Dark Mode
     const themeToggle = document.getElementById('theme-toggle');
     const storedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', storedTheme);
@@ -23,53 +14,65 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
 
-    // 3. Projets et Effet Magnétique (Tilt)
+    // 2. Projets (Données)
     const grid = document.getElementById('portfolio-grid');
-    const projects = [
-        { title: "Neo-Bank", desc: "Design bancaire futuriste.", cat: "FINTECH" },
-        { title: "Luxury Shop", desc: "E-commerce haut de gamme.", cat: "LUXE" },
-        { title: "SaaS Monitor", desc: "Tableau de bord complexe.", cat: "TECH" }
+    const myProjects = [
+        { title: "E-Commerce Luxe", category: "ecommerce", desc: "Une boutique minimaliste pour une marque de montres." },
+        { title: "Cabinet d'Avocats", category: "vitrine", desc: "Site institutionnel avec gestion de prise de RDV." },
+        { title: "Portfolio Créatif", category: "vitrine", desc: "Site pour un photographe avec animations fluides." },
+        { title: "Marketplace Art", category: "ecommerce", desc: "Vente d'œuvres numériques avec système d'enchères." }
     ];
 
-    if(grid) {
-        projects.forEach(p => {
+    function renderProjects(filter = 'all') {
+        grid.innerHTML = '';
+        const filtered = filter === 'all' ? myProjects : myProjects.filter(p => p.category === filter);
+
+        filtered.forEach(p => {
             const card = document.createElement('div');
             card.className = 'project-card';
-            card.innerHTML = `<div><small style="color:var(--accent-color);font-weight:800">${p.cat}</small><h3>${p.title}</h3><p>${p.desc}</p></div>`;
-            
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                card.style.transform = `perspective(1000px) rotateX(${y * -20}deg) rotateY(${x * 20}deg) scale(1.05)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-            });
-
+            card.innerHTML = `
+                <div>
+                    <span class="project-category">${p.category}</span>
+                    <h3>${p.title}</h3>
+                    <p>${p.desc}</p>
+                </div>
+                <a href="#" class="accent" style="text-decoration:none; font-weight:700; margin-top:1rem; display:block;">Découvrir →</a>
+            `;
             grid.appendChild(card);
         });
     }
 
-    // 4. Formulaire
+    // 3. Filtrage
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            renderProjects(e.target.getAttribute('data-filter'));
+        });
+    });
+
+    // 4. Modal & Formulaire
     const form = document.getElementById('main-contact-form');
+    const modal = document.getElementById('thanks-modal');
     if(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            document.getElementById('thanks-modal').style.display = 'flex';
+            modal.style.display = 'flex';
             form.reset();
         });
     }
 
-    // 5. Observer pour animations
+    // 5. Observer pour animations au scroll
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Initialisation
+    renderProjects();
 });
 
 function closeModal() {
