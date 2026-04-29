@@ -82,6 +82,58 @@ nav a { text-decoration: none; color: var(--text-color); font-weight: 600; }
 /* Sections générales */
 section { padding: 6rem 0; }
 
+/* Profil du Fondateur (Yanis Marguet) */
+.founder-profile {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    margin-bottom: 4rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.founder-img {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, var(--accent-color), #8a88eb);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: 800;
+    /* Pour ajouter une vraie photo, décommentez et adaptez : 
+    background-image: url('chemin/vers/la/photo.jpg');
+    background-size: cover; 
+    background-position: center; */
+}
+
+.founder-text h3 {
+    margin-bottom: 0.2rem;
+    font-size: 2rem;
+}
+
+.founder-text .role {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.founder-text p {
+    color: var(--text-color);
+}
+
+.expertise-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+}
+
 /* Grid Valeurs & Portfolio */
 .values-grid, .grid {
     display: grid;
@@ -149,4 +201,10 @@ footer { text-align: center; padding: 2rem; color: var(--text-light); }
 @media (max-width: 768px) {
     .hero h1 { font-size: 2.5rem; }
     nav ul { display: none; /* À remplacer par un menu burger */ }
+    .founder-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 2rem;
+    }
 }
