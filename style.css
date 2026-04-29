@@ -3,7 +3,6 @@
     --text-color: #1d1d1f;
     --text-light: #86868b;
     --accent-color: #5E5CE6;
-    --accent-hover: #4a48b8;
     --card-bg: #f5f5f7;
     --nav-bg: rgba(255, 255, 255, 0.8);
 }
@@ -22,7 +21,6 @@ html { scroll-behavior: smooth; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .accent { color: var(--accent-color); }
 
-/* Navigation */
 nav {
     display: flex; justify-content: space-between; align-items: center;
     padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 1000;
@@ -33,45 +31,35 @@ nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
 nav a { text-decoration: none; color: var(--text-color); font-weight: 600; }
 #theme-toggle { background: none; border: none; cursor: pointer; font-size: 1.2rem; }
 
-/* Hero */
 .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
 .hero h1 { font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; }
-.hero p { font-size: 1.2rem; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem; }
 
-/* Profil */
 section { padding: 8rem 0 4rem; }
 .founder-profile { display: flex; align-items: center; gap: 3rem; background: var(--card-bg); padding: 3rem; border-radius: 24px; margin-bottom: 3rem; }
 .founder-img { width: 120px; height: 120px; border-radius: 50%; background: var(--accent-color); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; flex-shrink: 0; }
-.role { color: var(--accent-color); font-weight: 600; margin-bottom: 0.5rem; }
 
-/* Grid Projets */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .project-card { 
-    background: var(--card-bg); padding: 2rem; border-radius: 20px; 
+    background: var(--card-bg); padding: 2.5rem; border-radius: 20px; 
     border: 1px solid rgba(128,128,128,0.1); transition: 0.4s;
-    display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;
+    display: flex; flex-direction: column; justify-content: space-between; min-height: 240px;
 }
 .project-card:hover { transform: translateY(-10px); border-color: var(--accent-color); }
-.project-category { color: var(--accent-color); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+.project-category { color: var(--accent-color); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
 
-/* Filtres */
 .filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
 .filter-btn { border: none; background: var(--card-bg); padding: 0.6rem 1.5rem; border-radius: 20px; cursor: pointer; color: var(--text-color); font-weight: 600; }
 .filter-btn.active { background: var(--accent-color); color: white; }
 
-/* Formulaire & Modal */
 .contact-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
 .contact-form input, .contact-form textarea { padding: 1rem; border-radius: 12px; border: 1px solid rgba(128,128,128,0.2); background: var(--card-bg); color: var(--text-color); }
+
 .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center; }
 .modal-content { background: var(--bg-color); padding: 3rem; border-radius: 24px; text-align: center; }
 
-/* Utils */
-.btn-primary { background: var(--accent-color); color: white; border: none; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 600; cursor: pointer; text-decoration: none; }
+.btn-primary { background: var(--accent-color); color: white; border: none; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 600; cursor: pointer; text-decoration: none; transition: 0.3s; }
+.btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
 .btn-outline { border: 1px solid var(--accent-color); padding: 0.6rem 1.5rem; border-radius: 30px; text-decoration: none; color: var(--text-color); }
+
 .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 768px) {
-    nav ul { display: none; }
-    .founder-profile { flex-direction: column; text-align: center; }
-}
