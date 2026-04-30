@@ -32,11 +32,34 @@ nav {
     background: var(--nav-bg); backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(128,128,128,0.1);
 }
-.logo { font-weight: 800; font-size: 1.4rem; }
-.logo span { color: var(--accent-color); }
-nav ul { display: flex; list-style: none; gap: 2rem; align-items: center; }
-nav a { text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 0.9rem; }
-#theme-toggle { background: none; border: none; cursor: pointer; font-size: 1.2rem; }
+/* NAVBAR FIX (Z-INDEX & POSITION) */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 5%; position: fixed; width: 100%; top: 0; left: 0;
+    z-index: 9999;
+    background: var(--nav-bg); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(128,128,128,0.1);
+}
+
+/* 🔥 LOGO FIX */
+.logo { 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800; 
+    font-size: 1.4rem;
+}
+
+.logo-img {
+    height: 1.2em;   /* 👈 taille IDENTIQUE au texte */
+    width: auto;
+    display: block;
+}
+
+.logo span { 
+    color: var(--accent-color);
+    line-height: 1;
+}
 
 /* Hero */
 .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
