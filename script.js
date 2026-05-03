@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Thème Sombre
     const themeBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeBtn.textContent = '☀️';
+    }
+    
     themeBtn.addEventListener('click', () => {
         const body = document.documentElement;
         const isDark = body.getAttribute('data-theme') === 'dark';
         const nextTheme = isDark ? 'light' : 'dark';
         body.setAttribute('data-theme', nextTheme);
         themeBtn.textContent = nextTheme === 'dark' ? '☀️' : '🌙';
+        localStorage.setItem('theme', nextTheme);
     });
-
+    
     // 2. Projets Portfolio
     const grid = document.getElementById('portfolio-grid');
     const projects = [
@@ -16,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Cabinet Médical", cat: "Vitrine", desc: "Site professionnel optimisé pour le référencement local." },
         { title: "SaaS Analytics", cat: "Application", desc: "Outil de gestion de données clients en temps réel." }
     ];
-
+    
     grid.innerHTML = projects.map(p => `
         <div class="project-card">
             <span class="accent" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:1px;">${p.cat}</span>
@@ -25,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="#" style="text-decoration:none; font-weight:700; color:var(--accent-color);">Explorer →</a>
         </div>
     `).join('');
-
+    
     // 3. Animation au Scroll
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -34,6 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.15 });
-
+    
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    
+    // 4. Gestion du formulaire de contact
+    const contactForm = document.getElementById('main-contact-form');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Merci pour votre demande ! Nous vous recontacterons rapidement.');
+        contactForm.reset();
+    });
 });
