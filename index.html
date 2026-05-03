@@ -3,227 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebGlory SARL | Yanis Marguet - Création de sites web professionnels</title>
-    <meta name="description" content="WebGlory SARL - Expertise en ingénierie web, sites vitrines et solutions e-commerce haute performance. Développement React, Python, Node.js.">
+    <title>WebGlory - Agence Web Premium | Solutions Digitales sur Mesure</title>
+    <meta name="description" content="WebGlory accompagne les entreprises dans leur transformation digitale. Création de sites web, e-commerce et applications métier sur mesure.">
     
-    <!-- Favicon SVG pour éviter la compression -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235E5CE6'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold'>W</text></svg>">
-    <link rel="alternate icon" type="image/png" href="logo.png">
+    <!-- Favicon de qualité -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABf0lEQVR4nO2Wv0oDQRDGv5MYtBGx0MJCECwsxEKwsRFBsLKw8QVsfAFfwNbSB7CwEASxsRULLQQLC0EQxEIQBP+gYOJ3sAuXy+7t3eVy+cHA3s7Ofr/ZmdkdoEePHrcXgDFgGdgDzoA6YI3r2h6wDIz+VeEZYBOoAc0YVgM2gOm/ILwIHANN4twktoCFbgkvABdA2+F6C3ABDjouLANXCYSjuQJKWQkPANcpCUdzDQxmITwOnGUg3D7PAuNphBeBu4yEo7kDFl0JjwD3OQi3z/3A80jCO4BTbncC88BExmdOdvfAlvRNAccO998Ac131gFHJ2legDDzKUboAaoCAacn6vqTrDFBRwj2bwl2+jfRNeneMU/NSutNI2X4VZadjUz+y8yb6hoGnBN/8SQDPQEF7RnVSvgF0aqd/TdYxpT0j8f018KU9I7FwBXjVnpFY+AnYkwO2N3Ee+b5I1hOZe3U8ynpitU4wJLsu0WtABTiU60q0+/To0eOvxzd3SIkktEF99wAAAABJRU5ErkJggg==">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav id="navbar">
-        <a href="#" class="logo">
-            <img src="logo.png" alt="WebGlory Logo" class="logo-img" onerror="this.style.display='none'">
-            WebGlory<span>.</span>
-        </a>
-        <ul>
-            <li><a href="#about">Expertise</a></li>
-            <li><a href="#portfolio">Projets</a></li>
-            <li><a href="#mentions-legales">Mentions Légales</a></li>
-            <li><button id="theme-toggle" aria-label="Changer de thème">🌙</button></li>
-            <li><a href="#contact" class="btn-outline">Contact</a></li>
-        </ul>
+    <!-- Navigation professionnelle -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg class="logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="50" height="50" rx="10" fill="#2563EB"/>
+                    <path d="M15 35L20 15H25L30 25L35 15H40L35 35H30L25 25L20 35H15Z" fill="white"/>
+                </svg>
+                <span class="logo-text">WebGlory</span>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="#expertise" class="nav-link">Expertise</a>
+                <a href="#solutions" class="nav-link">Solutions</a>
+                <a href="#portfolio" class="nav-link">Références</a>
+                <a href="#contact" class="btn-primary-nav">Parlons de votre projet</a>
+            </div>
+            
+            <button class="mobile-toggle" aria-label="Menu mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
+    <!-- Hero Section Premium -->
     <header class="hero">
-        <div class="hero-content fade-in">
-            <h1>L'ingénierie web <br><span class="accent">au service de votre croissance.</span></h1>
-            <p>Conception de sites vitrines et e-commerce haute performance avec des technologies modernes.</p>
-            <a href="#portfolio" class="btn-primary">Découvrir nos réalisations</a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🚀 Votre partenaire digital de confiance</div>
+                <h1 class="hero-title">
+                    Transformez votre vision<br>
+                    en <span class="gradient-text">succès digital</span>
+                </h1>
+                <p class="hero-subtitle">
+                    WebGlory accompagne les entreprises exigeantes dans la création de solutions web sur mesure. 
+                    De la conception à la réalisation, nous donnons vie à vos ambitions digitales.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary-large">
+                        Démarrer un projet
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#portfolio" class="btn-secondary-large">Voir nos réalisations</a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="trust-bar">
+                    <div class="trust-item">
+                        <span class="trust-number">50+</span>
+                        <span class="trust-label">Projets livrés</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">98%</span>
+                        <span class="trust-label">Clients satisfaits</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-number">24/7</span>
+                        <span class="trust-label">Support disponible</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <section id="about">
-            <div class="founder-profile fade-in">
-                <div class="founder-img">YM</div>
-                <div class="founder-text">
-                    <h2>Yanis Marguet</h2>
-                    <div class="badge-disponible">
-                        <span class="badge-dot"></span> Disponible — Mai 2026
-                    </div>
-                    <p class="role">Directeur Technique - WebGlory SARL</p>
-                    
-                    <a href="https://wa.me/32470123456" class="whatsapp-contact" target="_blank" rel="noopener">
-                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    <!-- Expertise Section -->
+    <section id="expertise" class="section-expertise">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Notre expertise</span>
+                <h2 class="section-title">Des solutions complètes pour votre croissance</h2>
+                <p class="section-subtitle">Nous maîtrisons l'ensemble de la chaîne de valeur digitale pour vous offrir un service clé en main.</p>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
                         </svg>
-                        <span>Discuter sur WhatsApp</span>
-                    </a>
+                    </div>
+                    <h3>Sites Vitrines Premium</h3>
+                    <p>Valorisez votre image de marque avec un site web élégant, performant et optimisé pour la conversion.</p>
+                    <ul class="expertise-features">
+                        <li>Design sur mesure</li>
+                        <li>SEO optimisé</li>
+                        <li>Performance maximale</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card featured">
+                    <div class="expertise-badge">Le plus demandé</div>
+                    <div class="expertise-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                    </div>
+                    <h3>E-commerce Performant</h3>
+                    <p>Développez votre activité en ligne avec une plateforme e-commerce robuste, sécurisée et évolutive.</p>
+                    <ul class="expertise-features">
+                        <li>Gestion de catalogue</li>
+                        <li>Paiement sécurisé</li>
+                        <li>Analytics avancés</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Applications Web</h3>
+                    <p>Simplifiez vos processus métier avec des applications web sur mesure, intuitives et performantes.</p>
+                    <ul class="expertise-features">
+                        <li>Développement agile</li>
+                        <li>Interface intuitive</li>
+                        <li>Intégrations API</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="skills-section">
-                        <h3 class="skills-title">Stack Technique</h3>
-                        <div class="skills-grid">
-                            <div class="skill-badge" data-skill="react">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="skill-icon">
-                                <span>React</span>
+    <!-- Technologies Section -->
+    <section class="section-tech">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">Technologies</span>
+                <h2 class="section-title">Un stack technique éprouvé</h2>
+                <p class="section-subtitle">Nous utilisons les technologies les plus fiables pour garantir performance, sécurité et évolutivité.</p>
+            </div>
+            
+            <div class="tech-grid" id="tech-grid"></div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nos réalisations</span>
+                <h2 class="section-title">Projets qui parlent pour nous</h2>
+                <p class="section-subtitle">Découvrez comment nous avons aidé nos clients à atteindre leurs objectifs digitaux.</p>
+            </div>
+            
+            <div class="portfolio-grid" id="portfolio-grid"></div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-process">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">Notre méthode</span>
+                <h2 class="section-title">Un accompagnement de bout en bout</h2>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3>Découverte</h3>
+                    <p>Analyse de vos besoins, objectifs et contraintes pour définir la meilleure stratégie.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3>Conception</h3>
+                    <p>Design et maquettage en collaboration avec vous pour valider l'expérience utilisateur.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3>Développement</h3>
+                    <p>Réalisation technique avec des sprints réguliers pour suivre l'avancement du projet.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h3>Lancement & Suivi</h3>
+                    <p>Mise en ligne, formation et accompagnement post-lancement pour garantir votre succès.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <span class="section-label">Contact</span>
+                    <h2 class="section-title">Prêt à démarrer<br>votre projet ?</h2>
+                    <p class="contact-description">
+                        Échangeons sur vos besoins et construisons ensemble la solution qui propulsera votre entreprise.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <a href="tel:+32470123456" class="contact-method">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <div>
+                                <span class="method-label">Téléphone</span>
+                                <span class="method-value">+32 470 12 34 56</span>
                             </div>
-                            <div class="skill-badge" data-skill="javascript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon">
-                                <span>JavaScript</span>
+                        </a>
+                        
+                        <a href="mailto:contact@webglory.be" class="contact-method">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <div>
+                                <span class="method-label">Email</span>
+                                <span class="method-value">contact@webglory.be</span>
                             </div>
-                            <div class="skill-badge" data-skill="python">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-icon">
-                                <span>Python</span>
+                        </a>
+                        
+                        <a href="https://wa.me/32470123456" target="_blank" class="contact-method whatsapp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            <div>
+                                <span class="method-label">WhatsApp</span>
+                                <span class="method-value">Chat direct</span>
                             </div>
-                            <div class="skill-badge" data-skill="html">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon">
-                                <span>HTML/CSS</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom complet *</label>
+                                <input type="text" id="name" name="name" required>
                             </div>
-                            <div class="skill-badge" data-skill="nodejs">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="skill-icon">
-                                <span>Node.js</span>
-                            </div>
-                            <div class="skill-badge" data-skill="typescript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="skill-icon">
-                                <span>TypeScript</span>
-                            </div>
-                            <div class="skill-badge" data-skill="firebase">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="skill-icon">
-                                <span>Firebase</span>
-                            </div>
-                            <div class="skill-badge" data-skill="mongodb">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="skill-icon">
-                                <span>MongoDB</span>
+                            <div class="form-group">
+                                <label for="company">Entreprise *</label>
+                                <input type="text" id="company" name="company" required>
                             </div>
                         </div>
-                    </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email professionnel *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Budget estimé</label>
+                            <select id="budget" name="budget">
+                                <option value="">Sélectionnez une fourchette</option>
+                                <option value="5k-10k">5 000€ - 10 000€</option>
+                                <option value="10k-25k">10 000€ - 25 000€</option>
+                                <option value="25k-50k">25 000€ - 50 000€</option>
+                                <option value="50k+">50 000€+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Décrivez votre projet *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary-large full-width">
+                            Envoyer ma demande
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        
+                        <p class="form-privacy">
+                            En soumettant ce formulaire, vous acceptez notre 
+                            <a href="#mentions-legales">politique de confidentialité</a>.
+                        </p>
+                    </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="portfolio">
-            <h2 class="section-title fade-in">Dernières Réalisations</h2>
-            <div id="portfolio-grid" class="grid fade-in"></div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="contact-card fade-in">
-                <h2>Démarrer une collaboration</h2>
-                <p style="color: var(--text-light); margin: 1rem 0 2rem;">Confiez-nous votre projet web et bénéficiez d'un accompagnement personnalisé.</p>
-                <form id="main-contact-form" class="contact-form">
-                    <input type="text" name="company" placeholder="Nom de l'entreprise" required>
-                    <input type="email" name="email" placeholder="Email professionnel" required>
-                    <textarea name="message" rows="5" placeholder="Décrivez votre projet..." required></textarea>
-                    <button type="submit" class="btn-primary">Demander un devis gratuit</button>
-                </form>
-            </div>
-        </section>
-
-        <section id="mentions-legales">
-            <div class="legal-card fade-in">
-                <h2 class="section-title">Mentions Légales</h2>
-                
-                <div class="legal-section">
-                    <h3>Éditeur du site</h3>
-                    <p><strong>WebGlory SARL</strong><br>
-                    Capital social : 10 000 €<br>
-                    SIRET : 123 456 789 00012<br>
-                    RCS : Charleroi B 123 456 789<br>
-                    Siège social : Rue de l'Innovation, 42, 6000 Charleroi, Belgique<br>
-                    Numéro de TVA intracommunautaire : BE0123456789</p>
-                    
-                    <p><strong>Directeur de la publication :</strong> Yanis Marguet<br>
-                    <strong>Contact :</strong> contact@webglory.be<br>
-                    <strong>Téléphone :</strong> +32 470 12 34 56</p>
-                </div>
-
-                <div class="legal-section">
-                    <h3>Hébergement</h3>
-                    <p><strong>Nom de l'hébergeur :</strong> OVH SAS<br>
-                    Siège social : 2 rue Kellermann, 59100 Roubaix, France<br>
-                    Téléphone : +33 9 72 10 10 07</p>
-                </div>
-
-                <div class="legal-section">
-                    <h3>Propriété intellectuelle</h3>
-                    <p>L'ensemble du contenu de ce site (textes, images, vidéos, logos, graphismes) est la propriété exclusive de WebGlory SARL, sauf mention contraire. Toute reproduction, distribution, modification, adaptation, retransmission ou publication de ces différents éléments est strictement interdite sans l'accord exprès par écrit de WebGlory SARL.</p>
-                </div>
-
-                <div class="legal-section">
-                    <h3>Protection des données personnelles (RGPD)</h3>
-                    <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi belge du 30 juillet 2018, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données vous concernant.</p>
-                    
-                    <p><strong>Responsable du traitement :</strong> WebGlory SARL<br>
-                    <strong>Finalité :</strong> Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes de devis et ne sont en aucun cas transmises à des tiers.</p>
-                    
-                    <p><strong>Durée de conservation :</strong> 3 ans maximum à compter de votre dernier contact.<br>
-                    <strong>Exercer vos droits :</strong> contact@webglory.be</p>
-                </div>
-
-                <div class="legal-section">
-                    <h3>Cookies</h3>
-                    <p>Ce site n'utilise que des cookies strictement nécessaires à son fonctionnement (préférence de thème). Aucun cookie de suivi ou analytique n'est déposé sans votre consentement explicite.</p>
-                </div>
-
-                <div class="legal-section">
-                    <h3>Limitation de responsabilité</h3>
-                    <p>WebGlory SARL s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, WebGlory SARL ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site.</p>
-                    
-                    <p>WebGlory SARL ne pourra être tenue responsable des dommages directs ou indirects résultant de l'accès au site ou de l'utilisation du site, y compris l'inaccessibilité, les pertes de données, détériorations, destructions ou virus qui pourraient affecter l'équipement informatique de l'utilisateur.</p>
-                </div>
-
-                <div class="legal-section">
-                    <h3>Droit applicable et juridiction compétente</h3>
-                    <p>Les présentes mentions légales sont régies par le droit belge. En cas de litige, et à défaut d'accord amiable, le litige sera porté devant les tribunaux compétents de Charleroi, Belgique.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>WebGlory SARL</h4>
-                    <p>Expertise en ingénierie web<br>
-                    Sites vitrines & E-commerce</p>
-                    <p style="margin-top: 1rem;">SIRET : 123 456 789 00012<br>
-                    TVA : BE0123456789</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Navigation</h4>
-                    <div class="footer-links">
-                        <a href="#about">Expertise</a>
-                        <a href="#portfolio">Projets</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#mentions-legales">Mentions Légales</a>
+            <div class="footer-main">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <svg class="logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="50" height="50" rx="10" fill="#2563EB"/>
+                            <path d="M15 35L20 15H25L30 25L35 15H40L35 35H30L25 25L20 35H15Z" fill="white"/>
+                        </svg>
+                        <span class="logo-text">WebGlory</span>
                     </div>
+                    <p class="footer-tagline">Votre partenaire digital de confiance depuis 2020.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Rue de l'Innovation, 42<br>
-                    6000 Charleroi, Belgique</p>
-                    <p style="margin-top: 0.5rem;">
-                        <a href="mailto:contact@webglory.be">contact@webglory.be</a><br>
-                        <a href="tel:+32470123456">+32 470 12 34 56</a>
-                    </p>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <a href="#expertise">Expertise</a>
+                    <a href="#solutions">Solutions</a>
+                    <a href="#portfolio">Références</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Légal</h4>
+                    <a href="#mentions-legales">Mentions légales</a>
+                    <a href="#cgv">CGV</a>
+                    <a href="#confidentialite">Confidentialité</a>
+                    <a href="#cookies">Cookies</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Coordonnées</h4>
+                    <p>Rue de l'Innovation, 42<br>6000 Charleroi, Belgique</p>
+                    <p>SIRET: 123 456 789 00012<br>TVA: BE0123456789</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 WebGlory SARL. Tous droits réservés. | Développé avec passion en Belgique 🇧🇪</p>
+                <p>&copy; 2026 WebGlory SARL. Tous droits réservés.</p>
+                <p>Développé avec excellence en Belgique 🇧🇪</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal pour les compétences -->
-    <div id="skill-modal" class="modal">
+    <!-- Modal Technologies -->
+    <div id="tech-modal" class="modal">
         <div class="modal-content">
-            <button class="close-modal">&times;</button>
+            <button class="modal-close">&times;</button>
             <div class="modal-header">
-                <img id="modal-icon" src="" alt="" class="modal-icon">
-                <h3 id="modal-title"></h3>
+                <img id="modal-tech-icon" src="" alt="" class="modal-tech-icon">
+                <h3 id="modal-tech-title"></h3>
             </div>
             <div class="modal-body">
-                <p id="modal-description"></p>
+                <p id="modal-tech-description"></p>
+                <div class="modal-use-cases" id="modal-tech-uses"></div>
             </div>
         </div>
     </div>
