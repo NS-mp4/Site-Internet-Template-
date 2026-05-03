@@ -6,8 +6,7 @@
     <title>WebGlory - Agence Web Premium | Solutions Digitales sur Mesure</title>
     <meta name="description" content="WebGlory accompagne les entreprises dans leur transformation digitale. Création de sites web, e-commerce et applications métier sur mesure.">
     
-    <!-- Favicon de qualité -->
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABf0lEQVR4nO2Wv0oDQRDGv5MYtBGx0MJCECwsxEKwsRFBsLKw8QVsfAFfwNbSB7CwEASxsRULLQQLC0EQxEIQBP+gYOJ3sAuXy+7t3eVy+cHA3s7Ofr/ZmdkdoEePHrcXgDFgGdgDzoA6YI3r2h6wDIz+VeEZYBOoAc0YVgM2gOm/ILwIHANN4twktoCFbgkvABdA2+F6C3ABDjouLANXCYSjuQJKWQkPANcpCUdzDQxmITwOnGUg3D7PAuNphBeBu4yEo7kDFl0JjwD3OQi3z/3A80jCO4BTbncC88BExmdOdvfAlvRNAccO998Ac131gFHJ2legDDzKUboAaoCAacn6vqTrDFBRwj2bwl2+jfRNeneMU/NSutNI2X4VZadjUz+y8yb6hoGnBN/8SQDPQEF7RnVSvgF0aqd/TdYxpT0j8f018KU9I7FwBXjVnpFY+AnYkwO2N3Ee+b5I1hOZe3U8ynpitU4wJLsu0WtABTiU60q0+/To0eOvxzd3SIkktEF99wAAAABJRU5ErkJggg==">
+    <link rel="icon" type="image/png" href="logo.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +18,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <svg class="logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="50" height="50" rx="10" fill="#2563EB"/>
-                    <path d="M15 35L20 15H25L30 25L35 15H40L35 35H30L25 25L20 35H15Z" fill="white"/>
-                </svg>
+                <img src="logo.png" alt="WebGlory" class="logo-img">
                 <span class="logo-text">WebGlory</span>
             </a>
             
@@ -155,18 +151,90 @@
                 <span class="section-label">Technologies</span>
                 <h2 class="section-title">Un stack technique éprouvé</h2>
                 <p class="section-subtitle">Nous utilisons les technologies les plus fiables pour garantir performance, sécurité et évolutivité.</p>
-                <div class="logos-container" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" width="60" height="60" />
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" width="60" height="60" />
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" width="60" height="60" />
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" width="60" height="60" />
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" width="60" height="60" />
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" width="60" height="60" />
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" width="60" height="60" />
-    </div>
             </div>
             
-            <div class="tech-grid" id="tech-grid"></div>
+            <div class="tech-logos-grid">
+                <!-- HTML5 -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" title="HTML5">
+                    <span>HTML5</span>
+                </div>
+                <!-- CSS3 -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" title="CSS3">
+                    <span>CSS3</span>
+                </div>
+                <!-- JavaScript -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript">
+                    <span>JavaScript</span>
+                </div>
+                <!-- TypeScript -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" title="TypeScript">
+                    <span>TypeScript</span>
+                </div>
+                <!-- React -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" title="React">
+                    <span>React</span>
+                </div>
+                <!-- Next.js -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" title="Next.js">
+                    <span>Next.js</span>
+                </div>
+                <!-- Vue.js -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue.js" title="Vue.js">
+                    <span>Vue.js</span>
+                </div>
+                <!-- Node.js -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" title="Node.js">
+                    <span>Node.js</span>
+                </div>
+                <!-- Python -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" title="Python">
+                    <span>Python</span>
+                </div>
+                <!-- PHP -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" title="PHP">
+                    <span>PHP</span>
+                </div>
+                <!-- MySQL -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" title="MySQL">
+                    <span>MySQL</span>
+                </div>
+                <!-- MongoDB -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" title="MongoDB">
+                    <span>MongoDB</span>
+                </div>
+                <!-- PostgreSQL -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" title="PostgreSQL">
+                    <span>PostgreSQL</span>
+                </div>
+                <!-- Docker -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" title="Docker">
+                    <span>Docker</span>
+                </div>
+                <!-- Git -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" title="Git">
+                    <span>Git</span>
+                </div>
+                <!-- WordPress -->
+                <div class="tech-logo-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg" alt="WordPress" title="WordPress">
+                    <span>WordPress</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -179,7 +247,76 @@
                 <p class="section-subtitle">Découvrez comment nous avons aidé nos clients à atteindre leurs objectifs digitaux.</p>
             </div>
             
-            <div class="portfolio-grid" id="portfolio-grid"></div>
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Projet 1 -->
+                <a href="projects/boucherie-du-terroir/index.html" class="portfolio-card portfolio-link">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);">
+                        🥩
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">E-commerce</span>
+                        <h3>Boucherie du Terroir</h3>
+                        <p>Plateforme de vente en ligne complète avec système Click &amp; Collect, gestion des stocks en temps réel et paiement sécurisé.</p>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <span class="stat-value">+120%</span>
+                                <span class="stat-label">Ventes en ligne</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">3 mois</span>
+                                <span class="stat-label">Délai de livraison</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-cta">Voir le projet →</div>
+                    </div>
+                </a>
+
+                <!-- Projet 2 -->
+                <a href="projects/cabinet-medical/index.html" class="portfolio-card portfolio-link">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);">
+                        🏥
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Site Vitrine</span>
+                        <h3>Cabinet Médical Dr. Laurent</h3>
+                        <p>Site professionnel optimisé pour le référencement local (SEO), système de prise de rendez-vous en ligne et conformité RGPD.</p>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <span class="stat-value">#1</span>
+                                <span class="stat-label">Google Local</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">200+</span>
+                                <span class="stat-label">RDV/mois en ligne</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-cta">Voir le projet →</div>
+                    </div>
+                </a>
+
+                <!-- Projet 3 -->
+                <a href="projects/saas-analytics/index.html" class="portfolio-card portfolio-link">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);">
+                        📊
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Application Web</span>
+                        <h3>SaaS Analytics Pro</h3>
+                        <p>Tableau de bord interactif pour la gestion et l'analyse de données clients avec visualisations en temps réel et exports automatisés.</p>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <span class="stat-value">500+</span>
+                                <span class="stat-label">Utilisateurs actifs</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">99.9%</span>
+                                <span class="stat-label">Uptime</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-cta">Voir le projet →</div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -209,7 +346,7 @@
                 </div>
                 <div class="process-step">
                     <div class="process-number">04</div>
-                    <h3>Lancement & Suivi</h3>
+                    <h3>Lancement &amp; Suivi</h3>
                     <p>Mise en ligne, formation et accompagnement post-lancement pour garantir votre succès.</p>
                 </div>
             </div>
@@ -310,7 +447,7 @@
                         
                         <p class="form-privacy">
                             En soumettant ce formulaire, vous acceptez notre 
-                            <a href="#mentions-legales">politique de confidentialité</a>.
+                            <a href="confidentialite.html">politique de confidentialité</a>.
                         </p>
                     </form>
                 </div>
@@ -324,10 +461,7 @@
             <div class="footer-main">
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <svg class="logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="50" height="50" rx="10" fill="#2563EB"/>
-                            <path d="M15 35L20 15H25L30 25L35 15H40L35 35H30L25 25L20 35H15Z" fill="white"/>
-                        </svg>
+                        <img src="logo.png" alt="WebGlory" class="footer-logo-img">
                         <span class="logo-text">WebGlory</span>
                     </div>
                     <p class="footer-tagline">Votre partenaire digital de confiance depuis 2020.</p>
@@ -343,16 +477,16 @@
                 
                 <div class="footer-column">
                     <h4>Légal</h4>
-                    <a href="#mentions-legales">Mentions légales</a>
-                    <a href="#cgv">CGV</a>
-                    <a href="#confidentialite">Confidentialité</a>
-                    <a href="#cookies">Cookies</a>
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="cgv.html">CGV</a>
+                    <a href="confidentialite.html">Confidentialité</a>
+                    <a href="cookies.html">Cookies</a>
                 </div>
                 
                 <div class="footer-column">
                     <h4>Coordonnées</h4>
                     <p>Rue de l'Innovation, 42<br>6000 Charleroi, Belgique</p>
-                    <p>SIRET: 123 456 789 00012<br>TVA: BE0123456789</p>
+                    <p>BCE: BE0123456789<br>TVA: BE0123456789</p>
                 </div>
             </div>
             
@@ -362,21 +496,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Modal Technologies -->
-    <div id="tech-modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-header">
-                <img id="modal-tech-icon" src="" alt="" class="modal-tech-icon">
-                <h3 id="modal-tech-title"></h3>
-            </div>
-            <div class="modal-body">
-                <p id="modal-tech-description"></p>
-                <div class="modal-use-cases" id="modal-tech-uses"></div>
-            </div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
