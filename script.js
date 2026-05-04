@@ -15,21 +15,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Gestion du formulaire de contact
+    // Gestion du formulaire de contact avec CAPTCHA et redirection
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const formData = new FormData(contactForm);
+
+            // Récupération de la réponse Turnstile
+            const turnstileResponse = formData.get('cf-turnstile-response');
+
+            // Vérification côté client : bloque l'envoi si le CAPTCHA n'est pas validé
+            if (!turnstileResponse) {
+                alert('⚠️ Veuillez cocher ou valider le CAPTCHA avant d\'envoyer le formulaire.');
+                return;
+            }
+
             const data = {
                 name: formData.get('name'),
                 company: formData.get('company'),
                 email: formData.get('email'),
-                message: formData.get('message')
+                phone: formData.get('phone'),
+                budget: formData.get('budget'),
+                message: formData.get('message'),
+                captchaToken: turnstileResponse // Token transmis pour la validation serveur
             };
-            console.log('Demande de contact:', data);
-            alert('✅ Merci pour votre demande ! Notre équipe vous recontactera dans les 24 heures.');
+
+            console.log('Demande de contact prête à être envoyée au backend:', data);
+            
+            // C'est ici que vous ferez votre requête fetch() vers votre serveur backend.
+            // Exemple : fetch('/votre-api/contact', { method: 'POST', body: JSON.stringify(data) })
+
+            // Réinitialisation du formulaire avant la redirection
             contactForm.reset();
+
+            // Réinitialisation du widget CAPTCHA
+            if (typeof turnstile !== 'undefined') {
+                turnstile.reset();
+            }
+
+            // Redirection vers la page de remerciement
+            window.location.href = 'merci.html';
         });
     }
 
